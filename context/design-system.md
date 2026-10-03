@@ -1,0 +1,256 @@
+# AKC Design System
+
+Design system for the Autistic Kids Connection (AKC) website. Source of truth: `AKC Homepage v4.dc.html`.
+
+**Direction:** Clean Corporate-Empathy. Structured, credible and calm, like a respected pediatric or specialist education centre, with warmth coming from photography, copy and the logo's colours used sparingly as accents.
+
+**Principles**
+1. Calm first. One main colour (blue) and one dark (navy) carry the page. Logo colours are accents only.
+2. Clarity over decoration. Typography, spacing and photography create the hierarchy; cards are used only where content is a discrete unit.
+3. Accessibility is non-negotiable. WCAG AA contrast, 44px+ touch targets, visible focus, reduced-motion support.
+4. Honest content. No invented claims, statistics, staff or testimonials. Placeholders are clearly marked.
+
+---
+
+## 1. Brand
+
+### Logo
+| Asset | File | Use |
+|---|---|---|
+| Full logo (mark + wordmark) | `assets/akc-logo.png` (500×500, transparent) | Footer, print, social, Open Graph |
+| Mark only (butterfly + children) | `assets/akc-mark.png` (460×300) | Navbar |
+| Butterfly only | `assets/akc-butterfly.png` (320×200) | Favicon / small sizes |
+
+**Rules**
+- **Navbar:** mark only, transparent, directly on the hero overlay (no tile), 84×56px, followed by the name and descriptor set in type.
+- **Footer:** full logo (`akc-logo.png`) at 180px wide on a white panel (`#FFFFFF`, radius 20px, padding 8px). The panel is required because the navy wordmark is unreadable on the navy-deep footer. Do not repeat the name/descriptor as text next to it.
+- Always pair the mark with the name set in type ("Autistic Kids Connection", Poppins 700) — never rely on the image wordmark at small sizes.
+- Don't recolour, stretch or crop the children. Over photography, only place it on the darkened overlay area.
+
+### Name & tagline
+- Name: **Autistic Kids Connection** (short form **AKC** after first mention)
+- Descriptor: **Homeschooling • Tutoring • Developmental Support**
+- Headline line: **Understanding Differences. Building Confidence. Creating Possibilities.**
+
+---
+
+## 2. Colour
+
+### Core palette
+| Token | Hex | Role |
+|---|---|---|
+| `primary` | `#1A6E99` | Main brand blue (from logo wing, darkened for AA). Primary buttons, links, eyebrows, icons |
+| `primary-hover` | `#135678` | Hover/pressed for primary |
+| `navy` | `#1C3254` | Body text, headings, dark sections, secondary buttons (from logo lettering) |
+| `navy-deep` | `#142642` | Footer background |
+| `sky` | `#8DCBEB` | Accent on dark backgrounds: badges, active nav underline, form submit |
+| `sky-light` | `#ABDAF2` | Secondary text/eyebrows on dark backgrounds |
+| `sky-pale` | `#C2E3F5` | Eyebrows/tags on primary background |
+| `tint` | `#EEF5FA` | Section background, callout boxes, contact rows |
+| `tint-strong` | `#E4F1F9` | Icon circles, hover on tint |
+| `sand` | `#F7F5F1` | Warm neutral section background (Fees, extracurricular cards) |
+| `white` | `#FFFFFF` | Page background, cards |
+
+### Text
+| Token | Hex | Use |
+|---|---|---|
+| `text` | `#1C3254` | Headings, body emphasis |
+| `text-muted` | `#4A5A72` | Body copy, descriptions |
+| `text-on-dark` | `#FFFFFF` | Headings on navy/photo |
+| `text-on-dark-muted` | `#CAD6E4` / `#E3EBF3` | Body on navy / on hero photo |
+
+### Lines & surfaces
+| Token | Hex | Use |
+|---|---|---|
+| `border` | `#E0E8EF` | Card outlines, dividers |
+| `border-soft` | `#E3EAF0` | Mobile menu dividers, strip gaps |
+| `border-tint` | `#D3E5F1` | Dividers inside tint panels, timeline rail |
+| `border-on-dark` | `#344C70` | Inputs/dividers on navy |
+| `input-on-dark` | `#233B60` | Form field fill on navy |
+| `footer-divider` | `#26406A` | Footer bottom rule |
+
+### Logo accent colours (use sparingly)
+| Token | Hex | Approved uses |
+|---|---|---|
+| `logo-red` | `#E2483A` | Brand stripe, goal pill border |
+| `logo-orange` | `#F08A24` | Brand stripe, goal pill border |
+| `logo-yellow` | `#F5B020` | Brand stripe, goal pill, **focus ring**, timeline dot |
+| `logo-green` | `#3E9A5A` | Brand stripe, goal pill, timeline dot |
+| `logo-blue` | `#2E8FC7` | Brand stripe, goal pill |
+| `logo-purple` | `#6A4BA8` | Brand stripe, timeline dot |
+
+**Rules**
+- Accent colours appear only in: the 5px six-colour brand stripe at the top of the page, borders of the "Our Goal" pills, timeline dots and the focus ring.
+- Never use accent colours as text colour or as large fills. No rainbow sections.
+- Overlay for hero photography: `linear-gradient(90deg, rgba(18,34,62,.9) 0%, rgba(18,34,62,.66) 48%, rgba(18,34,62,.15) 100%)`.
+
+### Contrast (AA)
+- `#FFFFFF` on `#1A6E99` ≈ 5.6:1 ✓
+- `#1C3254` on `#FFFFFF` ≈ 12.9:1 ✓
+- `#4A5A72` on `#FFFFFF` ≈ 6.9:1 ✓
+- `#1C3254` on `#8DCBEB` ≈ 7.5:1 ✓
+- `#CAD6E4` on `#1C3254` ≈ 9:1 ✓
+
+---
+
+## 3. Typography
+
+**Family:** Poppins (Google Fonts) — weights 400, 500, 600, 700. Fallback `system-ui, sans-serif`.
+**Utility mono:** IBM Plex Mono 400 — placeholder labels only, never public copy.
+
+| Style | Size | Weight | Line height | Tracking | Notes |
+|---|---|---|---|---|---|
+| H1 (hero) | `clamp(38px, 5.4vw, 70px)` | 700 | 1.08 | -0.025em | `text-wrap: balance` |
+| H2 (section) | `clamp(30px, 3.4vw, 46px)` | 700 | 1.15 | -0.02em | `text-wrap: balance` |
+| H2 large (CTA / Vision) | `clamp(30–34px, 3.8–4vw, 50–54px)` | 700 | 1.1–1.15 | -0.02em | |
+| H3 (card) | 19–24px | 600 (700 for price cards) | 1.3 | — | |
+| Eyebrow | 15px | 600 | — | — | Primary colour, preceded by 28×2px rule (centred variants have rules on both sides) |
+| Lead | `clamp(18px, 1.5vw, 20px)` | 400 | 1.65 | — | Hero / intro |
+| Body | 16–17px | 400 | 1.65–1.75 | — | `text-wrap: pretty` |
+| Small | 14–15px | 400–500 | 1.6 | — | Supporting info, labels |
+| Kicker (price cards) | 13px | 600 | — | 0.08em, uppercase | |
+| Price | `clamp(30px, 3vw, 38px)` | 700 | 1 | -0.02em | |
+| Goal pill | `clamp(15px, 1.4vw, 18px)` | 600 | — | 0.08em, uppercase | |
+
+**Rules:** Minimum body size 15px (16px preferred). Measure ≤ 36em for lead text. Never all-caps for sentences.
+
+---
+
+## 4. Layout & spacing
+
+- **Container:** `max-width: 1200px` content; `1320px` for header/hero.
+- **Gutters:** `padding-inline: clamp(20px, 4vw, 48px)`.
+- **Section padding:** `clamp(80px, 10vw, 120px)` vertical (hero/feature bands up to 128px).
+- **Heading → content gap:** 48–56px.
+- **Grid gaps:** 24px cards, 12px checklist items, 40–88px two-column splits.
+- **Two-column split:** `grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr))`.
+- **Spacing scale (px):** 4, 6, 8, 10, 12, 14, 16, 18, 20, 24, 28, 32, 36, 40, 48, 56, 72, 80, 96, 120.
+
+### Section background rhythm
+White → Tint (`#EEF5FA`) → White → Navy → White → Sand (`#F7F5F1`) → White → Tint → White … Footer navy-deep. Never put two tinted sections back to back.
+
+### Breakpoints (JS-driven)
+| Name | Width | Changes |
+|---|---|---|
+| Mobile/tablet nav | `< 1180px` | Hamburger "Menu" button, sticky bottom CTA bar |
+| Desktop | `≥ 1180px` | Full inline nav + Register button |
+| Wide | `≥ 1480px` | Adds phone number to header |
+| Services grid | `≥1100` 4 cols · `≥600` 2 cols · else 1 | |
+| Package grid | `≥1000` 3 cols · else 1 | |
+
+---
+
+## 5. Shape, elevation, imagery
+
+**Radius:** buttons/pills `999px` · cards `20px` · price cards & form `24px` · list items/rows `14–16px` · accordion `18px` · logo tile `14–16px`.
+
+**Shadows**
+- Raised strip: `0 24px 60px -24px rgba(28,50,84,.35)`
+- Card hover: `0 24px 48px -24px rgba(28,50,84,.3)` + `0 0 0 1px #E0E8EF`
+- Card rest: `0 0 0 1px #E0E8EF` (hairline, not a border)
+- Featured price card: `0 24px 60px -24px rgba(28,50,84,.5)`
+
+**Photography**
+- Candid, natural light, warm and muted; educators engaging with children at eye level; children absorbed in activities, not posing.
+- No children staring at the camera, no medical settings, no puzzle-piece imagery.
+- Crops: hero full-bleed `object-position: center 35%`; service cards `4:3`; about `4:5` + overlapping `1:1` with 8px white border; family image `16:10`.
+- Every meaningful image has descriptive `alt`; decorative ones `alt=""`.
+- Current images are Unsplash stand-ins — replace with real AKC photos (with consent).
+
+**Icons**
+- Line icons, 24×24 viewBox, `stroke-width 1.6–1.8`, round caps/joins.
+- Sit in circles: 48–68px. Light variant: `#E4F1F9` circle, `#1A6E99` stroke. Solid variant: `#1A6E99` circle, white stroke.
+- Checkmark: 24–26px solid primary circle with white tick.
+- No emoji in UI.
+
+---
+
+## 6. Components
+
+### Buttons
+| Variant | Style | Hover |
+|---|---|---|
+| Primary | bg `#1A6E99`, text white, 600, radius 999, min-height 52–58px, padding 0 26–30px | bg `#135678` |
+| Secondary (dark) | bg `#1C3254`, white text | bg `#1A6E99` |
+| Ghost (on photo) | 1.5px border `rgba(255,255,255,.7)`, white text | bg `rgba(255,255,255,.12)` |
+| Outline (light) | 1.5px border `#1C3254`, navy text | — |
+| Accent submit (on navy) | bg `#8DCBEB`, navy text, full width, 56px | bg `#ABDAF2` |
+
+Arrows `→` are `aria-hidden`. Transitions: `background .2s`.
+
+### Badge — "Now registering"
+Pill, bg `#8DCBEB`, navy text 14px/600, 8px navy dot, padding 6px 14px.
+
+### Eyebrow
+15px/600 primary, `inline-flex`, gap 10px, preceded by a 28×2px primary bar.
+
+### Info strip
+White card overlapping the hero by `clamp(64px, 7vw, 100px)`, radius 20, raised shadow. Items separated by 1px gaps (container bg `#E3EAF0`), each `flex: 1 1 260px`, icon circle + label (14px muted) + value (18px/600).
+
+### Service card (photo)
+White, radius 20, hairline ring, `4:3` image, padding 26/30. Hover lifts `translateY(-4px)` + shadow.
+
+### Feature card (icon)
+Sand bg, radius 20, padding 32, solid icon circle 60px, H3 20px, body 15px.
+
+### Checklist tile
+White on tint, radius 14, padding 18/20, checkmark + 16px/500 text.
+
+### Quote block
+Navy bg, radius 20, padding 28–44px, sky quote glyph, 19–24px/500 white text.
+
+### Callout
+Tint bg, radius 16, padding 24/28, 18–21px/600 navy text — for single key statements.
+
+### Price card
+Radius 24, padding 28–36. Kicker → name → optional sub → price(s) with hairline below → extras label → extras list (name left, price right). **Featured** (Autism Support): navy bg, white text, sky kicker, stronger shadow.
+
+### Term row
+Tint bg, radius 14, primary pill label ("TERM 1") + 16px/500 date range.
+
+### Timeline
+Vertical 2px `#D3E5F1` rail; 24px coloured dots with 6px white halo; time 20px/700, label 16px muted.
+
+### Accordion (policies)
+White, radius 18. Header button min-height 72px, 18px/600, `+`/`−` in 36px circle (tint→primary when open). `aria-expanded` set. First item open by default.
+
+### Contact row
+Tint bg, radius 16, padding 18/20, 48px solid icon circle, label 14px muted + value 17px/600. Phone/email rows are `tel:`/`mailto:` links.
+
+### Form (on navy)
+Radius 24. Labels 14px/500 above inputs. Inputs min-height 52px, radius 12, bg `#233B60`, border `#344C70`, white text. Package chips: 44px pills, `aria-pressed`, selected = sky fill + navy text.
+
+### Goal pills
+On navy, transparent pill, 2px border in one logo colour each (red, orange, yellow, green, blue), uppercase white text.
+
+### Header / nav
+- 5px six-colour brand stripe at very top.
+- Transparent over hero photo, 1px `rgba(255,255,255,.18)` bottom border, min-height 92px.
+- Links 15px/500 white, hover `#ABDAF2`; active = inset 2px sky underline + `aria-current="page"`.
+- Mobile: "Menu"/"Close" pill toggles a white drop-down list (17px links, 16px vertical padding, dividers) with full-width Register button.
+
+### Sticky mobile CTA
+Fixed bottom bar (`< 1180px`): white, top hairline, two buttons — outline "Call 371-7281" and primary "Register Now", 52px tall. Footer adds 76px bottom padding to compensate.
+
+### Footer
+Navy-deep, 4 columns (`minmax(210px, 1fr)` auto-fit): Full logo on white panel + address/phone/email · School hours + social · Explore · Admissions. Bottom bar: © + Accessibility / Privacy Policy links.
+
+---
+
+## 7. Motion
+- Only: button background `.2s`, card lift + shadow `.25s`.
+- No parallax, autoplay, bouncing or looping animation.
+- `@media (prefers-reduced-motion: reduce)` disables all transitions and smooth scrolling.
+
+## 8. Accessibility checklist
+- Skip link to `#main` (visible on focus).
+- Landmarks: `header > nav[aria-label="Main"]`, `main`, `footer`; every section `aria-labelledby` its H2.
+- Focus ring: `3px solid #F5B020`, offset 3px.
+- Touch targets ≥ 44px (buttons 48–58px).
+- Decorative SVGs/images `aria-hidden` / `alt=""`.
+- Large-text preview tweak (zoom 1.15) to test reflow.
+
+## 9. Voice & copy
+Compassionate, clear, respectful, hopeful, professional. Child-first language: strengths, development, communication, confidence, independence, belonging.
+Avoid: "fixing", "overcoming limitations", "normal children", "special children", "superpowers".
+Use the school's supplied copy verbatim; mark anything unconfirmed as `[Placeholder]`.
