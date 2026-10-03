@@ -1,26 +1,96 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #1a6e99;
+  --primary-hover: #135678;
+  --navy: #1c3254;
+  --navy-deep: #142642;
+  --sky: #8dcbeb;
+  --sky-light: #abdaf2;
+  --sky-pale: #c2e3f5;
+  --tint: #eef5fa;
+  --tint-strong: #e4f1f9;
+  --sand: #f7f5f1;
+  --white: #ffffff;
+
+  --text: #1c3254;
+  --text-muted: #4a5a72;
+
+  --border: #e0e8ef;
+  --border-soft: #e3eaf0;
+  --border-on-photo: rgba(255, 255, 255, 0.18);
+
+  --logo-red: #e2483a;
+  --logo-orange: #f08a24;
+  --logo-yellow: #f5b020;
+  --logo-green: #3e9a5a;
+  --logo-blue: #2e8fc7;
+  --logo-purple: #6a4ba8;
+
+  --hero-overlay: linear-gradient(
+    90deg,
+    rgba(18, 34, 62, 0.9) 0%,
+    rgba(18, 34, 62, 0.66) 48%,
+    rgba(18, 34, 62, 0.15) 100%
+  );
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-sky: var(--sky);
+  --color-sky-light: var(--sky-light);
+  --color-sky-pale: var(--sky-pale);
+  --color-tint: var(--tint);
+  --color-tint-strong: var(--tint-strong);
+  --color-sand: var(--sand);
+  --color-white: var(--white);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border);
+  --color-border-soft: var(--border-soft);
+  --color-border-on-photo: var(--border-on-photo);
+  --color-logo-red: var(--logo-red);
+  --color-logo-orange: var(--logo-orange);
+  --color-logo-yellow: var(--logo-yellow);
+  --color-logo-green: var(--logo-green);
+  --color-logo-blue: var(--logo-blue);
+  --color-logo-purple: var(--logo-purple);
+
+  --font-sans: var(--font-poppins), system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --breakpoint-nav: 1180px;
+  --breakpoint-wide: 1480px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--white);
+  color: var(--text);
+  font-family: var(--font-sans);
+}
+
+:focus-visible {
+  outline: 3px solid var(--logo-yellow);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
 }
