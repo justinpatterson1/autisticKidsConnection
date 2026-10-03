@@ -15,6 +15,7 @@
 
   --text: #1c3254;
   --text-muted: #4a5a72;
+  --text-on-photo: #e3ebf3;
 
   --border: #e0e8ef;
   --border-soft: #e3eaf0;
@@ -30,9 +31,12 @@
   --hero-overlay: linear-gradient(
     90deg,
     rgba(18, 34, 62, 0.9) 0%,
-    rgba(18, 34, 62, 0.66) 48%,
+    rgba(18, 34, 62, 0.7) 58%,
     rgba(18, 34, 62, 0.15) 100%
   );
+  --hero-overlay-mobile:
+    linear-gradient(rgba(18, 34, 62, 0.62), rgba(18, 34, 62, 0.62)),
+    var(--hero-overlay);
 }
 
 @theme inline {
@@ -49,6 +53,7 @@
   --color-white: var(--white);
   --color-text: var(--text);
   --color-text-muted: var(--text-muted);
+  --color-text-on-photo: var(--text-on-photo);
   --color-border: var(--border);
   --color-border-soft: var(--border-soft);
   --color-border-on-photo: var(--border-on-photo);

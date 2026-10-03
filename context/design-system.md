@@ -57,7 +57,8 @@ Design system for the Autistic Kids Connection (AKC) website. Source of truth: `
 | `text` | `#1C3254` | Headings, body emphasis |
 | `text-muted` | `#4A5A72` | Body copy, descriptions |
 | `text-on-dark` | `#FFFFFF` | Headings on navy/photo |
-| `text-on-dark-muted` | `#CAD6E4` / `#E3EBF3` | Body on navy / on hero photo |
+| `text-on-dark-muted` | `#CAD6E4` | Body on navy |
+| `text-on-photo` | `#E3EBF3` | Body on hero photo (lead) |
 
 ### Lines & surfaces
 | Token | Hex | Use |
@@ -82,7 +83,7 @@ Design system for the Autistic Kids Connection (AKC) website. Source of truth: `
 **Rules**
 - Accent colours appear only in: the 5px six-colour brand stripe at the top of the page, borders of the "Our Goal" pills, timeline dots and the focus ring.
 - Never use accent colours as text colour or as large fills. No rainbow sections.
-- Overlay for hero photography: `linear-gradient(90deg, rgba(18,34,62,.9) 0%, rgba(18,34,62,.66) 48%, rgba(18,34,62,.15) 100%)`.
+- Overlay for hero photography (≥1180px): `linear-gradient(90deg, rgba(18,34,62,.9) 0%, rgba(18,34,62,.7) 58%, rgba(18,34,62,.15) 100%)`. Below 1180px, where the text spans the full width, a flat `rgba(18,34,62,.62)` layer is added on top. Both were tuned (from `.66` at 48%) so the lead stays ≥4.5:1 over the brightest part of the photo at every width; re-check if the photo changes.
 
 ### Contrast (AA)
 - `#FFFFFF` on `#1A6E99` ≈ 5.6:1 ✓
@@ -100,7 +101,7 @@ Design system for the Autistic Kids Connection (AKC) website. Source of truth: `
 
 | Style | Size | Weight | Line height | Tracking | Notes |
 |---|---|---|---|---|---|
-| H1 (hero) | `clamp(38px, 5.4vw, 70px)` | 700 | 1.08 | -0.025em | `text-wrap: balance` |
+| H1 (hero) | `clamp(38px, 5.4vw, 70px)` (34px below 360px) | 700 | 1.08 | -0.025em | `text-wrap: balance`; 38px overflows "Understanding" at 320px |
 | H2 (section) | `clamp(30px, 3.4vw, 46px)` | 700 | 1.15 | -0.02em | `text-wrap: balance` |
 | H2 large (CTA / Vision) | `clamp(30–34px, 3.8–4vw, 50–54px)` | 700 | 1.1–1.15 | -0.02em | |
 | H3 (card) | 19–24px | 600 (700 for price cards) | 1.3 | — | |
