@@ -1,16 +1,32 @@
-# Current Feature
+# Current Feature: Who We Support
 
 ## Status
 
-Not Started
+In Progress
 
 ## Goals
 
-<!-- Goals will be populated when a feature is loaded -->
+- `#about` section on white, labelled by its H2 (`aria-labelledby`)
+- Two-column split using `repeat(auto-fit, minmax(min(100%, 440px), 1fr))`: photo collage left, copy right; stacks on mobile
+- Collage: 4:5 photo (educator with child and workbook), radius 20px, with a second 1:1 photo overlapping its bottom-right corner (52% width, 8px white border, soft shadow); simplifies cleanly on mobile
+- Eyebrow "Who we support" (15px/600 primary, preceded by 28×2px primary bar)
+- H2 verbatim: "A smaller, more individualized place to learn" — `clamp(30px, 3.4vw, 46px)`, 700, 1.15, -0.02em, balanced
+- Body verbatim: "AKC provides support for children who may benefit from a smaller, more individualized learning environment, including children with autism and other developmental or learning differences."
+- Tint callout (radius 16px, padding 24/28, 18–21px/600 navy) verbatim: "We recognize that children develop at different rates—and different does not mean less."
+- Navy pill button "Explore our services →" → `#services` (hover #1A6E99, arrow `aria-hidden`, ≥48px tall)
+- Descriptive alt text on both photos
+- WCAG AA contrast, #F5B020 focus ring, reduced-motion respected
+- Responsive 320px–1920px with no horizontal scroll
 
 ## Notes
 
-<!-- Notes will be populated when a feature is loaded -->
+- Spec: `context/features/03-who-we-support.md` — Section 3 of 16; anchor `#about` (header nav "About" already links here)
+- First standard content section: section padding `clamp(80px, 10vw, 120px)` vertical, container max-width 1200px, gutters `clamp(20px, 4vw, 48px)`, two-column gap 40–88px. It follows the key info strip, which overlaps the hero — check spacing between the strip and this section
+- Eyebrow, callout and secondary (navy) button are design-system components (§6) that later sections reuse — consider small shared primitives in `src/components/ui/` (Eyebrow, Button) rather than one-off markup
+- Photos: two images needed and none exist yet in `public/images/`. Design system: candid, natural light, educators at eye level, no children staring at camera, no medical settings, no puzzle pieces; current images are Unsplash stand-ins to be replaced with real AKC photos (with consent). Mark stand-ins `[Placeholder]`
+- "Simplifies cleanly on mobile": below the split, consider dropping or reducing the overlap so the inset photo doesn't crowd or overflow at 320px
+- Callout copy uses an em dash with no spaces ("rates—and") — keep verbatim
+- Child-first, non-deficit language; do not alter copy
 
 ## History
 
