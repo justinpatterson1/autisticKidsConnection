@@ -70,6 +70,8 @@
 @theme {
   --breakpoint-nav: 1180px;
   --breakpoint-wide: 1480px;
+
+  --shadow-raised: 0 24px 60px -24px rgba(28, 50, 84, 0.35);
 }
 
 html {
