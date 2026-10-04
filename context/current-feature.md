@@ -1,16 +1,29 @@
-# Current Feature
+# Current Feature: Key Info Strip
 
 ## Status
 
-Not Started
+In Progress
 
 ## Goals
 
-<!-- Goals will be populated when a feature is loaded -->
+- White card (max-width 1200px, radius 20px, raised shadow `0 24px 60px -24px rgba(28,50,84,.35)`) pulled up to overlap the hero bottom by `clamp(64px, 7vw, 100px)`
+- Three equal items separated by 1px gaps (container bg `#E3EAF0` / `border-soft`), each `flex: 1 1 260px`
+- Each item: 56px `#E4F1F9` (`tint-strong`) icon circle with a blue (`#1A6E99`) line icon, small label (14px `#4A5A72`) and value (18px/600 navy)
+- Copy verbatim: "School hours" / "8:30 AM – 2:30 PM" (clock); "Early drop-off" / "From 7:30 AM" (sunrise); "Find us" / "Curepe, Trinidad & Tobago" (pin)
+- Icons decorative (`aria-hidden`)
+- Items wrap and stack on mobile (mobile is not a shrunken desktop)
+- No overlap with hero text at any width
+- Semantic HTML; WCAG AA contrast, #F5B020 focus ring, reduced-motion respected
+- Responsive 320px–1920px with no horizontal scroll
 
 ## Notes
 
-<!-- Notes will be populated when a feature is loaded -->
+- Spec: `context/features/02-key-info-strip.md` — Section 2 of 16; no anchor
+- Hero (01) already reserves `clamp(130px, 14vw, 180px)` bottom padding for this strip — verify the overlap never reaches the hero buttons, especially at 320px where items stack and the card is tallest
+- Global prefix asks for the section to be `aria-labelledby` its heading, but the spec shows no visible heading — needs a visually hidden heading or an `aria-label`
+- Icons per design system §6: line icons, 24×24 viewBox, stroke-width 1.6–1.8, round caps/joins; light circle variant (`#E4F1F9` circle, `#1A6E99` stroke). Existing icon pattern: `src/components/icons/phone-icon.tsx`
+- Values are confirmed facts (hours 8:30 AM – 2:30 PM, drop-off from 7:30 AM) — use verbatim, en dash in the time range
+- Content goes in `src/lib/content/`; section is static, so a server component
 
 ## History
 
