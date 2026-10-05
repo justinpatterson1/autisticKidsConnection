@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Callout } from "@/components/ui/callout";
 import { Eyebrow } from "@/components/ui/eyebrow";
+import { SectionHeading } from "@/components/ui/section-heading";
 import { WHO_WE_SUPPORT } from "@/lib/content/who-we-support";
 
 export function WhoWeSupport() {
@@ -37,12 +38,9 @@ export function WhoWeSupport() {
 
         <div>
           <Eyebrow>{WHO_WE_SUPPORT.eyebrow}</Eyebrow>
-          <h2
-            id="about-heading"
-            className="mt-4 text-[clamp(30px,3.4vw,46px)] leading-[1.15] font-bold tracking-[-0.02em] text-balance text-navy"
-          >
+          <SectionHeading id="about-heading" className="mt-4">
             {WHO_WE_SUPPORT.heading}
-          </h2>
+          </SectionHeading>
           <p className="mt-5 text-[17px] leading-[1.7] text-pretty text-text-muted">
             {WHO_WE_SUPPORT.body}
           </p>

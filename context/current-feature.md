@@ -1,16 +1,39 @@
-# Current Feature
+# Current Feature: Our Approach
 
 ## Status
 
-Not Started
+In Progress
 
 ## Goals
 
-<!-- Goals will be populated when a feature is loaded -->
+- `#approach` section on tint (`#EEF5FA`), labelled by its H2 (`aria-labelledby`)
+- Header row: left eyebrow "Our approach" + H2 "Every child is different."; right paragraph (max-width 460px) "That means every child deserves an approach that recognizes their individual strengths, needs and learning style."
+- Label "Our learning environment combines:" above the grid
+- Nine white checklist tiles (radius 14px, padding 18/20) in an auto-fit grid (min 300px, gap 12px), each with a solid blue check circle (24–26px, white tick) and 16px/500 text, verbatim:
+  - Child-led and play-based learning
+  - Individualized academic support
+  - Sensory activities and movement
+  - Communication development
+  - Fine- and gross-motor activities
+  - Life-skills development
+  - Social and emotional support
+  - Structured routines and visual supports
+  - Small-group and one-on-one instruction
+- Grid reflows 3 → 2 → 1 columns without orphan overflow
+- Navy quote block (radius 20px, padding 28–44px, sky quote glyph, 19–24px/500 white text) verbatim: "We believe that connection comes before correction and that children learn best when they feel safe and supported."
+- WCAG AA contrast, #F5B020 focus ring, reduced-motion respected
+- Responsive 320px–1920px with no horizontal scroll
 
 ## Notes
 
-<!-- Notes will be populated when a feature is loaded -->
+- Spec: `context/features/04-our-approach.md` — Section 4 of 16; anchor `#approach` (header nav "Our Approach" already links here)
+- Background rhythm: follows the white "Who we support" section — tint here is correct (never two tinted sections back to back)
+- Reuse `Eyebrow` from `src/components/ui/`; H2 styling matches feature 03 (`clamp(30px, 3.4vw, 46px)`, 700, 1.15, -0.02em, balanced) — consider extracting a shared section heading if it repeats again
+- Checklist tile and quote block are design-system components (§6) reused later (e.g. checkmarks in other sections) — candidates for `src/components/ui/` (`CheckIcon`/checklist tile, `QuoteBlock`)
+- Nine items should be semantic list items (`ul`/`li`); the check icon and quote glyph are decorative (`aria-hidden`)
+- Quote is the school's own philosophy statement, not a testimonial — use `blockquote` (or `figure` + `blockquote`) without inventing an attribution
+- "3 → 2 → 1 without orphan overflow": with nine items, 3 columns gives a full 3×3; at 2 columns the last row has one tile — make sure tiles stay equal width and nothing overflows (auto-fit `minmax(min(100%, 300px), 1fr)` guards 320px)
+- Copy verbatim, including the trailing period in "Every child is different." and the hyphenation in "Fine- and gross-motor"
 
 ## History
 
