@@ -97,7 +97,7 @@ Design system for the Autistic Kids Connection (AKC) website. Source of truth: `
 ## 3. Typography
 
 **Family:** Poppins (Google Fonts) — weights 400, 500, 600, 700. Fallback `system-ui, sans-serif`.
-**Utility mono:** IBM Plex Mono 400 — placeholder labels only, never public copy.
+**Utility mono:** IBM Plex Mono 400 — placeholder labels only, never public copy. Exposed as `font-mono` (`"IBM Plex Mono", ui-monospace, monospace`) but deliberately not web-loaded, so production pays nothing for preview-only labels; devices without it fall back to their system mono.
 
 | Style | Size | Weight | Line height | Tracking | Notes |
 |---|---|---|---|---|---|
@@ -227,6 +227,9 @@ Tint bg, radius 20, padding 24–32. H3 20px/600, then a dotted list (8px primar
 
 ### Accordion (policies)
 White, radius 18, hairline ring, 12px between items, max-width 900px. Each header is an H3 wrapping a full-width button (min-height 72px, 18px/600 navy, padding 20–28px) with `aria-expanded`/`aria-controls`; `+`/`−` in a 36px circle (tint→primary when open, background fades .2s). Panels are `role="region"` labelled by their button and use `hidden` when closed, so their text leaves the tab order. One item open at a time — clicking the open one closes it (all closed allowed); first item open by default, including in the server render. Open/close is instant (no height animation). Panel text 16px/1.7 muted; sub-headings H4 16px/600 navy; rules as 8px-dot lists.
+
+### Team card (hidden until content exists)
+White, radius 20, hairline ring, 1:1 portrait, body padding 24 (28 bottom): name H3 19px/600 navy, role 15px/500 primary, description 15px muted, optional qualification 14px muted above a hairline. Grid `repeat(auto-fit, minmax(min(100%, 250px), 280px))`, centred, gap 24 — tracks cap at 280px so one or two staff never stretch into giant portraits. Renders only when `TEAM` has real entries; while empty it is omitted, or shown as mono `[Placeholder]` cards (tint square where the photo goes, no names or faces) when `SHOW_PLACEHOLDER_SECTIONS=true` (`showPlaceholderSections` in `src/lib/content/site-flags.ts`).
 
 ### Contact row
 Tint bg, radius 16, padding 18/20, 48px solid icon circle, label 14px muted + value 17px/600. Phone/email rows are `tel:`/`mailto:` links.

@@ -1,16 +1,29 @@
-# Current Feature
+# Current Feature: 11 · Meet the Team (placeholder)
 
 ## Status
 
-Not Started
+In Progress
 
 ## Goals
 
-<!-- Goals will be populated when a feature is loaded -->
+- White section (no anchor in spec) with `aria-labelledby` its H2; centred eyebrow "Meet the team" and H2 "The people who will know your child"
+- Responsive grid (auto-fit, min 250px) of white cards (radius 20, hairline ring): 1:1 staff portrait, name 19px/600 navy, role 15px/500 primary, 1–2 sentence description 15px muted, optional qualification
+- Content model in `src/lib/content/team.ts` typed for real staff (photo src + alt, name, role, description, optional qualification) — ships with **no** staff entries; nothing invented
+- New `showPlaceholderSections` flag (single source, e.g. `src/lib/content/site-flags.ts`) gates the section; default `false` so production renders nothing
+- Section also renders nothing when the team list is empty, even with the flag on — or, with the flag on in development, shows clearly marked `[Placeholder]` cards (IBM Plex Mono labels per design system §3) so layout can be reviewed
+- No invented names, roles, photos or credentials anywhere in the shipped HTML
+- WCAG AA contrast, visible #F5B020 focus ring, reduced motion respected
+- Responsive 320–1920px with no horizontal scroll (when shown)
 
 ## Notes
 
-<!-- Notes will be populated when a feature is loaded -->
+- Spec: `context/features/11-meet-the-team.md`; section 11 of 16; white after Policies (tint) keeps the background rhythm
+- PRODUCT.md: "Meet the team" and "Testimonials" ship hidden until real content exists; staff names/roles/bios/credentials are outstanding content from AKC
+- `showPlaceholderSections` does not exist yet — create it here; feature 12 (Testimonials) will reuse it
+- Design system: "Utility mono: IBM Plex Mono 400 — placeholder labels only, never public copy" — IBM Plex Mono isn't loaded yet; only load it if placeholder previews are built, and only where the flag is on
+- Placeholder portraits: use a neutral tint block with a mono "[Placeholder] Staff photo" label rather than a stock face, so no one could mistake it for a real staff member
+- Background rhythm check: hidden section means Policies (tint) is followed by Testimonials/next section — re-check rhythm when 12/13 land
+- Reuse `Eyebrow` (`centered`), `SectionHeading`, `shadow-card`; `next/image` for real portraits with `sizes` matching the grid
 
 ## History
 

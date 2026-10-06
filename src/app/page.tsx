@@ -2,6 +2,7 @@ import { FamilyCommunity } from "@/components/home/family-community";
 import { FeesPackages } from "@/components/home/fees-packages";
 import { Hero } from "@/components/home/hero";
 import { KeyInfoStrip } from "@/components/home/key-info-strip";
+import { MeetTheTeam } from "@/components/home/meet-the-team";
 import { OurApproach } from "@/components/home/our-approach";
 import { OurGoal } from "@/components/home/our-goal";
 import { OurServices } from "@/components/home/our-services";
@@ -32,6 +33,7 @@ export default function Home() {
         <FeesPackages />
         <SchoolHours />
         <SchoolPolicies />
+        <MeetTheTeam />
       </main>
       <StickyMobileCta watchId="hero-actions" />
     </>
