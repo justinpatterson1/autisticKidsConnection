@@ -1,14 +1,13 @@
 import Image from "next/image";
-import { Eyebrow } from "@/components/ui/eyebrow";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { OUR_GOAL, type GoalColor } from "@/lib/content/our-goal";
 
-const BORDERS: Record<GoalColor, string> = {
-  red: "border-logo-red",
-  orange: "border-logo-orange",
-  yellow: "border-logo-yellow",
-  green: "border-logo-green",
-  blue: "border-logo-blue",
+const DOTS: Record<GoalColor, string> = {
+  red: "bg-logo-red",
+  orange: "bg-logo-orange",
+  yellow: "bg-logo-yellow",
+  green: "bg-logo-green",
+  blue: "bg-logo-blue",
 };
 
 export function OurGoal() {
@@ -26,31 +25,39 @@ export function OurGoal() {
       />
 
       <div className="mx-auto max-w-[1200px] text-center">
-        <Eyebrow centered tone="dark">
-          {OUR_GOAL.eyebrow}
-        </Eyebrow>
-        <SectionHeading id="goal-heading" tone="dark" className="mx-auto mt-4 max-w-[22em]">
+        <SectionHeading
+          id="goal-heading"
+          tone="dark"
+          className="mx-auto max-w-[22em]"
+        >
           {OUR_GOAL.heading}
         </SectionHeading>
 
-        <p id="goal-lead" className="mt-6 text-lg text-balance text-text-on-dark-muted">
+        <p
+          id="goal-lead"
+          className="mt-8 text-[clamp(18px,1.5vw,20px)] leading-[1.65] text-balance text-text-on-dark-muted"
+        >
           {OUR_GOAL.lead}
         </p>
         <ul
           aria-labelledby="goal-lead"
-          className="mx-auto mt-8 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4 sm:max-[1099px]:max-w-[620px]"
+          className="mx-auto mt-5 flex max-w-[620px] flex-wrap justify-center gap-x-8 gap-y-4 min-[1100px]:max-w-none"
         >
           {OUR_GOAL.goals.map((goal) => (
             <li
               key={goal.label}
-              className={`w-full max-w-[260px] rounded-full border-2 px-5 py-2.5 text-[clamp(15px,1.4vw,18px)] font-semibold tracking-[0.08em] text-white uppercase sm:w-auto sm:max-w-none sm:px-6 ${BORDERS[goal.color]}`}
+              className="flex items-center gap-3 text-[clamp(15px,1.4vw,18px)] font-semibold tracking-[0.08em] text-white uppercase"
             >
+              <span
+                aria-hidden="true"
+                className={`size-3 shrink-0 rounded-full ${DOTS[goal.color]}`}
+              />
               {goal.label}
             </li>
           ))}
         </ul>
 
-        <p className="mx-auto mt-10 max-w-[44em] text-[17px] leading-[1.7] text-pretty text-text-on-dark-muted">
+        <p className="mx-auto mt-12 max-w-[34em] text-[17px] leading-[1.7] text-pretty text-text-on-dark-muted">
           {OUR_GOAL.body}
         </p>
       </div>

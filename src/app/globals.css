@@ -89,9 +89,12 @@ body {
   font-family: var(--font-sans);
 }
 
+/* Two-tone ring: navy fills the 3px offset gap so the ring clears 3:1 on white
+   (yellow alone is ~1.9:1 there); yellow carries it on navy and over photos. */
 :focus-visible {
   outline: 3px solid var(--logo-yellow);
   outline-offset: 3px;
+  box-shadow: 0 0 0 3px var(--navy);
 }
 
 @media (prefers-reduced-motion: reduce) {

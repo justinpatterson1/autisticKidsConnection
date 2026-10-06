@@ -73,15 +73,15 @@ Design system for the Autistic Kids Connection (AKC) website. Source of truth: `
 ### Logo accent colours (use sparingly)
 | Token | Hex | Approved uses |
 |---|---|---|
-| `logo-red` | `#E2483A` | Brand stripe, goal pill border |
-| `logo-orange` | `#F08A24` | Brand stripe, goal pill border |
-| `logo-yellow` | `#F5B020` | Brand stripe, goal pill, **focus ring**, timeline dot |
-| `logo-green` | `#3E9A5A` | Brand stripe, goal pill, timeline dot |
-| `logo-blue` | `#2E8FC7` | Brand stripe, goal pill |
+| `logo-red` | `#E2483A` | Brand stripe, goal-label dot |
+| `logo-orange` | `#F08A24` | Brand stripe, goal-label dot |
+| `logo-yellow` | `#F5B020` | Brand stripe, goal-label dot, **focus ring**, timeline dot |
+| `logo-green` | `#3E9A5A` | Brand stripe, goal-label dot, timeline dot |
+| `logo-blue` | `#2E8FC7` | Brand stripe, goal-label dot |
 | `logo-purple` | `#6A4BA8` | Brand stripe, timeline dot |
 
 **Rules**
-- Accent colours appear only in: the 5px six-colour brand stripe at the top of the page, borders of the "Our Goal" pills, timeline dots and the focus ring.
+- Accent colours appear only in: the 5px six-colour brand stripe at the top of the page, the 12px dots of the "Our Goal" labels, timeline dots and the focus ring.
 - Never use accent colours as text colour or as large fills. No rainbow sections.
 - Overlay for hero photography (≥1180px): `linear-gradient(90deg, rgba(18,34,62,.9) 0%, rgba(18,34,62,.7) 58%, rgba(18,34,62,.15) 100%)`. Below 1180px, where the text spans the full width, a flat `rgba(18,34,62,.62)` layer is added on top. Both were tuned (from `.66` at 48%) so the lead stays ≥4.5:1 over the brightest part of the photo at every width; re-check if the photo changes.
 
@@ -101,19 +101,22 @@ Design system for the Autistic Kids Connection (AKC) website. Source of truth: `
 
 | Style | Size | Weight | Line height | Tracking | Notes |
 |---|---|---|---|---|---|
-| H1 (hero) | `clamp(38px, 5.4vw, 70px)` (34px below 360px) | 700 | 1.08 | -0.025em | `text-wrap: balance`; 38px overflows "Understanding" at 320px |
+| H1 (hero) | `clamp(38px, 5.4vw, 60px)` (34px below 360px) | 700 | 1.08 | -0.025em | One sentence per line (each a balanced block); "Understanding Differences." is ~13.45em, so the hero column is 820px. 1+1+1 lines from ~600px, 2+2+2 on phones. 38px overflows "Understanding" at 320px |
 | H2 (section) | `clamp(30px, 3.4vw, 46px)` | 700 | 1.15 | -0.02em | `text-wrap: balance` |
 | H2 large (CTA / Vision) | `clamp(30–34px, 3.8–4vw, 50–54px)` | 700 | 1.1–1.15 | -0.02em | |
 | H3 (card) | 19–24px | 600 (700 for price cards) | 1.3 | — | |
 | Eyebrow | 15px | 600 | — | — | Primary colour, preceded by 28×2px rule (centred variants have rules on both sides) |
 | Lead | `clamp(18px, 1.5vw, 20px)` | 400 | 1.65 | — | Hero / intro |
-| Body | 16–17px | 400 | 1.65–1.75 | — | `text-wrap: pretty` |
-| Small | 14–15px | 400–500 | 1.6 | — | Supporting info, labels |
+| Body | 16–17px | 400 | 1.65–1.75 | — | `text-wrap: pretty`; max 34em (~67ch) |
+| List label | 17px | 400 muted | 1.7 | — | Lead-in sentence that names a list ("Our learning environment combines:"); muted so it never reads as another item |
+| Statement | 18–24px | 500–600 | 1.5 | — | Callout and quote text; quote max 32em |
+| Small | 15px | 400 | 1.6 | — | Card descriptions |
+| Meta | 14px | 400–500 | — | — | Header descriptor, "Call us", key-info labels, badge. The floor for any text |
 | Kicker (price cards) | 13px | 600 | — | 0.08em, uppercase | |
 | Price | `clamp(30px, 3vw, 38px)` | 700 | 1 | -0.02em | |
-| Goal pill | `clamp(15px, 1.4vw, 18px)` | 600 | — | 0.08em, uppercase | |
+| Goal label | `clamp(15px, 1.4vw, 18px)` | 600 | — | 0.08em, uppercase | |
 
-**Rules:** Minimum body size 15px (16px preferred). Measure ≤ 36em for lead text. Never all-caps for sentences.
+**Rules:** Minimum body size 15px (16px preferred); nothing below 14px. Measure ≤ 36em for lead text, ≤ 34em for body (centred light-on-dark text included), ≤ 32em for the quote. Never all-caps for sentences.
 
 ---
 
@@ -123,7 +126,8 @@ Design system for the Autistic Kids Connection (AKC) website. Source of truth: `
 - **Gutters:** `padding-inline: clamp(20px, 4vw, 48px)`.
 - **Section padding:** `clamp(80px, 10vw, 120px)` vertical (hero/feature bands up to 128px).
 - **Heading → content gap:** 48–56px.
-- **Grid gaps:** 24px cards, 12px checklist items, 40–88px two-column splits.
+- **Grid gaps:** 24px cards, 40–88px two-column splits.
+- **Spacing roles:** eyebrow → H2 16px · H2 → body 20px · header → content 56px · label → list 12px · between groups within a section 48–56px (always ≥2× the gap inside a group).
 - **Two-column split:** `grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr))`.
 - **Spacing scale (px):** 4, 6, 8, 10, 12, 14, 16, 18, 20, 24, 28, 32, 36, 40, 48, 56, 72, 80, 96, 120.
 
@@ -134,8 +138,8 @@ White → Tint (`#EEF5FA`) → White → Navy → White → Sand (`#F7F5F1`) →
 | Name | Width | Changes |
 |---|---|---|
 | Mobile/tablet nav | `< 1180px` | Hamburger "Menu" button, sticky bottom CTA bar |
-| Desktop | `≥ 1180px` | Full inline nav + Register button |
-| Wide | `≥ 1480px` | Adds phone number to header |
+| Desktop | `≥ 1180px` | Full inline nav, phone number (icon + number) and Register button; descriptor hidden, name may wrap to two lines |
+| Wide | `≥ 1480px` | Adds the descriptor (wraps after "Tutoring •") and the "Call us" label above the phone number |
 | Services grid | `≥1100` 4 cols · `≥600` 2 cols · else 1 | |
 | Package grid | `≥1000` 3 cols · else 1 | |
 
@@ -180,22 +184,25 @@ White → Tint (`#EEF5FA`) → White → Navy → White → Sand (`#F7F5F1`) →
 Arrows `→` are `aria-hidden`. Transitions: `background .2s`.
 
 ### Badge — "Now registering"
-Pill, bg `#8DCBEB`, navy text 14px/600, 8px navy dot, padding 6px 14px.
+Pill, bg `#8DCBEB`, navy text 14px/600, 8px navy dot, padding 6px 14px. Sits in a row with the hero descriptor line ("Homeschooling • Tutoring • Developmental Support · Curepe", 15px/500 Light Sky), shown below 640px and at 1180–1479px — exactly where the header descriptor is hidden — so the first screen always says what AKC is, once.
+
+### Hero contact line
+From 640px, under the hero buttons: phone and email as text links (15px/500 Photo Mist, 18px Light Sky icons, 44px targets) — contact details a parent can copy. Hidden on phones, where the sticky bar carries Call.
 
 ### Eyebrow
-15px/600 primary, `inline-flex`, gap 10px, preceded by a 28×2px primary bar.
+15px/600 primary, `inline-flex`, gap 10px, preceded by a 28×2px primary bar. Use only when it names something the H2 doesn't; never repeat the H2 (Our Goal has none for this reason).
 
 ### Info strip
-White card overlapping the hero by `clamp(64px, 7vw, 100px)`, radius 20, raised shadow. Items separated by 1px gaps (container bg `#E3EAF0`), each `flex: 1 1 260px`, icon circle + label (14px muted) + value (18px/600).
+White card overlapping the hero by `clamp(64px, 7vw, 100px)`, radius 20, raised shadow. Items separated by 1px gaps (container bg `#E3EAF0`): one column below 720px, three equal columns from 720px (icon stacked above label/value until 1024px, beside it from 1024px). Icon circle + label (14px muted) + value (18px/600).
 
 ### Service card (photo)
 White, radius 20, hairline ring, `4:3` image, padding 26/30. Hover lifts `translateY(-4px)` + shadow.
 
 ### Feature card (icon)
-Sand bg, radius 20, padding 32, solid icon circle 60px, H3 20px, body 15px.
+Sand bg, radius 20, padding 28, solid icon circle 60px inline with the H3 (gap 16), H3 20px, body 15px. In Services the icon-card row sits 56px below the photo cards so the two groups read separately; photo-card titles reserve two lines in the 4-up row so bodies align.
 
-### Checklist tile
-White on tint, radius 14, padding 18/20, checkmark + 16px/500 text.
+### Checklist panel
+One white panel on tint (radius 20, padding 8/24, 8/32 ≥640px) holding a divided list: hairline `#E0E8EF` rows, 16px vertical padding, checkmark + 16px/500 text. Fills down columns — 1 column, 2 (5 + 4) ≥640px, 3 (3 + 3 + 3) ≥1024px, 40px column gap — with the hairline dropped on each column's last row.
 
 ### Quote block
 Navy bg, radius 20, padding 28–44px, sky quote glyph, 19–24px/500 white text.
@@ -221,17 +228,22 @@ Tint bg, radius 16, padding 18/20, 48px solid icon circle, label 14px muted + va
 ### Form (on navy)
 Radius 24. Labels 14px/500 above inputs. Inputs min-height 52px, radius 12, bg `#233B60`, border `#344C70`, white text. Package chips: 44px pills, `aria-pressed`, selected = sky fill + navy text.
 
-### Goal pills
-On navy, transparent pill, 2px border in one logo colour each (red, orange, yellow, green, blue), uppercase white text.
+### Goal labels
+On navy: uppercase white Label Caps text, each led by a 12px solid dot in one logo colour (red, orange, yellow, green, blue). No border or pill shape, so they read as labels, not buttons. Wrap centred (gap 32/16px), max 620px until 1100px, one row above.
 
 ### Header / nav
 - 5px six-colour brand stripe at very top.
 - Transparent over hero photo, 1px `rgba(255,255,255,.18)` bottom border, min-height 92px.
-- Links 15px/500 white, hover `#ABDAF2`; active = inset 2px sky underline + `aria-current="page"`.
+- Items: About · Our Approach · Services · Families · Fees · Contact. No "Home" item — the logo links to `#main`.
+- Links 15px/500 white, hover `#ABDAF2`, padding 10px (12px ≥1480px). Active style (inset 2px sky underline via `aria-current="page"`) is reserved for a future scroll-aware nav; nothing is marked active today.
+- Phone link is visible from 1180px so calling is never hidden on desktop.
 - Mobile: "Menu"/"Close" pill toggles a white drop-down list (17px links, 16px vertical padding, dividers) with full-width Register button.
 
+### Compact header (desktop)
+≥1180px only: once the full header scrolls out of view (IntersectionObserver), a fixed navy bar (min-height 64px, raised shadow) shows the 60×40 mark, name, nav, phone and a 44px Register pill. Appears instantly (no motion). Nav labelled "Quick navigation".
+
 ### Sticky mobile CTA
-Fixed bottom bar (`< 1180px`): white, top hairline, two buttons — outline "Call 371-7281" and primary "Register Now", 52px tall. Footer adds 76px bottom padding to compensate.
+Fixed bottom bar (`< 1180px`), shown only once the hero buttons have scrolled out of view (IntersectionObserver), so the first screen never shows Register twice: white, top hairline, 12px padding (bottom respects `env(safe-area-inset-bottom)`), two pills in a `1fr 1.4fr` grid (max 640px wide) — outline navy "Call 371-7281" (`tel:`) and primary "Register Now" (`#contact`), 52px tall, 15px/600. Content below it gets `77px + safe-area` bottom padding; until the footer ships that padding sits on `main`, then moves to the footer.
 
 ### Footer
 Navy-deep, 4 columns (`minmax(210px, 1fr)` auto-fit): Full logo on white panel + address/phone/email · School hours + social · Explore · Admissions. Bottom bar: © + Accessibility / Privacy Policy links.
@@ -246,7 +258,7 @@ Navy-deep, 4 columns (`minmax(210px, 1fr)` auto-fit): Full logo on white panel +
 ## 8. Accessibility checklist
 - Skip link to `#main` (visible on focus).
 - Landmarks: `header > nav[aria-label="Main"]`, `main`, `footer`; every section `aria-labelledby` its H2.
-- Focus ring: `3px solid #F5B020`, offset 3px.
+- Focus ring: `3px solid #F5B020`, offset 3px, plus `box-shadow: 0 0 0 3px #1C3254` filling the offset gap — two-tone so it passes 3:1 on white and on navy.
 - Touch targets ≥ 44px (buttons 48–58px).
 - Decorative SVGs/images `aria-hidden` / `alt=""`.
 - Large-text preview tweak (zoom 1.15) to test reflow.

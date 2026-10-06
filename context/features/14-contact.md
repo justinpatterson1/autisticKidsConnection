@@ -15,7 +15,7 @@ Convert interest into a conversation: call, email, visit or send an enquiry.
 - Address, `tel:3717281`, `mailto:autistickidstutoring@gmail.com`.
 - Enquiry form: name, phone, email, child's age, package chips (single-select, `aria-pressed`), notes.
 - Validation: name + (phone or email) required.
-- Submit to school email; success + error states; honeypot spam protection; privacy note.
+- Submit to school email via **Resend** (decided 2026-10-06); success + error states; honeypot spam protection; privacy note. "Register Now" (header, hero, sticky bar) and the Contact nav item already link to `#contact`.
 
 ## Acceptance criteria
 - [ ] All inputs have visible labels.

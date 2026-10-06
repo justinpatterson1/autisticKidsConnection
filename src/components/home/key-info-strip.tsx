@@ -18,13 +18,13 @@ export function KeyInfoStrip() {
       <h2 id="key-info-heading" className="sr-only">
         Key information
       </h2>
-      <ul className="mx-auto flex max-w-[1200px] flex-wrap gap-px overflow-hidden rounded-[20px] bg-border-soft shadow-raised">
+      <ul className="mx-auto grid max-w-[1200px] gap-px min-[720px]:grid-cols-3 overflow-hidden rounded-[20px] bg-border-soft shadow-raised">
         {KEY_INFO.map((item) => {
           const Icon = ICONS[item.icon];
           return (
             <li
               key={item.label}
-              className="flex flex-[1_1_260px] items-center gap-4 bg-white px-6 py-6 sm:px-7 sm:py-7"
+              className="flex items-center gap-4 bg-white px-6 py-6 sm:px-7 sm:py-7 min-[720px]:max-lg:flex-col min-[720px]:max-lg:items-start"
             >
               <span className="flex size-14 shrink-0 items-center justify-center rounded-full bg-tint-strong text-primary">
                 <Icon className="size-6" />
@@ -32,7 +32,16 @@ export function KeyInfoStrip() {
               <div className="min-w-0">
                 <p className="text-sm text-text-muted">{item.label}</p>
                 <p className="mt-0.5 text-lg font-semibold text-balance text-navy">
-                  {item.value}
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      className="-my-2 inline-block rounded-md py-2 underline decoration-sky decoration-2 underline-offset-4 transition-[color,background-color] duration-200 hover:text-primary"
+                    >
+                      {item.value}
+                    </a>
+                  ) : (
+                    item.value
+                  )}
                 </p>
               </div>
             </li>

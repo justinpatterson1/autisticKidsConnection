@@ -1,3 +1,5 @@
+import { REGISTER_HREF } from "@/lib/content/navigation";
+
 export interface HeroContent {
   /** Set to null to remove the badge. */
   badge: string | null;
@@ -13,7 +15,7 @@ export const HERO: HeroContent = {
   heading:
     "Understanding Differences. Building Confidence. Creating Possibilities.",
   lead: "At Autistic Kids Connection (AKC), we believe every child deserves an environment where they feel safe, understood, accepted and capable of learning.",
-  primaryCta: { label: "Register Now", href: "#contact" },
+  primaryCta: { label: "Register Now", href: REGISTER_HREF },
   secondaryCta: { label: "Programs & Fees", href: "#fees" },
   // [Placeholder] Unsplash stand-in (Rewired Digital) — replace with a real AKC photo, with consent.
   image: {
