@@ -1,16 +1,33 @@
-# Current Feature
+# Current Feature: 10 · School Policies
 
 ## Status
 
-Not Started
+In Progress
 
 ## Goals
 
-<!-- Goals will be populated when a feature is loaded -->
+- `#policies` section on tint (#EEF5FA), `aria-labelledby` its H2; content max-width 900px; centred eyebrow "School policies" and H2 "Good to know"
+- Accessible accordion of white panels (radius 18): header buttons min-height 72px, 18px/600 navy, `+`/`−` in a 36px circle (tint → solid primary when open), `aria-expanded` + `aria-controls` on each button, panels `role="region"` labelled by their button
+- Only one item open at a time; the first item ("Payment policy") open by default (server-rendered open, so it works before hydration)
+- Fully keyboard-operable: native `<button>` inside a heading (Enter/Space toggle), visible #F5B020 focus ring that appears instantly (no transition on the ring)
+- **Payment policy** — sub-heading "Monthly payments": "All school fees are due by the 1st of each month." / "Parents are given a one-week grace period to make payment." / "After the one-week grace period, a $100 late fee will be added to the outstanding balance."; sub-heading "Termly payments": "Parents who choose to pay by the term must pay the full term fee." / "Monthly payments are installments toward the full termly commitment." / "All school fees must be fully paid by the end of the term."
+- **Potty care** — "If a child is reported as fully toilet trained but still requires staff assistance, supervision or support with toileting, the applicable potty-care fee will be charged."
+- **Property damage policy** — three paragraphs verbatim (accidents/dysregulation… repair or replace · Parents will be informed… · We appreciate your cooperation…)
+- Centred thank-you below: "**Thank you** for choosing Autistic Kids Connection and for partnering with us in supporting your child's growth, development and independence." (bold "Thank you")
+- Policy text verbatim; $100 late fee exact
+- WCAG AA contrast, reduced motion respected (no open/close animation, or none under reduced motion)
+- Responsive 320–1920px with no horizontal scroll
 
 ## Notes
 
-<!-- Notes will be populated when a feature is loaded -->
+- Spec: `context/features/10-school-policies.md`; section 10 of 16; follows School Hours (white) so tint keeps the background rhythm
+- First client component in the home sections — keep the `"use client"` boundary to the accordion only; copy stays in `src/lib/content/policies.ts`
+- Design system §5 motion allows only button background .2s and card lift .25s — keep any expand/collapse instant; the icon circle may transition background .2s
+- "One open at a time": clicking the open item closes it (all closed allowed) — confirm this reading during review
+- Heading levels: H2 section → each accordion header is an H3 wrapping the button; Payment policy sub-headings are H4
+- Hidden panels use the `hidden` attribute so collapsed text is out of the tab order and accessibility tree
+- Reuse `Eyebrow` (`centered`) and `SectionHeading`; `--tint`, `--primary`, `--navy` tokens exist
+- Not in the main nav (nav items: About · Our Approach · Services · Families · Fees · Contact); anchor still `#policies` for deep links
 
 ## History
 

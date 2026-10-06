@@ -226,7 +226,7 @@ Vertical 2px `#D3E5F1` rail; 24px coloured dots with 6px white halo; time 20px/7
 Tint bg, radius 20, padding 24–32. H3 20px/600, then a dotted list (8px primary dots, 16px navy text, 12px between items) then a `#D3E5F1` divider and a 15px muted footnote below it (24px above the rule, 20px below). At lg it sits beside the timeline, level with the first stop.
 
 ### Accordion (policies)
-White, radius 18. Header button min-height 72px, 18px/600, `+`/`−` in 36px circle (tint→primary when open). `aria-expanded` set. First item open by default.
+White, radius 18, hairline ring, 12px between items, max-width 900px. Each header is an H3 wrapping a full-width button (min-height 72px, 18px/600 navy, padding 20–28px) with `aria-expanded`/`aria-controls`; `+`/`−` in a 36px circle (tint→primary when open, background fades .2s). Panels are `role="region"` labelled by their button and use `hidden` when closed, so their text leaves the tab order. One item open at a time — clicking the open one closes it (all closed allowed); first item open by default, including in the server render. Open/close is instant (no height animation). Panel text 16px/1.7 muted; sub-headings H4 16px/600 navy; rules as 8px-dot lists.
 
 ### Contact row
 Tint bg, radius 16, padding 18/20, 48px solid icon circle, label 14px muted + value 17px/600. Phone/email rows are `tel:`/`mailto:` links.
