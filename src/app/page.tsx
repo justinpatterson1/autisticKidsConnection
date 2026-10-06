@@ -1,3 +1,4 @@
+import { FamilyCommunity } from "@/components/home/family-community";
 import { Hero } from "@/components/home/hero";
 import { KeyInfoStrip } from "@/components/home/key-info-strip";
 import { OurApproach } from "@/components/home/our-approach";
@@ -17,6 +18,7 @@ export default function Home() {
         <OurApproach />
         <OurServices />
         <OurGoal />
+        <FamilyCommunity />
       </main>
     </>
   );
