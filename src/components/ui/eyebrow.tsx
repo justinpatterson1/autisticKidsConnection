@@ -1,8 +1,10 @@
-type EyebrowTone = "light" | "dark";
+type EyebrowTone = "light" | "dark" | "primary";
 
 const TONES: Record<EyebrowTone, { text: string; rule: string }> = {
   light: { text: "text-primary", rule: "bg-primary" },
   dark: { text: "text-sky-light", rule: "bg-sky-light" },
+  // On the primary band: sky-pale text is only 4.18:1, so the text is white (5.62:1) and sky-pale stays on the rules.
+  primary: { text: "text-white", rule: "bg-sky-pale" },
 };
 
 interface EyebrowProps {

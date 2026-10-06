@@ -45,7 +45,7 @@ Design system for the Autistic Kids Connection (AKC) website. Source of truth: `
 | `navy-deep` | `#142642` | Footer background |
 | `sky` | `#8DCBEB` | Accent on dark backgrounds: badges, active nav underline, form submit |
 | `sky-light` | `#ABDAF2` | Secondary text/eyebrows on dark backgrounds |
-| `sky-pale` | `#C2E3F5` | Eyebrows/tags on primary background |
+| `sky-pale` | `#C2E3F5` | Eyebrow rules and tags on primary background — not eyebrow text (4.18:1 on primary, below AA at 15px) |
 | `tint` | `#EEF5FA` | Section background, callout boxes, contact rows |
 | `tint-strong` | `#E4F1F9` | Icon circles, hover on tint |
 | `sand` | `#F7F5F1` | Warm neutral section background (Fees, extracurricular cards) |
@@ -190,7 +190,7 @@ Pill, bg `#8DCBEB`, navy text 14px/600, 8px navy dot, padding 6px 14px. Sits in 
 From 640px, under the hero buttons: phone and email as text links (15px/500 Photo Mist, 18px Light Sky icons, 44px targets) — contact details a parent can copy. Hidden on phones, where the sticky bar carries Call.
 
 ### Eyebrow
-15px/600 primary, `inline-flex`, gap 10px, preceded by a 28×2px primary bar. Use only when it names something the H2 doesn't; never repeat the H2 (Our Goal has none for this reason).
+15px/600 primary, `inline-flex`, gap 10px, preceded by a 28×2px primary bar (centred variant: a bar on both sides). Tones: `light` (primary text + bar), `dark` on navy (sky-light text + bar), `primary` on the primary band (white text 5.62:1 + sky-pale bar). Use only when it names something the H2 doesn't; never repeat the H2 (Our Goal has none for this reason).
 
 ### Info strip
 White card overlapping the hero by `clamp(64px, 7vw, 100px)`, radius 20, raised shadow. Items separated by 1px gaps (container bg `#E3EAF0`): one column below 720px, three equal columns from 720px (icon stacked above label/value until 1024px, beside it from 1024px). Icon circle + label (14px muted) + value (18px/600).
@@ -230,6 +230,9 @@ White, radius 18, hairline ring, 12px between items, max-width 900px. Each heade
 
 ### Team card (hidden until content exists)
 White, radius 20, hairline ring, 1:1 portrait, body padding 24 (28 bottom): name H3 19px/600 navy, role 15px/500 primary, description 15px muted, optional qualification 14px muted above a hairline. Grid `repeat(auto-fit, minmax(min(100%, 250px), 280px))`, centred, gap 24 — tracks cap at 280px so one or two staff never stretch into giant portraits. Renders only when `TEAM` has real entries; while empty it is omitted, or shown as mono `[Placeholder]` cards (tint square where the photo goes, no names or faces) when `SHOW_PLACEHOLDER_SECTIONS=true` (`showPlaceholderSections` in `src/lib/content/site-flags.ts`).
+
+### Testimonial card (hidden until content exists)
+On the primary band. White, radius 20, padding 28–36, no shadow. Primary quote glyph (decorative), quote 19px/500 navy, line-height 1.5, then a hairline and caption 15px muted with the name 600 navy: "Name · Relationship". Marked up as `figure` > `blockquote` + `figcaption`. One column below 768px, two from 768px with equal-height rows; an odd last card centres at one column's width. Same gating as the team card: `TESTIMONIALS` ships empty — genuine, consented quotes only — so the band is omitted, or shown as mono `[Placeholder]` cards when `SHOW_PLACEHOLDER_SECTIONS=true`.
 
 ### Contact row
 Tint bg, radius 16, padding 18/20, 48px solid icon circle, label 14px muted + value 17px/600. Phone/email rows are `tel:`/`mailto:` links.
