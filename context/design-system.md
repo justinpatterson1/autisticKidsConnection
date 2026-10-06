@@ -220,7 +220,10 @@ White, radius 24, hairline ring, padding 28–36. H3 20px/600, then a divided na
 Tint bg, radius 14, primary pill label ("TERM 1") + 16px/500 date range.
 
 ### Timeline
-Vertical 2px `#D3E5F1` rail; 24px coloured dots with 6px white halo; time 20px/700, label 16px muted.
+Vertical 2px `#D3E5F1` rail; 24px coloured dots with 6px white halo; time 20px/700, label 16px muted. Ordered list, 32px between stops; the rail is drawn per stop down to the next dot's centre, so it ends at the last dot. Times use non-breaking spaces before AM/PM and stay on one line at 320px.
+
+### Rules panel (Aftercare)
+Tint bg, radius 20, padding 24–32. H3 20px/600, then a dotted list (8px primary dots, 16px navy text, 12px between items) then a `#D3E5F1` divider and a 15px muted footnote below it (24px above the rule, 20px below). At lg it sits beside the timeline, level with the first stop.
 
 ### Accordion (policies)
 White, radius 18. Header button min-height 72px, 18px/600, `+`/`−` in 36px circle (tint→primary when open). `aria-expanded` set. First item open by default.
