@@ -1,16 +1,41 @@
-# Current Feature
+# Current Feature: Our Services
 
 ## Status
 
-Not Started
+In Progress
 
 ## Goals
 
-<!-- Goals will be populated when a feature is loaded -->
+- `#services` section on white, labelled by its H2 (`aria-labelledby`)
+- Centred eyebrow "Our services" with rules on both sides; centred H2 "Support shaped around each child"
+- Row 1: four photo cards — 4 cols ≥1100px, 2 cols ≥600px, 1 col below; never an orphan
+  - Each: white, radius 20px, hairline ring (`0 0 0 1px #E0E8EF`), 4:3 candid photo, padding 26/30, H3 20px/600, body 15px muted
+  - Hover: lift `translateY(-4px)` + card-hover shadow (`0 24px 48px -24px rgba(28,50,84,.3)` + hairline), `.25s`; no lift under reduced motion
+  - "One-on-One Tutoring" — "Individual attention designed around your child's learning needs and goals."
+  - "Small-Group Learning" — "A supportive classroom environment that allows children to learn alongside peers while receiving individualized guidance."
+  - "Life Skills" — "Developing practical skills that encourage independence, confidence and participation in everyday life."
+  - "Sensory Play & Movement" — "Activities designed to support regulation, body awareness, coordination and engagement."
+- Row 2: three sand (`#F7F5F1`) icon cards (radius 20px, padding 32px, 60px solid blue icon circle with white line icon, H3 20px, body 15px); no emoji
+  - "Music Program" (music note) — "Our music program gives children opportunities to explore rhythm, sound, movement and self-expression in a fun and supportive environment."
+  - "Physical Education" (ball) — "Our Physical Education program encourages children to move, play and develop their physical abilities in a supportive environment."
+  - "Birthday Club" (cake) — "We believe every child deserves to feel celebrated and included." + "Our Birthday Club gives us an opportunity to recognize and celebrate our children's special days together, creating positive memories and strengthening our AKC community."
+- Copy verbatim; descriptive alt text on all four photos; icons decorative
+- No orphan card at any breakpoint (both rows)
+- WCAG AA contrast, #F5B020 focus ring, reduced-motion respected
+- Responsive 320px–1920px with no horizontal scroll
 
 ## Notes
 
-<!-- Notes will be populated when a feature is loaded -->
+- Spec: `context/features/05-our-services.md` — Section 5 of 16; anchor `#services` (header nav "Services" and the Who We Support CTA already link here)
+- Background rhythm: follows tint "Our approach", so white here is correct
+- Reuse `Eyebrow` and `SectionHeading`. Eyebrow needs a centred variant with rules on both sides (design system §3: "centred variants have rules on both sides")
+- Breakpoints 1100px / 600px are section-specific (design system §4 "Services grid") — use arbitrary `min-[1100px]:` / `min-[600px]:` variants or register named screens; don't use auto-fit here because the spec fixes the column counts
+- Row 2 orphan risk: three cards at two columns leaves one orphan — row 2 should go straight 3 → 1 (e.g. 3 cols ≥900px-ish, else 1), or span the last card full width at 2 cols
+- Cards aren't links (no destinations given), so hover lift is decorative only — no focusable elements; don't wrap in `<a>`. Hover transitions: `transform`/`box-shadow` `.25s`, disabled by the global reduced-motion rule
+- Photos: four needed, none exist yet — Unsplash stand-ins marked `[Placeholder]` unless real AKC photos are supplied; follow photography rules (candid, natural light, no children staring at camera, no medical settings, no puzzle pieces); avoid visible signage/place names
+- Icons: line icons, 24×24 viewBox, stroke 1.6–1.8, round caps/joins, white stroke on the solid primary circle; add music-note, ball and cake to `src/components/icons/`
+- Birthday Club has two paragraphs — render as two `<p>`s
+- Card headings are H3 under the section H2
 
 ## History
 
