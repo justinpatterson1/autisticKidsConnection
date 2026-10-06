@@ -1,36 +1,16 @@
-# Current Feature: Our Goal
+# Current Feature
 
 ## Status
 
-In Progress
+Not Started
 
 ## Goals
 
-- Full-width navy (`#1C3254`) band with a classroom photo behind at ≤12% opacity; section labelled by its H2 (`aria-labelledby`)
-- Centred content: eyebrow "Our goal" in sky-light (`#ABDAF2`); H2 "Our goal is not simply to help children complete schoolwork." in white; line "We want to help children become more:" in `#CAD6E4`
-- Wrapping row of five transparent pills — uppercase, 600, white, 0.08em tracking, `clamp(15px, 1.4vw, 18px)` — each with a 2px border in one logo colour:
-  - CONFIDENT (`#E2483A`)
-  - INDEPENDENT (`#F08A24`)
-  - COMMUNICATIVE (`#F5B020`)
-  - CAPABLE (`#3E9A5A`)
-  - CONNECTED (`#2E8FC7`)
-- Centred paragraph (max-width 44em) verbatim: "We celebrate progress, whether it is a first word, a new skill, completing an activity independently, making a friend, learning to write a name, or simply feeling comfortable enough to participate."
-- White text ≥4.5:1 on navy; photo never lowers body-text contrast
-- Pills wrap neatly on mobile
-- WCAG AA contrast, #F5B020 focus ring, reduced-motion respected
-- Responsive 320px–1920px with no horizontal scroll
+<!-- Goals will be populated when a feature is loaded -->
 
 ## Notes
 
-- Spec: `context/features/06-our-goal.md` — Section 6 of 16; no anchor
-- Background rhythm: follows white "Our services"; this is the navy band in the design-system rhythm (White → Tint → White → Navy → White …)
-- Accent colours are approved here only as pill borders (design system §2 "Goal pill border") — never as text or fills
-- Photo: decorative (`alt=""`, `aria-hidden`), ≤12% opacity over navy so text contrast stays ~12:1+; verify measured contrast with the photo present. Needs a classroom stand-in (Unsplash `[Placeholder]`) — could reuse an existing classroom image from `public/images/` rather than adding another
-- Eyebrow here is on dark: sky-light text and rule — the shared `Eyebrow` is primary-coloured, so it needs a dark/on-navy variant; centred variant (rules both sides) already exists
-- `SectionHeading` is navy text — needs a white/on-dark option
-- Pills: the words should read naturally to screen readers; uppercase via CSS (`uppercase`) with source text in sentence case ("Confident") avoids screen readers spelling them out. Render as a `ul`/`li` list continuing "We want to help children become more:"
-- Pill text 15–18px uppercase is "large-ish" but not large text by WCAG — white on navy is ~12.9:1 so fine; borders are decorative
-- Paragraph text colour not specified — `#CAD6E4` (text-on-dark-muted, ~9:1 on navy) fits the design system
+<!-- Notes will be populated when a feature is loaded -->
 
 ## History
 
@@ -40,3 +20,4 @@ In Progress
 - **03 · Who We Support** (2026-10-04) — `#about` two-column split (auto-fit, min 440px): 4:5 main photo with overlapping 1:1 inset (52%, 8px white border, raised shadow) left; eyebrow, H2 "A smaller, more individualized place to learn", body, tint callout "…different does not mean less." and navy "Explore our services →" (#services) right. Below 640px the inset hides and the main photo goes 4:3. Added shared ui primitives `Eyebrow`, `ButtonLink` (primary/secondary; transitions background only, so the focus ring appears instantly) and `Callout` in `src/components/ui/`; copy in `src/lib/content/who-we-support.ts`. Follow-ups: replace Unsplash stand-ins `about-main-placeholder.jpg` / `about-inset-placeholder.jpg` with real AKC photos (brief: educator with child and workbook); inset covers part of the main photo's subject at desktop; collage centred over left-aligned text when stacked (640–1180px); migrate header/hero buttons to `ButtonLink` to fix their focus-ring fade.
 - **04 · Our Approach** (2026-10-05) — `#approach` tint section: eyebrow "Our approach" + H2 "Every child is different." left, intro (max 460px) right; "Our learning environment combines:" label naming a `ul` of nine verbatim checklist tiles (white, radius 14, 26px solid check) in an auto-fit grid (min 300px, gap 12) reflowing 3 → 2 → 1 at ~1024 / 768 / ≤640px with no overflow; navy quote block "connection comes before correction…" (no attribution). Added shared ui primitives `SectionHeading` (now also used by Who We Support), `CheckMark` and `QuoteBlock`; copy in `src/lib/content/our-approach.ts`. Follow-ups: hyphenated items break at the hyphen at 320px; `QuoteBlock`'s `figure` has no caption; `SectionHeading` leaves a trailing space in `className`.
 - **05 · Our Services** (2026-10-06) — `#services` on white: centred eyebrow "Our services" (rules both sides) + H2 "Support shaped around each child"; row 1 four photo cards (One-on-One Tutoring, Small-Group Learning, Life Skills, Sensory Play & Movement — white, radius 20, hairline ring, 4:3 photo, H3 20px, body 15px) at 4/2/1 cols (≥1100/≥600px), hover lift −4px + card-hover shadow over .25s, no lift under reduced motion; row 2 three sand icon cards (Music Program, Physical Education, Birthday Club) with 60px solid blue icon circles, 3 cols ≥900px else 1, so no orphan at any width. Added music-note/ball/cake icons, `Eyebrow` `centered` variant, `--shadow-card` / `--shadow-card-hover` tokens; copy in `src/lib/content/services.ts`. Follow-ups: replace four Unsplash stand-ins `service-*-placeholder.jpg` with real AKC photos; shadow tokens repeat `#e0e8ef` instead of `var(--border)`; cards lift on hover but aren't links; `Eyebrow` reuses one rule element twice.
+- **06 · Our Goal** (2026-10-06) — Full-width navy band with the small-group classroom stand-in at 12% opacity behind (decorative); centred sky-light eyebrow "Our goal", white H2 "Our goal is not simply to help children complete schoolwork.", lead "We want to help children become more:" and five transparent uppercase pills (Confident/Independent/Communicative/Capable/Connected) bordered red/orange/yellow/green/blue as a `ul` labelled by the lead (sentence case in source); pills stack as a centred column <640px, 3+2 at 640–1099px, one row ≥1100px; progress paragraph (max 44em). Worst-case contrast over the photo: white 8.9:1, label 6.3:1, body 6.1:1. Added `tone="dark"` to `Eyebrow` and `SectionHeading` (Eyebrow now renders two separate rules), `--text-on-dark-muted` token; copy in `src/lib/content/our-goal.ts`. Follow-ups: meets the looser reading of "never behind body text at lower contrast" only — photo lowers body text from ~9.3:1 to ~6.1:1 (a navy panel behind the text column was tried and reverted at the user's request); full-size background image is downloaded for a 12%-opacity backdrop; `SectionHeading` trailing space still present.
