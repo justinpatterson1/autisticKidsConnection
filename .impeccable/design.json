@@ -1,0 +1,646 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-06T17:32:58.741Z",
+  "title": "Design System: Autistic Kids Connection",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Wing Blue",
+        "canonical": "#1a6e99",
+        "oklch": "oklch(51.1% 0.102 237)",
+        "tonalRamp": [
+          "oklch(15% 0.065 237)",
+          "oklch(26.4% 0.076 237)",
+          "oklch(37.9% 0.086 237)",
+          "oklch(49.3% 0.097 237)",
+          "oklch(60.7% 0.097 237)",
+          "oklch(72.1% 0.086 237)",
+          "oklch(83.6% 0.076 237)",
+          "oklch(95% 0.065 237)"
+        ]
+      },
+      "primary-hover": {
+        "role": "primary",
+        "displayName": "Deep Wing Blue",
+        "canonical": "#135678",
+        "oklch": "oklch(43% 0.085 236.6)",
+        "tonalRamp": [
+          "oklch(15% 0.054 236.6)",
+          "oklch(26.4% 0.063 236.6)",
+          "oklch(37.9% 0.072 236.6)",
+          "oklch(49.3% 0.08 236.6)",
+          "oklch(60.7% 0.08 236.6)",
+          "oklch(72.1% 0.072 236.6)",
+          "oklch(83.6% 0.063 236.6)",
+          "oklch(95% 0.054 236.6)"
+        ]
+      },
+      "navy": {
+        "role": "secondary",
+        "displayName": "Lettering Navy",
+        "canonical": "#1c3254",
+        "oklch": "oklch(31.7% 0.067 258.8)",
+        "tonalRamp": [
+          "oklch(15% 0.043 258.8)",
+          "oklch(26.4% 0.05 258.8)",
+          "oklch(37.9% 0.057 258.8)",
+          "oklch(49.3% 0.064 258.8)",
+          "oklch(60.7% 0.064 258.8)",
+          "oklch(72.1% 0.057 258.8)",
+          "oklch(83.6% 0.05 258.8)",
+          "oklch(95% 0.043 258.8)"
+        ]
+      },
+      "navy-deep": {
+        "role": "secondary",
+        "displayName": "Night Navy",
+        "canonical": "#142642",
+        "oklch": "oklch(26.9% 0.058 258.9)",
+        "tonalRamp": [
+          "oklch(15% 0.037 258.9)",
+          "oklch(26.4% 0.043 258.9)",
+          "oklch(37.9% 0.049 258.9)",
+          "oklch(49.3% 0.055 258.9)",
+          "oklch(60.7% 0.055 258.9)",
+          "oklch(72.1% 0.049 258.9)",
+          "oklch(83.6% 0.043 258.9)",
+          "oklch(95% 0.037 258.9)"
+        ]
+      },
+      "sky": {
+        "role": "tertiary",
+        "displayName": "Sky",
+        "canonical": "#8dcbeb",
+        "oklch": "oklch(81.1% 0.078 231.4)",
+        "tonalRamp": [
+          "oklch(15% 0.05 231.4)",
+          "oklch(26.4% 0.058 231.4)",
+          "oklch(37.9% 0.066 231.4)",
+          "oklch(49.3% 0.074 231.4)",
+          "oklch(60.7% 0.074 231.4)",
+          "oklch(72.1% 0.066 231.4)",
+          "oklch(83.6% 0.058 231.4)",
+          "oklch(95% 0.05 231.4)"
+        ]
+      },
+      "sky-light": {
+        "role": "tertiary",
+        "displayName": "Light Sky",
+        "canonical": "#abdaf2",
+        "oklch": "oklch(86.3% 0.059 230.4)",
+        "tonalRamp": [
+          "oklch(15% 0.038 230.4)",
+          "oklch(26.4% 0.044 230.4)",
+          "oklch(37.9% 0.05 230.4)",
+          "oklch(49.3% 0.056 230.4)",
+          "oklch(60.7% 0.056 230.4)",
+          "oklch(72.1% 0.05 230.4)",
+          "oklch(83.6% 0.044 230.4)",
+          "oklch(95% 0.038 230.4)"
+        ]
+      },
+      "sky-pale": {
+        "role": "tertiary",
+        "displayName": "Pale Sky",
+        "canonical": "#c2e3f5",
+        "oklch": "oklch(89.8% 0.043 231.7)",
+        "tonalRamp": [
+          "oklch(15% 0.027 231.7)",
+          "oklch(26.4% 0.032 231.7)",
+          "oklch(37.9% 0.036 231.7)",
+          "oklch(49.3% 0.04 231.7)",
+          "oklch(60.7% 0.04 231.7)",
+          "oklch(72.1% 0.036 231.7)",
+          "oklch(83.6% 0.032 231.7)",
+          "oklch(95% 0.027 231.7)"
+        ]
+      },
+      "logo-red": {
+        "role": "tertiary",
+        "displayName": "Logo Red",
+        "canonical": "#e2483a",
+        "oklch": "oklch(61.8% 0.193 29)",
+        "tonalRamp": [
+          "oklch(15% 0.123 29)",
+          "oklch(26.4% 0.143 29)",
+          "oklch(37.9% 0.163 29)",
+          "oklch(49.3% 0.183 29)",
+          "oklch(60.7% 0.183 29)",
+          "oklch(72.1% 0.163 29)",
+          "oklch(83.6% 0.143 29)",
+          "oklch(95% 0.123 29)"
+        ]
+      },
+      "logo-orange": {
+        "role": "tertiary",
+        "displayName": "Logo Orange",
+        "canonical": "#f08a24",
+        "oklch": "oklch(72.9% 0.162 58.8)",
+        "tonalRamp": [
+          "oklch(15% 0.104 58.8)",
+          "oklch(26.4% 0.12 58.8)",
+          "oklch(37.9% 0.137 58.8)",
+          "oklch(49.3% 0.153 58.8)",
+          "oklch(60.7% 0.153 58.8)",
+          "oklch(72.1% 0.137 58.8)",
+          "oklch(83.6% 0.12 58.8)",
+          "oklch(95% 0.104 58.8)"
+        ]
+      },
+      "logo-yellow": {
+        "role": "tertiary",
+        "displayName": "Logo Yellow (focus ring)",
+        "canonical": "#f5b020",
+        "oklch": "oklch(80.2% 0.16 78.9)",
+        "tonalRamp": [
+          "oklch(15% 0.102 78.9)",
+          "oklch(26.4% 0.119 78.9)",
+          "oklch(37.9% 0.135 78.9)",
+          "oklch(49.3% 0.152 78.9)",
+          "oklch(60.7% 0.152 78.9)",
+          "oklch(72.1% 0.135 78.9)",
+          "oklch(83.6% 0.119 78.9)",
+          "oklch(95% 0.102 78.9)"
+        ]
+      },
+      "logo-green": {
+        "role": "tertiary",
+        "displayName": "Logo Green",
+        "canonical": "#3e9a5a",
+        "oklch": "oklch(61.5% 0.13 150.7)",
+        "tonalRamp": [
+          "oklch(15% 0.083 150.7)",
+          "oklch(26.4% 0.097 150.7)",
+          "oklch(37.9% 0.11 150.7)",
+          "oklch(49.3% 0.123 150.7)",
+          "oklch(60.7% 0.123 150.7)",
+          "oklch(72.1% 0.11 150.7)",
+          "oklch(83.6% 0.097 150.7)",
+          "oklch(95% 0.083 150.7)"
+        ]
+      },
+      "logo-blue": {
+        "role": "tertiary",
+        "displayName": "Logo Blue",
+        "canonical": "#2e8fc7",
+        "oklch": "oklch(62% 0.122 239)",
+        "tonalRamp": [
+          "oklch(15% 0.078 239)",
+          "oklch(26.4% 0.09 239)",
+          "oklch(37.9% 0.103 239)",
+          "oklch(49.3% 0.115 239)",
+          "oklch(60.7% 0.115 239)",
+          "oklch(72.1% 0.103 239)",
+          "oklch(83.6% 0.09 239)",
+          "oklch(95% 0.078 239)"
+        ]
+      },
+      "logo-purple": {
+        "role": "tertiary",
+        "displayName": "Logo Purple",
+        "canonical": "#6a4ba8",
+        "oklch": "oklch(49.2% 0.144 296.1)",
+        "tonalRamp": [
+          "oklch(15% 0.092 296.1)",
+          "oklch(26.4% 0.107 296.1)",
+          "oklch(37.9% 0.122 296.1)",
+          "oklch(49.3% 0.137 296.1)",
+          "oklch(60.7% 0.137 296.1)",
+          "oklch(72.1% 0.122 296.1)",
+          "oklch(83.6% 0.107 296.1)",
+          "oklch(95% 0.092 296.1)"
+        ]
+      },
+      "tint": {
+        "role": "neutral",
+        "displayName": "Morning Tint",
+        "canonical": "#eef5fa",
+        "oklch": "oklch(96.6% 0.01 238.5)",
+        "tonalRamp": [
+          "oklch(15% 0.006 238.5)",
+          "oklch(26.4% 0.007 238.5)",
+          "oklch(37.9% 0.008 238.5)",
+          "oklch(49.3% 0.01 238.5)",
+          "oklch(60.7% 0.01 238.5)",
+          "oklch(72.1% 0.008 238.5)",
+          "oklch(83.6% 0.007 238.5)",
+          "oklch(95% 0.006 238.5)"
+        ]
+      },
+      "tint-strong": {
+        "role": "neutral",
+        "displayName": "Strong Tint",
+        "canonical": "#e4f1f9",
+        "oklch": "oklch(95.1% 0.018 234.5)",
+        "tonalRamp": [
+          "oklch(15% 0.011 234.5)",
+          "oklch(26.4% 0.013 234.5)",
+          "oklch(37.9% 0.015 234.5)",
+          "oklch(49.3% 0.017 234.5)",
+          "oklch(60.7% 0.017 234.5)",
+          "oklch(72.1% 0.015 234.5)",
+          "oklch(83.6% 0.013 234.5)",
+          "oklch(95% 0.011 234.5)"
+        ]
+      },
+      "sand": {
+        "role": "neutral",
+        "displayName": "Warm Sand",
+        "canonical": "#f7f5f1",
+        "oklch": "oklch(97.1% 0.006 84.6)",
+        "tonalRamp": [
+          "oklch(15% 0.004 84.6)",
+          "oklch(26.4% 0.004 84.6)",
+          "oklch(37.9% 0.005 84.6)",
+          "oklch(49.3% 0.005 84.6)",
+          "oklch(60.7% 0.005 84.6)",
+          "oklch(72.1% 0.005 84.6)",
+          "oklch(83.6% 0.004 84.6)",
+          "oklch(95% 0.004 84.6)"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "Paper White",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100% 0 89.9)",
+        "tonalRamp": [
+          "oklch(15% 0 89.9)",
+          "oklch(26.4% 0 89.9)",
+          "oklch(37.9% 0 89.9)",
+          "oklch(49.3% 0 89.9)",
+          "oklch(60.7% 0 89.9)",
+          "oklch(72.1% 0 89.9)",
+          "oklch(83.6% 0 89.9)",
+          "oklch(95% 0 89.9)"
+        ]
+      },
+      "text-muted": {
+        "role": "neutral",
+        "displayName": "Slate",
+        "canonical": "#4a5a72",
+        "oklch": "oklch(46.4% 0.044 258.3)",
+        "tonalRamp": [
+          "oklch(15% 0.028 258.3)",
+          "oklch(26.4% 0.033 258.3)",
+          "oklch(37.9% 0.037 258.3)",
+          "oklch(49.3% 0.042 258.3)",
+          "oklch(60.7% 0.042 258.3)",
+          "oklch(72.1% 0.037 258.3)",
+          "oklch(83.6% 0.033 258.3)",
+          "oklch(95% 0.028 258.3)"
+        ]
+      },
+      "text-on-dark-muted": {
+        "role": "neutral",
+        "displayName": "Mist",
+        "canonical": "#cad6e4",
+        "oklch": "oklch(87.1% 0.023 252.2)",
+        "tonalRamp": [
+          "oklch(15% 0.015 252.2)",
+          "oklch(26.4% 0.017 252.2)",
+          "oklch(37.9% 0.02 252.2)",
+          "oklch(49.3% 0.022 252.2)",
+          "oklch(60.7% 0.022 252.2)",
+          "oklch(72.1% 0.02 252.2)",
+          "oklch(83.6% 0.017 252.2)",
+          "oklch(95% 0.015 252.2)"
+        ]
+      },
+      "text-on-photo": {
+        "role": "neutral",
+        "displayName": "Photo Mist",
+        "canonical": "#e3ebf3",
+        "oklch": "oklch(93.6% 0.014 248)",
+        "tonalRamp": [
+          "oklch(15% 0.009 248)",
+          "oklch(26.4% 0.01 248)",
+          "oklch(37.9% 0.012 248)",
+          "oklch(49.3% 0.013 248)",
+          "oklch(60.7% 0.013 248)",
+          "oklch(72.1% 0.012 248)",
+          "oklch(83.6% 0.01 248)",
+          "oklch(95% 0.009 248)"
+        ]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#e0e8ef",
+        "oklch": "oklch(92.7% 0.013 244.3)",
+        "tonalRamp": [
+          "oklch(15% 0.008 244.3)",
+          "oklch(26.4% 0.01 244.3)",
+          "oklch(37.9% 0.011 244.3)",
+          "oklch(49.3% 0.012 244.3)",
+          "oklch(60.7% 0.012 244.3)",
+          "oklch(72.1% 0.011 244.3)",
+          "oklch(83.6% 0.01 244.3)",
+          "oklch(95% 0.008 244.3)"
+        ]
+      },
+      "border-soft": {
+        "role": "neutral",
+        "displayName": "Soft Hairline",
+        "canonical": "#e3eaf0",
+        "oklch": "oklch(93.3% 0.011 243.7)",
+        "tonalRamp": [
+          "oklch(15% 0.007 243.7)",
+          "oklch(26.4% 0.008 243.7)",
+          "oklch(37.9% 0.009 243.7)",
+          "oklch(49.3% 0.011 243.7)",
+          "oklch(60.7% 0.011 243.7)",
+          "oklch(72.1% 0.009 243.7)",
+          "oklch(83.6% 0.008 243.7)",
+          "oklch(95% 0.007 243.7)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero H1 only; one sentence per line, 60px max; drops to 34px below 360px."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Every section H2 (SectionHeading), balanced wrapping."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card H3s."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Hero intro, measure at most 36em."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Section body copy, pretty wrapping."
+      },
+      "body-small": {
+        "displayName": "Body Small",
+        "purpose": "Card descriptions."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Eyebrows and button text."
+      },
+      "label-caps": {
+        "displayName": "Label Caps",
+        "purpose": "Goal pills only; uppercase via CSS."
+      },
+      "meta": {
+        "displayName": "Meta",
+        "purpose": "Header descriptor, \"Call us\", key-info labels and the badge; 14px is the floor."
+      }
+    },
+    "shadows": [
+      {
+        "name": "raised",
+        "value": "0 24px 60px -24px rgba(28,50,84,.35)",
+        "purpose": "Layers that overlap another: the key-info strip, the collage inset, the mobile menu."
+      },
+      {
+        "name": "card",
+        "value": "0 0 0 1px #e0e8ef",
+        "purpose": "Hairline ring on resting white cards."
+      },
+      {
+        "name": "card-hover",
+        "value": "0 24px 48px -24px rgba(28,50,84,.3), 0 0 0 1px #e0e8ef",
+        "purpose": "Photo-card hover, together with a 4px lift."
+      }
+    ],
+    "motion": [
+      {
+        "name": "color-change",
+        "value": "background-color .2s",
+        "purpose": "Button hover. Only the background transitions, so the focus ring appears instantly."
+      },
+      {
+        "name": "card-lift",
+        "value": "translate .25s, box-shadow .25s",
+        "purpose": "Photo-card hover lift of 4px; no lift under reduced motion."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "@media (prefers-reduced-motion: reduce) { transition: none; animation: none; scroll-behavior: auto }",
+        "purpose": "Global: disables all transitions, animations and smooth scrolling."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "services-2col",
+        "value": "600px"
+      },
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "key-info-3col",
+        "value": "720px"
+      },
+      {
+        "name": "feature-3col",
+        "value": "900px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "services-4col",
+        "value": "1100px"
+      },
+      {
+        "name": "nav",
+        "value": "1180px"
+      },
+      {
+        "name": "wide",
+        "value": "1480px"
+      }
+    ],
+    "focusRing": {
+      "value": "3px solid #f5b020",
+      "offset": "3px",
+      "inner": "box-shadow: 0 0 0 3px #1c3254",
+      "purpose": "Every interactive element. The navy inner ring fills the offset gap so the ring clears 3:1 on white; the yellow carries it on navy and over photos."
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main action, e.g. \"Register Now\". Full pill; only the background transitions so the focus ring is instant.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Register Now <span aria-hidden=\"true\">→</span></a>",
+      "css": ".ds-btn-primary { font-family: Poppins, system-ui, sans-serif; display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 26px; border-radius: 999px; background: var(--primary, #1a6e99); color: #fff; font-size: 16px; font-weight: 600; text-decoration: none; transition: background-color .2s; } .ds-btn-primary:hover { background: var(--primary-hover, #135678); } .ds-btn-primary:focus-visible { outline: 3px solid var(--logo-yellow, #f5b020); outline-offset: 3px; box-shadow: 0 0 0 3px var(--navy, #1c3254); } @media (prefers-reduced-motion: reduce) { .ds-btn-primary { transition: none; } }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "In-section navigation, e.g. \"Explore our services\". Navy pill that turns Wing Blue on hover.",
+      "html": "<a class=\"ds-btn-secondary\" href=\"#\">Explore our services <span aria-hidden=\"true\">→</span></a>",
+      "css": ".ds-btn-secondary { font-family: Poppins, system-ui, sans-serif; display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 26px; border-radius: 999px; background: var(--navy, #1c3254); color: #fff; font-size: 16px; font-weight: 600; text-decoration: none; transition: background-color .2s; } .ds-btn-secondary:hover { background: var(--primary, #1a6e99); } .ds-btn-secondary:focus-visible { outline: 3px solid var(--logo-yellow, #f5b020); outline-offset: 3px; box-shadow: 0 0 0 3px var(--navy, #1c3254); } @media (prefers-reduced-motion: reduce) { .ds-btn-secondary { transition: none; } }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Transparent pill with a 1.5px Lettering Navy border on white; the call action in the sticky mobile bar.",
+      "html": "<a class=\"ds-btn-outline\" href=\"tel:+18683717281\">Call 371-7281</a>",
+      "css": ".ds-btn-outline { font-family: Poppins, system-ui, sans-serif; display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 24px; border: 1.5px solid var(--navy, #1c3254); border-radius: 999px; color: var(--navy, #1c3254); font-size: 15px; font-weight: 600; text-decoration: none; white-space: nowrap; } .ds-btn-outline:focus-visible { outline: 3px solid var(--logo-yellow, #f5b020); outline-offset: 3px; box-shadow: 0 0 0 3px var(--navy, #1c3254); }"
+    },
+    {
+      "name": "Ghost Button (on photo)",
+      "kind": "button",
+      "refersTo": "button-ghost-on-photo",
+      "description": "Secondary action over the darkened hero photo only.",
+      "html": "<div class=\"ds-photo-backdrop\"><a class=\"ds-btn-ghost\" href=\"#\">Programs &amp; Fees</a></div>",
+      "css": ".ds-photo-backdrop { padding: 24px; border-radius: 20px; background: linear-gradient(90deg, rgba(18,34,62,.9), rgba(18,34,62,.7)); } .ds-btn-ghost { font-family: Poppins, system-ui, sans-serif; display: inline-flex; align-items: center; min-height: 56px; padding: 0 28px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,.7); color: #fff; font-size: 16px; font-weight: 600; text-decoration: none; transition: background-color .2s; } .ds-btn-ghost:hover { background: rgba(255,255,255,.12); } .ds-btn-ghost:focus-visible { outline: 3px solid var(--logo-yellow, #f5b020); outline-offset: 3px; box-shadow: 0 0 0 3px var(--navy, #1c3254); }"
+    },
+    {
+      "name": "Status Badge",
+      "kind": "chip",
+      "refersTo": "badge",
+      "description": "\"Now registering\" status pill with a navy dot. Never a link.",
+      "html": "<p class=\"ds-badge\"><span class=\"ds-badge-dot\" aria-hidden=\"true\"></span>Now registering</p>",
+      "css": ".ds-badge { font-family: Poppins, system-ui, sans-serif; display: inline-flex; align-items: center; gap: 8px; margin: 0; padding: 6px 14px; border-radius: 999px; background: var(--sky, #8dcbeb); color: var(--navy, #1c3254); font-size: 14px; font-weight: 600; } .ds-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--navy, #1c3254); }"
+    },
+    {
+      "name": "Eyebrow Label",
+      "kind": "custom",
+      "refersTo": "eyebrow",
+      "description": "15px/600 Wing Blue label with a 28x2px rule (both sides when centred), used only where it names something the H2 doesn't.",
+      "html": "<p class=\"ds-eyebrow\"><span class=\"ds-eyebrow-rule\" aria-hidden=\"true\"></span>Our services<span class=\"ds-eyebrow-rule\" aria-hidden=\"true\"></span></p>",
+      "css": ".ds-eyebrow { font-family: Poppins, system-ui, sans-serif; display: inline-flex; align-items: center; gap: 10px; margin: 0; color: var(--primary, #1a6e99); font-size: 15px; font-weight: 600; } .ds-eyebrow-rule { width: 28px; height: 2px; background: currentColor; }"
+    },
+    {
+      "name": "Photo Service Card",
+      "kind": "card",
+      "refersTo": "card-photo",
+      "description": "White card with hairline ring and 4:3 photo; lifts 4px with a soft shadow on hover (no lift under reduced motion).",
+      "html": "<article class=\"ds-card-photo\"><div class=\"ds-card-photo-img\" role=\"img\" aria-label=\"Photo placeholder\"></div><div class=\"ds-card-photo-body\"><h3>One-on-One Tutoring</h3><p>Individual attention designed around your child's learning needs and goals.</p></div></article>",
+      "css": ".ds-card-photo { font-family: Poppins, system-ui, sans-serif; max-width: 290px; overflow: hidden; border-radius: 20px; background: #fff; box-shadow: 0 0 0 1px var(--border, #e0e8ef); transition: translate .25s, box-shadow .25s; } .ds-card-photo:hover { translate: 0 -4px; box-shadow: 0 24px 48px -24px rgba(28,50,84,.3), 0 0 0 1px var(--border, #e0e8ef); } .ds-card-photo-img { aspect-ratio: 4 / 3; background: linear-gradient(135deg, var(--tint-strong, #e4f1f9), var(--sky-pale, #c2e3f5)); } .ds-card-photo-body { padding: 26px 30px 30px; } .ds-card-photo h3 { margin: 0; color: var(--navy, #1c3254); font-size: 20px; font-weight: 600; line-height: 1.3; } .ds-card-photo p { margin: 10px 0 0; color: var(--text-muted, #4a5a72); font-size: 15px; line-height: 1.6; } @media (prefers-reduced-motion: reduce) { .ds-card-photo { transition: none; } .ds-card-photo:hover { translate: none; } }"
+    },
+    {
+      "name": "Feature Card",
+      "kind": "card",
+      "refersTo": "card-feature",
+      "description": "Warm Sand card with a 60px solid Wing Blue icon circle beside the title; the secondary row under the photo cards, 56px below them. No emoji.",
+      "html": "<article class=\"ds-card-feature\"><div class=\"ds-card-feature-head\"><span class=\"ds-card-feature-icon\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 18V5l12-2v13\"/><circle cx=\"6\" cy=\"18\" r=\"3\"/><circle cx=\"18\" cy=\"16\" r=\"3\"/></svg></span><h3>Music Program</h3></div><p>Our music program gives children opportunities to explore rhythm, sound, movement and self-expression.</p></article>",
+      "css": ".ds-card-feature { font-family: Poppins, system-ui, sans-serif; max-width: 380px; padding: 28px; border-radius: 20px; background: var(--sand, #f7f5f1); } .ds-card-feature-head { display: flex; align-items: center; gap: 16px; } .ds-card-feature-icon { flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 60px; height: 60px; border-radius: 50%; background: var(--primary, #1a6e99); color: #fff; } .ds-card-feature-icon svg { width: 26px; height: 26px; } .ds-card-feature h3 { margin: 0; color: var(--navy, #1c3254); font-size: 20px; font-weight: 600; line-height: 1.3; } .ds-card-feature p { margin: 12px 0 0; color: var(--text-muted, #4a5a72); font-size: 15px; line-height: 1.6; }"
+    },
+    {
+      "name": "Checklist Panel",
+      "kind": "custom",
+      "refersTo": "checklist-panel",
+      "description": "One white panel on tint holding a hairline-divided checklist that fills down columns (1, then 2 at 640px, 3 at 1024px); the hairline drops on each column's last row.",
+      "html": "<div class=\"ds-panel-backdrop\"><ul class=\"ds-panel\"><li><span class=\"ds-panel-check\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m5 12.5 4.5 4.5L19 7.5\"/></svg></span>Child-led and play-based learning</li><li><span class=\"ds-panel-check\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m5 12.5 4.5 4.5L19 7.5\"/></svg></span>Individualized academic support</li><li><span class=\"ds-panel-check\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m5 12.5 4.5 4.5L19 7.5\"/></svg></span>Sensory activities and movement</li><li><span class=\"ds-panel-check\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m5 12.5 4.5 4.5L19 7.5\"/></svg></span>Communication development</li><li><span class=\"ds-panel-check\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m5 12.5 4.5 4.5L19 7.5\"/></svg></span>Fine- and gross-motor activities</li><li><span class=\"ds-panel-check\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m5 12.5 4.5 4.5L19 7.5\"/></svg></span>Life-skills development</li></ul></div>",
+      "css": ".ds-panel-backdrop { padding: 24px; border-radius: 20px; background: var(--tint, #eef5fa); } .ds-panel { font-family: Poppins, system-ui, sans-serif; display: grid; grid-auto-flow: column; grid-template-rows: repeat(3, auto); grid-template-columns: repeat(2, 1fr); column-gap: 40px; margin: 0; padding: 8px 32px; list-style: none; border-radius: 20px; background: #fff; } .ds-panel li { display: flex; align-items: center; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--border, #e0e8ef); color: var(--navy, #1c3254); font-size: 16px; font-weight: 500; } .ds-panel li:nth-child(3n) { border-bottom: 0; } .ds-panel-check { display: flex; flex-shrink: 0; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; background: var(--primary, #1a6e99); color: #fff; } .ds-panel-check svg { width: 16px; height: 16px; }"
+    },
+    {
+      "name": "Quote Block",
+      "kind": "custom",
+      "refersTo": "quote-block",
+      "description": "Navy block for the school's own philosophy statements; Sky quote glyph, no invented attribution.",
+      "html": "<figure class=\"ds-quote\"><svg class=\"ds-quote-glyph\" viewBox=\"0 0 32 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M0 24V14.4C0 6.4 4.3 1.6 11.2 0l1.6 3.4C8.8 4.8 6.9 7.5 6.6 11.2H12V24H0Zm19.2 0V14.4C19.2 6.4 23.5 1.6 30.4 0L32 3.4c-4 1.4-5.9 4.1-6.2 7.8h5.4V24h-12Z\"/></svg><blockquote><p>We believe that connection comes before correction and that children learn best when they feel safe and supported.</p></blockquote></figure>",
+      "css": ".ds-quote { font-family: Poppins, system-ui, sans-serif; margin: 0; padding: clamp(28px, 4vw, 44px); border-radius: 20px; background: var(--navy, #1c3254); } .ds-quote-glyph { width: 32px; height: 24px; color: var(--sky, #8dcbeb); } .ds-quote blockquote { margin: 20px 0 0; } .ds-quote p { margin: 0; color: #fff; font-size: clamp(19px, 2vw, 24px); font-weight: 500; line-height: 1.5; }"
+    },
+    {
+      "name": "Goal Labels",
+      "kind": "chip",
+      "refersTo": "goal-pill",
+      "description": "On navy: uppercase white 15px labels, each led by a 10px dot in one logo colour, supporting the band's main statement (the progress line). No border or pill, so they read as labels, not buttons.",
+      "html": "<ul class=\"ds-goals\"><li class=\"ds-goal\"><span class=\"ds-goal-dot\" style=\"background: var(--logo-red, #e2483a)\" aria-hidden=\"true\"></span>Confident</li><li class=\"ds-goal\"><span class=\"ds-goal-dot\" style=\"background: var(--logo-orange, #f08a24)\" aria-hidden=\"true\"></span>Independent</li><li class=\"ds-goal\"><span class=\"ds-goal-dot\" style=\"background: var(--logo-yellow, #f5b020)\" aria-hidden=\"true\"></span>Communicative</li><li class=\"ds-goal\"><span class=\"ds-goal-dot\" style=\"background: var(--logo-green, #3e9a5a)\" aria-hidden=\"true\"></span>Capable</li><li class=\"ds-goal\"><span class=\"ds-goal-dot\" style=\"background: var(--logo-blue, #2e8fc7)\" aria-hidden=\"true\"></span>Connected</li></ul>",
+      "css": ".ds-goals { font-family: Poppins, system-ui, sans-serif; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 28px; margin: 0; padding: 32px; list-style: none; border-radius: 20px; background: var(--navy, #1c3254); } .ds-goal { display: flex; align-items: center; gap: 10px; color: #fff; font-size: 15px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; } .ds-goal-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Brand stripe + transparent bar over the hero; white links with Light Sky hover, no Home link (the logo returns to the top), phone number visible from 1180px. The inset Sky underline is reserved for a future scroll-aware nav.",
+      "html": "<div class=\"ds-nav-wrap\"><div class=\"ds-stripe\" aria-hidden=\"true\"><span style=\"background:#e2483a\"></span><span style=\"background:#f08a24\"></span><span style=\"background:#f5b020\"></span><span style=\"background:#3e9a5a\"></span><span style=\"background:#2e8fc7\"></span><span style=\"background:#6a4ba8\"></span></div><nav class=\"ds-nav\" aria-label=\"Main\"><a href=\"#\">About</a><a href=\"#\">Our Approach</a><a href=\"#\">Services</a><a href=\"#\">Families</a><a class=\"ds-nav-phone\" href=\"tel:+18683717281\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z\"/></svg>371-7281</a></nav></div>",
+      "css": ".ds-nav-wrap { font-family: Poppins, system-ui, sans-serif; overflow: hidden; border-radius: 20px; background: linear-gradient(90deg, rgba(18,34,62,.95), rgba(18,34,62,.8)); } .ds-stripe { display: grid; grid-template-columns: repeat(6, 1fr); height: 5px; } .ds-nav { display: flex; flex-wrap: wrap; gap: 4px; padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,.18); } .ds-nav a { display: flex; align-items: center; min-height: 44px; padding: 0 12px; color: #fff; font-size: 15px; font-weight: 500; text-decoration: none; transition: color .2s; } .ds-nav a:hover { color: var(--sky-light, #abdaf2); } .ds-nav a[aria-current=\"page\"] { box-shadow: inset 0 -2px 0 var(--sky, #8dcbeb); } .ds-nav a:focus-visible { outline: 3px solid var(--logo-yellow, #f5b020); outline-offset: 3px; box-shadow: 0 0 0 3px var(--navy, #1c3254); } .ds-nav a { padding: 0 10px; } .ds-nav-phone { gap: 10px; margin-left: auto; font-weight: 600; } .ds-nav-phone svg { width: 20px; height: 20px; color: var(--sky-light, #abdaf2); }"
+    },
+    {
+      "name": "Sticky Mobile CTA",
+      "kind": "nav",
+      "refersTo": "button-outline",
+      "description": "Below 1180px, once the hero buttons scroll away: fixed white bottom bar with a top hairline holding Call and Register Now (52px pills, 1 : 1.4), so the next step is always in thumb reach without doubling the hero's buttons.",
+      "html": "<div class=\"ds-sticky\"><a class=\"ds-sticky-call\" href=\"tel:+18683717281\">Call 371-7281</a><a class=\"ds-sticky-register\" href=\"#contact\">Register Now</a></div>",
+      "css": ".ds-sticky { font-family: Poppins, system-ui, sans-serif; display: grid; grid-template-columns: 1fr 1.4fr; gap: 10px; max-width: 390px; padding: 12px; border-top: 1px solid var(--border, #e0e8ef); background: #fff; } .ds-sticky a { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 12px; border-radius: 999px; font-size: 15px; font-weight: 600; text-decoration: none; white-space: nowrap; } .ds-sticky-call { border: 1.5px solid var(--navy, #1c3254); color: var(--navy, #1c3254); } .ds-sticky-register { background: var(--primary, #1a6e99); color: #fff; transition: background-color .2s; } .ds-sticky-register:hover { background: var(--primary-hover, #135678); } .ds-sticky a:focus-visible { outline: 3px solid var(--logo-yellow, #f5b020); outline-offset: 3px; box-shadow: 0 0 0 3px var(--navy, #1c3254); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Calm Classroom",
+    "overview": "AKC's site should feel like walking into a good specialist classroom: structured, quiet and well-lit, with everything in its place and nothing competing for attention. Two colours carry the page: a single blue taken from the logo's wing, and the deep navy of its lettering. Pale tint and warm sand surfaces give each section its own room. The six logo colours appear only in small, deliberate moments: the stripe at the top of the page, the goal-label dots and the focus ring. Warmth comes from candid photography and the school's own words, not from decoration.\n\nDensity is generous. Sections breathe, with 80–120px of vertical padding, and content sits in a 1200px column. Headlines are bold and slightly tightened, and body text is unhurried. The rhythm alternates surfaces (white, tint, white, navy, white, sand…) so a parent always knows where one idea ends and the next begins. Motion is almost absent: colour changes and a 4px card lift are the whole vocabulary, and both switch off for people who ask for reduced motion.\n\nThe system deliberately rejects two looks. It isn't clinical: no sterile hospital-white emptiness, medical imagery or clinical language. And it isn't salesy: no urgency banners, countdowns, hype or stock-photo smiles. It should read as credible and kind.",
+    "keyCharacteristics": [
+      "One blue and one navy carry the structure; the logo's colours are accents, never fills.",
+      "Surfaces separate content by tone (tint, sand, navy) and hairlines, not by heavy shadows.",
+      "Soft-edged forms: full pill buttons, 16–24px corners on callouts, panels and cards.",
+      "Poppins throughout, from bold, tightened headlines to unhurried 17px body text.",
+      "Minimal, calm motion that always respects reduced motion.",
+      "Accessibility is visible in the design: a two-tone navy-and-yellow focus ring, 44px+ targets, AA contrast measured over photos."
+    ],
+    "rules": [
+      {
+        "name": "The Two-Voice Rule",
+        "body": "Wing Blue and Lettering Navy carry every structural decision. If something needs emphasis, make it blue or navy, never a logo colour.",
+        "section": "colors"
+      },
+      {
+        "name": "The No-Rainbow Rule",
+        "body": "Logo colours appear only in the 5px brand stripe, goal-label dots, timeline dots and the focus ring. They are never text, never large fills, and never a whole rainbow section.",
+        "section": "colors"
+      },
+      {
+        "name": "The Measured-Overlay Rule",
+        "body": "Text over photography sits on a navy overlay tuned until the worst point of the photo still gives at least 4.5:1. Swapping the photo means re-measuring.",
+        "section": "colors"
+      },
+      {
+        "name": "The No-Shouting Rule",
+        "body": "Uppercase belongs only to goal labels and short kickers. Sentences are never set in capitals.",
+        "section": "typography"
+      },
+      {
+        "name": "The 15px Floor Rule",
+        "body": "Body text never goes below 15px; 16–17px is preferred. Meta text stops at 14px.",
+        "section": "typography"
+      },
+      {
+        "name": "The Comfortable Line Rule",
+        "body": "Reading text runs 45–75 characters per line: body at most 34em, the quote at most 32em. Wide or centred paragraphs get a cap, never a full-width line.",
+        "section": "typography"
+      },
+      {
+        "name": "The Earned-Shadow Rule",
+        "body": "A shadow means \"this layer overlaps another\" or \"you are hovering this\". Resting cards get a hairline, not a shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** let Wing Blue (#1A6E99) and Lettering Navy (#1C3254) carry structure and emphasis.",
+      "**Do** separate sections by surface tone, following the White → Tint → White → Navy → White → Sand rhythm.",
+      "**Do** use the two-tone focus ring (3px Logo Yellow #F5B020 outline at a 3px offset over a 3px Lettering Navy ring) on everything interactive, and transition background colour only, so the ring appears instantly.",
+      "**Do** measure text contrast over photography at the photo's brightest point, and darken the overlay until it passes 4.5:1.",
+      "**Do** keep buttons as full pills at least 52px tall, and touch targets at 44px or more.",
+      "**Do** keep resting cards flat, using the hairline ring (0 0 0 1px #E0E8EF); save shadows for overlapping layers and hover.",
+      "**Do** switch off lift and smooth scrolling under `prefers-reduced-motion`."
+    ],
+    "donts": [
+      "**Don't** use logo colours as text, large fills or whole sections. They belong only to the brand stripe, goal-label dots, timeline dots and the focus ring.",
+      "**Don't** make it feel clinical: no sterile hospital-white emptiness, medical imagery or clinical language.",
+      "**Don't** make it salesy: no urgency banners, countdowns, hype, or posed stock-photo smiles.",
+      "**Don't** use photos with children staring at the camera, medical settings, or visible signs or place names from somewhere else.",
+      "**Don't** set sentences in uppercase or body text below 15px.",
+      "**Don't** leave a lone card on the last row of a grid.",
+      "**Don't** add looping, parallax or bouncing motion."
+    ]
+  }
+}
