@@ -1,31 +1,16 @@
-# Current Feature: 09 · School Hours & Aftercare
+# Current Feature
 
 ## Status
 
-In Progress
+Not Started
 
 ## Goals
 
-- White section (no anchor in spec) with `aria-labelledby` its H2; two-column split (auto-fit, min 440px) that stacks on narrow screens
-- Left: eyebrow "School hours & aftercare", H2 "A predictable school day", then a vertical timeline (ordered list)
-- Timeline anatomy: 2px `#D3E5F1` rail (`border-tint`), 24px coloured dots with 6px white halo, time 20px/700, label 16px muted
-- Timeline entries, verbatim: **7:30 AM** — Early drop-off (green #3E9A5A) · **8:30 AM – 2:30 PM** — Regular school hours (blue #1A6E99) · **3:00 PM** — Pickup deadline, aftercare after this time (yellow #F5B020) · **3:30 PM** — Latest pickup time (purple #6A4BA8)
-- Right: tint panel H3 "Aftercare" with a dotted list: "Children must be picked up by 3:00 PM." · "Any pickup after 3:00 PM will be considered aftercare and a $20 fee will apply." · "The latest pickup time is 3:30 PM."
-- Divided footnote under the list: "Please ensure that children are picked up on time to avoid additional fees."
-- Times and the $20 fee match source exactly
-- Timeline legible at 320px (long time "8:30 AM – 2:30 PM" must not overflow or orphan)
-- WCAG AA contrast, visible #F5B020 focus ring, reduced motion respected
-- Responsive 320–1920px with no horizontal scroll
+<!-- Goals will be populated when a feature is loaded -->
 
 ## Notes
 
-- Spec: `context/features/09-school-hours.md`; section 9 of 16; follows Fees (sand) so white keeps the background rhythm
-- `#D3E5F1` is documented as `border-tint` in design-system §2 but not yet defined in `globals.css` — add the token rather than hardcode
-- `--logo-green`, `--logo-yellow`, `--logo-purple`, `--primary` tokens already exist for the dots; dots are decorative (the time text carries meaning), so mark them `aria-hidden`
-- Use en dashes and non-breaking spaces in times (match `key-info.ts`: "8:30 AM – 2:30 PM"); write NBSPs as ` ` escapes (outstanding follow-up from 02)
-- Consider sharing school-hours times with `key-info.ts` so the two sections can't drift apart
-- Copy goes in `src/lib/content/school-hours.ts`; reuse `Eyebrow` and `SectionHeading`
-- No interactive elements expected, so focus ring / reduced motion are satisfied by not adding any
+<!-- Notes will be populated when a feature is loaded -->
 
 ## History
 
@@ -38,3 +23,4 @@ In Progress
 - **06 · Our Goal** (2026-10-06) — Full-width navy band with the small-group classroom stand-in at 12% opacity behind (decorative); centred sky-light eyebrow "Our goal", white H2 "Our goal is not simply to help children complete schoolwork.", lead "We want to help children become more:" and five transparent uppercase pills (Confident/Independent/Communicative/Capable/Connected) bordered red/orange/yellow/green/blue as a `ul` labelled by the lead (sentence case in source); pills stack as a centred column <640px, 3+2 at 640–1099px, one row ≥1100px; progress paragraph (max 44em). Worst-case contrast over the photo: white 8.9:1, label 6.3:1, body 6.1:1. Added `tone="dark"` to `Eyebrow` and `SectionHeading` (Eyebrow now renders two separate rules), `--text-on-dark-muted` token; copy in `src/lib/content/our-goal.ts`. Follow-ups: meets the looser reading of "never behind body text at lower contrast" only — photo lowers body text from ~9.3:1 to ~6.1:1 (a navy panel behind the text column was tried and reverted at the user's request); full-size background image is downloaded for a 12%-opacity backdrop; `SectionHeading` trailing space still present.
 - **07 · Family & Community Support + Professional Collaboration** (2026-10-06) — `#families` on white, two-column split (auto-fit, min 440px): eyebrow "Family & community support", H2 "AKC is more than a learning environment.", body, and "Our community initiatives include:" labelling a `ul` of five verbatim initiatives (hairline `border` dividers, 10px decorative blue dots held in a 24px box so they sit on the first line when items wrap); right column 16:10 educator-with-group photo then a tint card (radius 20) with 56px solid blue people icon, H3 "Professional collaboration" and partner "Neuroness Child Psychology Clinic" in `<strong>` (no link; "when appropriate" kept). Photo + card stack below the list under ~1024px. Contrast: muted on tint 6.37:1, muted on white 7.01:1. Added `PeopleIcon`; copy in `src/lib/content/family-community.ts`. Follow-ups: replace Unsplash stand-in `public/images/family-placeholder.jpg` (kPkRpy6pIIg) with a real AKC photo; divided list and collaboration card are not yet documented in design-system §6; `SectionHeading` trailing space still present.
 - **08 · Fees, Packages, Registration & Terms** (2026-10-06) — `#fees` on sand: centred eyebrow "School fees & program pricing" + H2 "Programs and packages"; three price cards (radius 24, padding 28–36, 3 cols ≥1000px else 1) — Preschool $1,000/month, featured navy Standard Support Package $2,000/month and $8,000/term (sky kicker, `--shadow-featured`), Individualized One-on-One Support $3,500–$4,000/month — each kicker → H3 24px/700 → optional sub → price(s) clamp 30–38px with hairline → H4 extras label → `dl` name/value rows; cards are a CSS subgrid so price hairlines align in the 3-up row. Below, two white cards in a 440px auto-fit split: Registration & uniform (Registration Fee $500 with "Includes 2 AKC T-shirts" as a second `dd`, Additional T-shirts $100 each; Uniform Bottoms — Charran's Bookstore (corrected from the spec's Sharon's) — and Footwear sub-columns ≥520px) and Our school terms (`ol` of tint rows radius 14 with primary uppercase pills). Hyphenated words (One-on-One, T-shirts) kept whole via `KeepHyphenated`. Contrast min 5.16:1 (eyebrow on sand); navy card text ≥7.27:1. No overflow 320–1920px. Added `--shadow-featured` and `--border-on-dark` tokens, documented price and registration cards in design-system §6, fixed `SectionHeading` trailing space; copy in `src/lib/content/fees.ts`. Same commit carries the age-range update (Ages 3–10 → 2–12) in `navigation.ts` and docs. Follow-ups: currency still "$" — open question whether to show "TT$"; "$3,500–$4,000" wraps after the dash at 320px; no interactive elements yet, so focus ring untested here.
+- **09 · School Hours & Aftercare** (2026-10-06) — White section after Fees (no anchor; `aria-labelledby="school-hours-heading"`): eyebrow "School hours & aftercare" + H2 "A predictable school day"; vertical timeline as an `ol` (32px between stops, 24px dots with `ring-6` white halo, time 20px/700 navy, label 16px muted) — 7:30 AM Early drop-off (green) · 8:30 AM – 2:30 PM Regular school hours (primary) · 3:00 PM Pickup deadline, aftercare after this time (yellow) · 3:30 PM Latest pickup time (purple); dots `aria-hidden`; 2px `border-tint` rail drawn per stop to the next dot centre so it ends at the last dot. Tint Aftercare panel (radius 20, padding 24–32): H3, three dotted rules incl. the $20 fee, footnote under a `border-tint` divider. Grid is 1 col, then 2 cols at lg (1024px) with the panel level with the first stop (fixed lg split rather than the 440px auto-fit, as in Family). Times live in `src/lib/content/school-hours.ts` (`TIMES`, NBSP before AM/PM); `key-info.ts` now reads school hours and early drop-off from it. All times one line at 320px; no overflow 320–1920px; min contrast 6.37:1. Added `--border-tint` token; documented timeline and rules panel in design-system §6. Follow-ups: rail segment length is pixel-coupled to the 32px gap and dot offset; dots don’t scale with browser default font size; empty space right of the heading at lg; the 02 NBSP-escape follow-up is now resolved.
