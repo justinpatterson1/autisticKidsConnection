@@ -20,13 +20,13 @@ export const WHO_WE_SUPPORT: WhoWeSupportContent = {
   callout:
     "We recognize that children develop at different rates—and different does not mean less.",
   cta: { label: "Explore our services", href: "#services" },
-  // [Placeholder] Unsplash stand-ins (r-_71cqvTUo, 7fF0iei80AQ) — replace with real AKC photos, with consent.
+  // [Placeholder] Unsplash stand-ins (BQ3ryrV9Zh4, O5EMzfdxedg) — replace with real AKC photos, with consent.
   mainPhoto: {
-    src: "/images/about-main-placeholder.jpg",
-    alt: "An educator sits beside a young girl at a classroom table, colouring alongside her as she concentrates on her worksheet",
+    src: "/images/about-main-workbook-placeholder.jpg",
+    alt: "A young boy concentrates on writing in a colourful workbook while an adult beside him points to the page at a wooden table",
   },
   insetPhoto: {
-    src: "/images/about-inset-placeholder.jpg",
-    alt: "A woman and a young boy share a picture book in a library, reading the page together",
+    src: "/images/about-inset-notebook-placeholder.jpg",
+    alt: "A boy in a red top leans in close, carefully writing in a small notebook at a shared table beside another child",
   },
 };

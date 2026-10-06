@@ -17,7 +17,7 @@ export const SERVICES_HEADER = {
   heading: "Support shaped around each child",
 } as const;
 
-// [Placeholder] Unsplash stand-ins (6c86TCPmNRQ, rk57BkkhCaE, SEkjXlYTej0, 26vlm0cVvE4) — replace with real AKC photos, with consent.
+// [Placeholder] Unsplash stand-ins (6c86TCPmNRQ, rk57BkkhCaE, 20YP7NENJzk, 26vlm0cVvE4) — replace with real AKC photos, with consent.
 export const SERVICES: readonly ServiceCard[] = [
   {
     title: "One-on-One Tutoring",
@@ -39,8 +39,8 @@ export const SERVICES: readonly ServiceCard[] = [
     title: "Life Skills",
     body: "Developing practical skills that encourage independence, confidence and participation in everyday life.",
     image: {
-      src: "/images/service-life-skills-placeholder.jpg",
-      alt: "An adult and a young child cutting out biscuit dough together at a kitchen table",
+      src: "/images/service-life-skills-handwashing-placeholder.jpg",
+      alt: "A father stands beside his young daughter at a kitchen sink, guiding her as she lathers soap and washes her hands",
     },
   },
   {

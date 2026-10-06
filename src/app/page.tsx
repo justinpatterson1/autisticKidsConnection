@@ -5,13 +5,20 @@ import { OurApproach } from "@/components/home/our-approach";
 import { OurGoal } from "@/components/home/our-goal";
 import { OurServices } from "@/components/home/our-services";
 import { WhoWeSupport } from "@/components/home/who-we-support";
+import { CompactHeader } from "@/components/layout/compact-header";
 import { SiteHeader } from "@/components/layout/site-header";
+import { StickyMobileCta } from "@/components/layout/sticky-mobile-cta";
 
 export default function Home() {
   return (
     <>
       <SiteHeader />
-      <main id="main">
+      <CompactHeader watchId="site-header" />
+      {/* Bottom padding keeps the sticky mobile bar off the last content; it moves to the footer when that ships. */}
+      <main
+        id="main"
+        className="max-nav:pb-[calc(77px+env(safe-area-inset-bottom))]"
+      >
         <Hero />
         <KeyInfoStrip />
         <WhoWeSupport />
@@ -20,6 +27,7 @@ export default function Home() {
         <OurGoal />
         <FamilyCommunity />
       </main>
+      <StickyMobileCta watchId="hero-actions" />
     </>
   );
 }

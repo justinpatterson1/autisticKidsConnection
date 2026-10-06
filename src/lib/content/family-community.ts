@@ -27,10 +27,10 @@ export const FAMILY_COMMUNITY: FamilyCommunityContent = {
     "Collaboration with professionals and specialists",
     "Developmental support and referrals when needed",
   ],
-  // [Placeholder] Unsplash stand-in (kPkRpy6pIIg) — replace with a real AKC photo, with consent.
+  // [Placeholder] Unsplash stand-in (Nu5819t1K6c) — replace with a real AKC photo, with consent.
   photo: {
-    src: "/images/family-placeholder.jpg",
-    alt: "An educator leans over a small table to help a group of young children as they draw and write together",
+    src: "/images/family-reading-placeholder.jpg",
+    alt: "A woman sits on the grass with a young boy in her lap, reading an orange picture book together in front of a green hedge",
   },
   collaboration: {
     title: "Professional collaboration",

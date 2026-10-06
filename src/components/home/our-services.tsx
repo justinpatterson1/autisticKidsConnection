@@ -48,7 +48,7 @@ export function OurServices() {
                 />
               </div>
               <div className="px-[30px] pt-[26px] pb-[30px]">
-                <h3 className="text-xl leading-[1.3] font-semibold text-navy">
+                <h3 className="text-xl leading-[1.3] font-semibold text-navy min-[1100px]:min-h-[2lh]">
                   {service.title}
                 </h3>
                 <p className="mt-2.5 text-[15px] leading-[1.6] text-pretty text-text-muted">
@@ -59,21 +59,23 @@ export function OurServices() {
           ))}
         </ul>
 
-        <ul className="mt-6 grid gap-6 min-[900px]:grid-cols-3">
+        <ul className="mt-14 grid gap-6 min-[900px]:grid-cols-3">
           {EXTRACURRICULARS.map((card) => {
             const Icon = ICONS[card.icon];
             return (
-              <li key={card.title} className="rounded-[20px] bg-sand p-8">
-                <span className="flex size-[60px] items-center justify-center rounded-full bg-primary text-white">
-                  <Icon className="size-[26px]" />
-                </span>
-                <h3 className="mt-5 text-xl leading-[1.3] font-semibold text-navy">
-                  {card.title}
-                </h3>
+              <li key={card.title} className="rounded-[20px] bg-sand p-7">
+                <div className="flex items-center gap-4">
+                  <span className="flex size-[60px] shrink-0 items-center justify-center rounded-full bg-primary text-white">
+                    <Icon className="size-[26px]" />
+                  </span>
+                  <h3 className="text-xl leading-[1.3] font-semibold text-navy">
+                    {card.title}
+                  </h3>
+                </div>
                 {card.paragraphs.map((paragraph) => (
                   <p
                     key={paragraph}
-                    className="mt-2.5 text-[15px] leading-[1.6] text-pretty text-text-muted"
+                    className="mt-3 text-[15px] leading-[1.6] text-pretty text-text-muted"
                   >
                     {paragraph}
                   </p>
