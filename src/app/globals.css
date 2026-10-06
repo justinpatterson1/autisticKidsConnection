@@ -71,6 +71,8 @@
   --color-logo-purple: var(--logo-purple);
 
   --font-sans: var(--font-poppins), system-ui, sans-serif;
+  /* Placeholder labels only (design system §3); not web-loaded, falls back to the system mono. */
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 }
 
 @theme {
