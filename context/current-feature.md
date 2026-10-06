@@ -1,16 +1,31 @@
-# Current Feature
+# Current Feature: 09 · School Hours & Aftercare
 
 ## Status
 
-Not Started
+In Progress
 
 ## Goals
 
-<!-- Goals will be populated when a feature is loaded -->
+- White section (no anchor in spec) with `aria-labelledby` its H2; two-column split (auto-fit, min 440px) that stacks on narrow screens
+- Left: eyebrow "School hours & aftercare", H2 "A predictable school day", then a vertical timeline (ordered list)
+- Timeline anatomy: 2px `#D3E5F1` rail (`border-tint`), 24px coloured dots with 6px white halo, time 20px/700, label 16px muted
+- Timeline entries, verbatim: **7:30 AM** — Early drop-off (green #3E9A5A) · **8:30 AM – 2:30 PM** — Regular school hours (blue #1A6E99) · **3:00 PM** — Pickup deadline, aftercare after this time (yellow #F5B020) · **3:30 PM** — Latest pickup time (purple #6A4BA8)
+- Right: tint panel H3 "Aftercare" with a dotted list: "Children must be picked up by 3:00 PM." · "Any pickup after 3:00 PM will be considered aftercare and a $20 fee will apply." · "The latest pickup time is 3:30 PM."
+- Divided footnote under the list: "Please ensure that children are picked up on time to avoid additional fees."
+- Times and the $20 fee match source exactly
+- Timeline legible at 320px (long time "8:30 AM – 2:30 PM" must not overflow or orphan)
+- WCAG AA contrast, visible #F5B020 focus ring, reduced motion respected
+- Responsive 320–1920px with no horizontal scroll
 
 ## Notes
 
-<!-- Notes will be populated when a feature is loaded -->
+- Spec: `context/features/09-school-hours.md`; section 9 of 16; follows Fees (sand) so white keeps the background rhythm
+- `#D3E5F1` is documented as `border-tint` in design-system §2 but not yet defined in `globals.css` — add the token rather than hardcode
+- `--logo-green`, `--logo-yellow`, `--logo-purple`, `--primary` tokens already exist for the dots; dots are decorative (the time text carries meaning), so mark them `aria-hidden`
+- Use en dashes and non-breaking spaces in times (match `key-info.ts`: "8:30 AM – 2:30 PM"); write NBSPs as ` ` escapes (outstanding follow-up from 02)
+- Consider sharing school-hours times with `key-info.ts` so the two sections can't drift apart
+- Copy goes in `src/lib/content/school-hours.ts`; reuse `Eyebrow` and `SectionHeading`
+- No interactive elements expected, so focus ring / reduced motion are satisfied by not adding any
 
 ## History
 
