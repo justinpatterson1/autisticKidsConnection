@@ -1,22 +1,36 @@
-# Current Feature
+# Current Feature: 08 · Fees, Packages, Registration & Terms
 
 ## Status
 
-Not Started
+In Progress
 
 ## Goals
 
-<!-- Goals will be populated when a feature is loaded -->
+- `#fees` section on sand (#F7F5F1), `aria-labelledby` its H2; centred eyebrow "School fees & program pricing" and H2 "Programs and packages"
+- Three price cards (radius 24), 3 columns ≥1000px, stacked to one column below 1000px
+- Card structure: uppercase kicker → name (24px/700) → optional subtitle → price(s) (clamp 30–38px/700 + "per month/term") with hairline below → extras label → extras rows (name left, value right)
+- **Preschool** (white) — kicker "Preschool Package", sub "For children who are not on the autism spectrum", $1,000 per month; Extracurricular Activities: Music $200/month · Physical Education (PE) $200/term · Potty Care $200/month
+- **Standard Support Package** (featured navy) — sky kicker "Autism Support Package", $2,000 per month and $8,000 per term; Extracurricular Activities: Music $200/month · PE $200/term · Potty Care $300/month
+- **Individualized One-on-One Support** (white) — kicker "Personal Tutor Package", $3,500–$4,000 per month; Additional Services: Potty Care $300/month · Music $200/month · PE $200/term
+- Two white cards side by side below: "Registration & uniform" (Registration Fee $500, includes 2 AKC T-shirts, additional T-shirts $100 each; sub-columns Uniform Bottoms — Charran's Bookstore — and Footwear: Black shoes / Black sneakers are acceptable / Crocs are also permitted) and "Our school terms" (three tint rows with blue pill labels: TERM 1 September – December · TERM 2 January – Easter · TERM 3 After Easter – August)
+- All figures exactly match source content; copy verbatim
+- WCAG AA contrast (incl. navy card text), visible #F5B020 focus ring, reduced motion respected
+- Responsive 320–1920px with no horizontal scroll
 
 ## Notes
 
-<!-- Notes will be populated when a feature is loaded -->
+- Spec: `context/features/08-fees-packages.md`; section 8 of 16; design reference `AKC Homepage v4.dc.html`
+- Hero's ghost CTA "Programs & Fees" already links to `#fees` — anchor must match
+- **Open question:** show currency as "TT$" instead of "$"? Default to "$" as supplied unless the user decides otherwise
+- Price ranges/dashes should use en dashes (`–`); keep extras as semantic lists (e.g. `dl` or `ul` with name/value pairs) so name↔price pairing is announced
+- Reuse existing ui primitives: `Eyebrow` (`centered`), `SectionHeading`; content constants go in `src/lib/content/fees.ts`
+- Existing follow-up worth fixing while here: `SectionHeading` trailing space in `className`
 
 ## History
 
 - **00 · Brand Stripe + Header / Navigation** (2026-10-03) — Six-colour brand stripe and transparent header over the hero; inline nav ≥1180px with active underline + `aria-current`, phone block ≥1480px, Register Now pill; mobile Menu/Close drop-down (closes on link select / Escape); skip link, #F5B020 focus ring, reduced motion. Added design-system tokens and `nav`/`wide` breakpoints to `globals.css`, Poppins via `next/font`, `NAV_ITEMS` in `src/lib/content/navigation.ts`. Follow-ups: `public/assets/akc-mark.png` still missing; focus-ring contrast on the white drop-down, cramped brand block at 1180–1479px, menu stays open across resize.
 - **01 · Hero** (2026-10-03) — Full-bleed `#main` hero with photo + navy overlay, "Now registering" badge, verbatim H1 and lead, "Register Now →" (#contact) and ghost "Programs & Fees" (#fees) CTAs, room for the overlapping info strip. Copy in `src/lib/content/hero.ts`. Overlay strengthened (`.7` at 58%, plus flat `.62` layer below 1180px) so the lead is ≥4.5:1 at every width (min 5.38:1 measured); H1 drops to 34px below 360px to avoid overflow at 320px; design-system.md updated. Follow-ups: replace Unsplash stand-in `public/images/hero-placeholder.jpg` with a real AKC photo and re-check contrast; `transition-colors` fades the focus ring in (header too); `pt-[calc(97px+…)]` hardcodes header height.
-- **02 · Key Info Strip** (2026-10-04) — White card overlapping the hero by `clamp(64px, 7vw, 100px)` with School hours (8:30 AM – 2:30 PM), Early drop-off (From 7:30 AM) and Find us (Curepe, Trinidad & Tobago); 56px tint-strong icon circles with decorative clock/sunrise/pin line icons; items `flex: 1 1 260px` with 1px dividers, stacking on mobile; visually hidden "Key information" heading. Content in `src/lib/content/key-info.ts`; `--shadow-raised` token added. Measured ≥66px clearance from hero CTAs at every width, no horizontal scroll 320–1920px. Follow-ups: raw NBSP characters in `key-info.ts` should be written as `\u00a0` escapes; label→value `mt-0.5` (2px) is off the spacing scale.
+- **02 · Key Info Strip** (2026-10-04) — White card overlapping the hero by `clamp(64px, 7vw, 100px)` with School hours (8:30 AM – 2:30 PM), Early drop-off (From 7:30 AM) and Find us (Curepe, Trinidad & Tobago); 56px tint-strong icon circles with decorative clock/sunrise/pin line icons; items `flex: 1 1 260px` with 1px dividers, stacking on mobile; visually hidden "Key information" heading. Content in `src/lib/content/key-info.ts`; `--shadow-raised` token added. Measured ≥66px clearance from hero CTAs at every width, no horizontal scroll 320–1920px. Follow-ups: raw NBSP characters in `key-info.ts` should be written as ` ` escapes; label→value `mt-0.5` (2px) is off the spacing scale.
 - **03 · Who We Support** (2026-10-04) — `#about` two-column split (auto-fit, min 440px): 4:5 main photo with overlapping 1:1 inset (52%, 8px white border, raised shadow) left; eyebrow, H2 "A smaller, more individualized place to learn", body, tint callout "…different does not mean less." and navy "Explore our services →" (#services) right. Below 640px the inset hides and the main photo goes 4:3. Added shared ui primitives `Eyebrow`, `ButtonLink` (primary/secondary; transitions background only, so the focus ring appears instantly) and `Callout` in `src/components/ui/`; copy in `src/lib/content/who-we-support.ts`. Follow-ups: replace Unsplash stand-ins `about-main-placeholder.jpg` / `about-inset-placeholder.jpg` with real AKC photos (brief: educator with child and workbook); inset covers part of the main photo's subject at desktop; collage centred over left-aligned text when stacked (640–1180px); migrate header/hero buttons to `ButtonLink` to fix their focus-ring fade.
 - **04 · Our Approach** (2026-10-05) — `#approach` tint section: eyebrow "Our approach" + H2 "Every child is different." left, intro (max 460px) right; "Our learning environment combines:" label naming a `ul` of nine verbatim checklist tiles (white, radius 14, 26px solid check) in an auto-fit grid (min 300px, gap 12) reflowing 3 → 2 → 1 at ~1024 / 768 / ≤640px with no overflow; navy quote block "connection comes before correction…" (no attribution). Added shared ui primitives `SectionHeading` (now also used by Who We Support), `CheckMark` and `QuoteBlock`; copy in `src/lib/content/our-approach.ts`. Follow-ups: hyphenated items break at the hyphen at 320px; `QuoteBlock`'s `figure` has no caption; `SectionHeading` leaves a trailing space in `className`.
 - **05 · Our Services** (2026-10-06) — `#services` on white: centred eyebrow "Our services" (rules both sides) + H2 "Support shaped around each child"; row 1 four photo cards (One-on-One Tutoring, Small-Group Learning, Life Skills, Sensory Play & Movement — white, radius 20, hairline ring, 4:3 photo, H3 20px, body 15px) at 4/2/1 cols (≥1100/≥600px), hover lift −4px + card-hover shadow over .25s, no lift under reduced motion; row 2 three sand icon cards (Music Program, Physical Education, Birthday Club) with 60px solid blue icon circles, 3 cols ≥900px else 1, so no orphan at any width. Added music-note/ball/cake icons, `Eyebrow` `centered` variant, `--shadow-card` / `--shadow-card-hover` tokens; copy in `src/lib/content/services.ts`. Follow-ups: replace four Unsplash stand-ins `service-*-placeholder.jpg` with real AKC photos; shadow tokens repeat `#e0e8ef` instead of `var(--border)`; cards lift on hover but aren't links; `Eyebrow` reuses one rule element twice.

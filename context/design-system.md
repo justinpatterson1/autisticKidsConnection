@@ -184,7 +184,7 @@ White → Tint (`#EEF5FA`) → White → Navy → White → Sand (`#F7F5F1`) →
 Arrows `→` are `aria-hidden`. Transitions: `background .2s`.
 
 ### Badge — "Now registering"
-Pill, bg `#8DCBEB`, navy text 14px/600, 8px navy dot, padding 6px 14px. Sits in a row with the hero descriptor line ("Homeschooling • Tutoring • Developmental Support · Curepe", 15px/500 Light Sky), shown below 640px and at 1180–1479px — exactly where the header descriptor is hidden — so the first screen always says what AKC is, once. "Ages 3–10 · Curepe" follows it at every width.
+Pill, bg `#8DCBEB`, navy text 14px/600, 8px navy dot, padding 6px 14px. Sits in a row with the hero descriptor line ("Homeschooling • Tutoring • Developmental Support · Curepe", 15px/500 Light Sky), shown below 640px and at 1180–1479px — exactly where the header descriptor is hidden — so the first screen always says what AKC is, once. "Ages 2–12 · Curepe" follows it at every width.
 
 ### Hero contact line
 From 640px, under the hero buttons: phone and email as text links (15px/500 Photo Mist, 18px Light Sky icons, 44px targets) — contact details a parent can copy. Hidden on phones, where the sticky bar carries Call.
@@ -211,7 +211,10 @@ Navy bg, radius 20, padding 28–44px, sky quote glyph, 19–24px/500 white text
 Tint bg, radius 16, padding 24/28, 18–21px/600 navy text — for single key statements.
 
 ### Price card
-Radius 24, padding 28–36. Kicker → name → optional sub → price(s) with hairline below → extras label → extras list (name left, price right). **Featured** (Autism Support): navy bg, white text, sky kicker, stronger shadow.
+Radius 24, padding 28–36. Kicker → name → optional sub → price(s) with hairline below → extras label → extras list (name left, price right). **Featured** (Autism Support): navy bg, white text, sky kicker, stronger shadow (`--shadow-featured`), hairlines `#344C70`. Kicker 13px/600 uppercase, name H3 24px/700 (hyphenated words kept whole), extras label H4 15px/600, extras rows 15px with hairline dividers. In the 3-up row the cards are a CSS subgrid (header · prices · extras), so the price hairlines line up across cards.
+
+### Registration card
+White, radius 24, hairline ring, padding 28–36. H3 20px/600, then a divided name/value list (registration fee 20px/700 with its "Includes…" note beneath; extra T-shirts) and two H4 sub-columns ≥520px (Uniform Bottoms · Footwear, 6px blue dots). Sits beside the terms card in a two-column split.
 
 ### Term row
 Tint bg, radius 14, primary pill label ("TERM 1") + 16px/500 date range.
