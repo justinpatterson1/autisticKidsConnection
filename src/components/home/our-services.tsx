@@ -1,0 +1,88 @@
+import Image from "next/image";
+import { BallIcon } from "@/components/icons/ball-icon";
+import { CakeIcon } from "@/components/icons/cake-icon";
+import { MusicNoteIcon } from "@/components/icons/music-note-icon";
+import { Eyebrow } from "@/components/ui/eyebrow";
+import { SectionHeading } from "@/components/ui/section-heading";
+import {
+  EXTRACURRICULARS,
+  SERVICES,
+  SERVICES_HEADER,
+  type ExtracurricularIcon,
+} from "@/lib/content/services";
+
+const ICONS: Record<ExtracurricularIcon, typeof MusicNoteIcon> = {
+  music: MusicNoteIcon,
+  ball: BallIcon,
+  cake: CakeIcon,
+};
+
+export function OurServices() {
+  return (
+    <section
+      id="services"
+      aria-labelledby="services-heading"
+      className="px-[clamp(20px,4vw,48px)] py-[clamp(80px,10vw,120px)]"
+    >
+      <div className="mx-auto max-w-[1200px]">
+        <div className="text-center">
+          <Eyebrow centered>{SERVICES_HEADER.eyebrow}</Eyebrow>
+          <SectionHeading id="services-heading" className="mt-4">
+            {SERVICES_HEADER.heading}
+          </SectionHeading>
+        </div>
+
+        <ul className="mt-14 grid gap-6 min-[600px]:grid-cols-2 min-[1100px]:grid-cols-4">
+          {SERVICES.map((service) => (
+            <li
+              key={service.title}
+              className="overflow-hidden rounded-[20px] bg-white shadow-card transition-[translate,box-shadow] duration-250 hover:-translate-y-1 hover:shadow-card-hover motion-reduce:hover:translate-y-0"
+            >
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src={service.image.src}
+                  alt={service.image.alt}
+                  fill
+                  sizes="(min-width: 1100px) 290px, (min-width: 600px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="px-[30px] pt-[26px] pb-[30px]">
+                <h3 className="text-xl leading-[1.3] font-semibold text-navy">
+                  {service.title}
+                </h3>
+                <p className="mt-2.5 text-[15px] leading-[1.6] text-pretty text-text-muted">
+                  {service.body}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        <ul className="mt-6 grid gap-6 min-[900px]:grid-cols-3">
+          {EXTRACURRICULARS.map((card) => {
+            const Icon = ICONS[card.icon];
+            return (
+              <li key={card.title} className="rounded-[20px] bg-sand p-8">
+                <span className="flex size-[60px] items-center justify-center rounded-full bg-primary text-white">
+                  <Icon className="size-[26px]" />
+                </span>
+                <h3 className="mt-5 text-xl leading-[1.3] font-semibold text-navy">
+                  {card.title}
+                </h3>
+                {card.paragraphs.map((paragraph) => (
+                  <p
+                    key={paragraph}
+                    className="mt-2.5 text-[15px] leading-[1.6] text-pretty text-text-muted"
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </section>
+  );
+}
