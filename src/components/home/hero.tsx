@@ -2,7 +2,13 @@ import Image from "next/image";
 import { MailIcon } from "@/components/icons/mail-icon";
 import { PhoneIcon } from "@/components/icons/phone-icon";
 import { HERO } from "@/lib/content/hero";
-import { ADDRESS, DESCRIPTOR, EMAIL, PHONE } from "@/lib/content/navigation";
+import {
+  ADDRESS,
+  AGE_RANGE,
+  DESCRIPTOR,
+  EMAIL,
+  PHONE,
+} from "@/lib/content/navigation";
 
 // "Understanding Differences." is ~13.45em wide, so each sentence gets its own line
 // once the column can hold it; on narrow phones each sentence wraps as its own unit.
@@ -29,7 +35,7 @@ export function Hero() {
 
       <div className="mx-auto w-full max-w-[1320px] px-[clamp(20px,4vw,48px)] pt-[calc(97px+clamp(40px,6vw,72px))] pb-[clamp(130px,14vw,180px)]">
         <div className="max-w-[820px]">
-          {/* Says what AKC is before the slogans, at the widths where the header descriptor is hidden (<640px, 1180–1479px). */}
+          {/* Says what AKC is and who it's for before the slogans. The descriptor only shows where the header's is hidden (<640px, 1180–1479px). */}
           <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
             {HERO.badge && (
               <p className="inline-flex items-center gap-2 rounded-full bg-sky px-3.5 py-1.5 text-sm font-semibold text-navy">
@@ -40,8 +46,11 @@ export function Hero() {
                 {HERO.badge}
               </p>
             )}
-            <p className="text-[15px] font-medium text-sky-light sm:max-nav:hidden wide:hidden">
-              {DESCRIPTOR} · {ADDRESS.town}
+            <p className="text-[15px] font-medium text-sky-light">
+              <span className="sm:max-nav:hidden wide:hidden">
+                {DESCRIPTOR} ·{" "}
+              </span>
+              {AGE_RANGE} · {ADDRESS.town}
             </p>
           </div>
 

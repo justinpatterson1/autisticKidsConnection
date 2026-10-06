@@ -6,24 +6,37 @@ import { NAV_ITEMS, REGISTER_HREF } from "@/lib/content/navigation";
 export function MobileMenu() {
   const [open, setOpen] = useState(false);
   const panelId = useId();
+  const rootRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     if (!open) return;
+    // Move focus into the menu so keyboard and screen-reader users land on its first link.
+    panelRef.current?.querySelector("a")?.focus();
+
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         setOpen(false);
         toggleRef.current?.focus();
       }
     }
+    // A tap or click anywhere outside the toggle and panel closes the menu.
+    function onPointerDown(event: PointerEvent) {
+      if (!rootRef.current?.contains(event.target as Node)) setOpen(false);
+    }
     document.addEventListener("keydown", onKeyDown);
-    return () => document.removeEventListener("keydown", onKeyDown);
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("pointerdown", onPointerDown);
+    };
   }, [open]);
 
   const close = () => setOpen(false);
 
   return (
-    <div className="nav:hidden">
+    <div ref={rootRef} className="nav:hidden">
       <button
         ref={toggleRef}
         type="button"
@@ -36,10 +49,11 @@ export function MobileMenu() {
       </button>
 
       <nav
+        ref={panelRef}
         id={panelId}
         aria-label="Main"
         hidden={!open}
-        className="absolute inset-x-[clamp(20px,4vw,48px)] top-full mt-2 rounded-[20px] bg-white px-5 pt-2 pb-5 shadow-[0_24px_60px_-24px_rgba(28,50,84,.35)]"
+        className="absolute inset-x-[clamp(20px,4vw,48px)] top-full mt-2 rounded-[20px] bg-white px-5 pt-2 pb-5 shadow-raised"
       >
         <ul>
           {NAV_ITEMS.map((item) => (
