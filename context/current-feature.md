@@ -1,16 +1,43 @@
-# Current Feature
+# Current Feature: Family & Community Support + Professional Collaboration
 
 ## Status
 
-Not Started
+Complete
 
 ## Goals
 
-<!-- Goals will be populated when a feature is loaded -->
+- `#families` section on white, labelled by its H2 (`aria-labelledby`)
+- Two-column split; image + card stack below the list on mobile
+- Left column:
+  - Eyebrow "Family & community support"
+  - H2 "AKC is more than a learning environment."
+  - Body "We believe in supporting the whole family."
+  - Label "Our community initiatives include:" naming a divided list (hairline dividers, 10px blue dots), verbatim:
+    - Parent counselling and support
+    - Community fundraisers and family events
+    - Parent education and workshops
+    - Collaboration with professionals and specialists
+    - Developmental support and referrals when needed
+- Right column:
+  - 16:10 photo (educator with group), descriptive alt text
+  - Tint card titled "Professional collaboration" with a 56px solid blue circle + white people line icon (decorative)
+  - Paragraph 1 verbatim with the partner name bold: "AKC collaborates with **Neuroness Child Psychology Clinic**, allowing families to access professional child psychology and evaluation services when appropriate."
+  - Paragraph 2 verbatim: "We believe collaboration between educators, parents and professionals helps us better understand each child's individual needs and support their development."
+- Partner name exact ("Neuroness Child Psychology Clinic"); "when appropriate" retained; no implied in-house clinical services
+- WCAG AA contrast, #F5B020 focus ring, reduced-motion respected
+- Responsive 320px–1920px with no horizontal scroll
 
 ## Notes
 
-<!-- Notes will be populated when a feature is loaded -->
+- Spec: `context/features/07-family-community.md` — Section 7 of 16; anchor `#families` (header nav "Families" already links here)
+- Background rhythm: follows navy "Our goal" — white here is correct
+- Reuse `Eyebrow`, `SectionHeading`; two-column split per design system §4 (`repeat(auto-fit, minmax(min(100%, 440px), 1fr))`, gap 40–88px) — same pattern as Who We Support
+- Divided list: `ul` labelled by the "Our community initiatives include:" label (same pattern as Our Approach); dividers `border-tint` / `border` hairlines; dots decorative
+- Card heading "Professional collaboration" is an H3 under the section H2; partner name as `<strong>` (meaningful emphasis); do not add a link to the clinic — no URL supplied, and don't invent one
+- Card spec in design system is close to the Callout/Contact row family: tint bg, radius 16–20px; icon circle 56px solid primary with white stroke
+- Photo: one needed (educator with a group). Unsplash stand-in `[Placeholder]` unless a real AKC photo is supplied — existing small-group stand-in is already used twice (services card + Our Goal backdrop), so source a different one; family image crop per design system §5 is 16:10
+- Add a people/group line icon to `src/components/icons/`
+- Copy uses British "counselling" — keep verbatim
 
 ## History
 
