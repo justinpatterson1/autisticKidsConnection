@@ -33,33 +33,34 @@ export function OurGoal() {
           {OUR_GOAL.heading}
         </SectionHeading>
 
+        {/* The emotional peak: concrete progress, set as the band's main statement. */}
+        <p className="mx-auto mt-8 max-w-[30em] text-[clamp(21px,2.3vw,30px)] leading-[1.45] font-medium text-balance text-white">
+          {OUR_GOAL.body}
+        </p>
+
         <p
           id="goal-lead"
-          className="mt-8 text-[clamp(18px,1.5vw,20px)] leading-[1.65] text-balance text-text-on-dark-muted"
+          className="mt-14 text-[17px] leading-[1.7] text-balance text-text-on-dark-muted"
         >
           {OUR_GOAL.lead}
         </p>
         <ul
           aria-labelledby="goal-lead"
-          className="mx-auto mt-5 flex max-w-[620px] flex-wrap justify-center gap-x-8 gap-y-4 min-[1100px]:max-w-none"
+          className="mx-auto mt-4 flex max-w-[560px] flex-wrap justify-center gap-x-7 gap-y-3 min-[1100px]:max-w-none"
         >
           {OUR_GOAL.goals.map((goal) => (
             <li
               key={goal.label}
-              className="flex items-center gap-3 text-[clamp(15px,1.4vw,18px)] font-semibold tracking-[0.08em] text-white uppercase"
+              className="flex items-center gap-2.5 text-[15px] font-semibold tracking-[0.08em] text-white uppercase"
             >
               <span
                 aria-hidden="true"
-                className={`size-3 shrink-0 rounded-full ${DOTS[goal.color]}`}
+                className={`size-2.5 shrink-0 rounded-full ${DOTS[goal.color]}`}
               />
               {goal.label}
             </li>
           ))}
         </ul>
-
-        <p className="mx-auto mt-12 max-w-[34em] text-[17px] leading-[1.7] text-pretty text-text-on-dark-muted">
-          {OUR_GOAL.body}
-        </p>
       </div>
     </section>
   );

@@ -14,6 +14,8 @@ export const EMAIL = "autistickidstutoring@gmail.com";
 
 export const DESCRIPTOR = "Homeschooling • Tutoring • Developmental Support";
 
+export const AGE_RANGE = "Ages 3–10";
+
 export const ADDRESS = {
   street: "#2 Mc Inroy Street",
   town: "Curepe",

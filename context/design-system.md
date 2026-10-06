@@ -109,7 +109,7 @@ Design system for the Autistic Kids Connection (AKC) website. Source of truth: `
 | Lead | `clamp(18px, 1.5vw, 20px)` | 400 | 1.65 | — | Hero / intro |
 | Body | 16–17px | 400 | 1.65–1.75 | — | `text-wrap: pretty`; max 34em (~67ch) |
 | List label | 17px | 400 muted | 1.7 | — | Lead-in sentence that names a list ("Our learning environment combines:"); muted so it never reads as another item |
-| Statement | 18–24px | 500–600 | 1.5 | — | Callout and quote text; quote max 32em |
+| Statement | 18–30px | 500–600 | 1.45–1.5 | — | Callout, quote and the Our Goal progress line; quote max 32em, progress line max 30em |
 | Small | 15px | 400 | 1.6 | — | Card descriptions |
 | Meta | 14px | 400–500 | — | — | Header descriptor, "Call us", key-info labels, badge. The floor for any text |
 | Kicker (price cards) | 13px | 600 | — | 0.08em, uppercase | |
@@ -184,7 +184,7 @@ White → Tint (`#EEF5FA`) → White → Navy → White → Sand (`#F7F5F1`) →
 Arrows `→` are `aria-hidden`. Transitions: `background .2s`.
 
 ### Badge — "Now registering"
-Pill, bg `#8DCBEB`, navy text 14px/600, 8px navy dot, padding 6px 14px. Sits in a row with the hero descriptor line ("Homeschooling • Tutoring • Developmental Support · Curepe", 15px/500 Light Sky), shown below 640px and at 1180–1479px — exactly where the header descriptor is hidden — so the first screen always says what AKC is, once.
+Pill, bg `#8DCBEB`, navy text 14px/600, 8px navy dot, padding 6px 14px. Sits in a row with the hero descriptor line ("Homeschooling • Tutoring • Developmental Support · Curepe", 15px/500 Light Sky), shown below 640px and at 1180–1479px — exactly where the header descriptor is hidden — so the first screen always says what AKC is, once. "Ages 3–10 · Curepe" follows it at every width.
 
 ### Hero contact line
 From 640px, under the hero buttons: phone and email as text links (15px/500 Photo Mist, 18px Light Sky icons, 44px targets) — contact details a parent can copy. Hidden on phones, where the sticky bar carries Call.
@@ -229,7 +229,10 @@ Tint bg, radius 16, padding 18/20, 48px solid icon circle, label 14px muted + va
 Radius 24. Labels 14px/500 above inputs. Inputs min-height 52px, radius 12, bg `#233B60`, border `#344C70`, white text. Package chips: 44px pills, `aria-pressed`, selected = sky fill + navy text.
 
 ### Goal labels
-On navy: uppercase white Label Caps text, each led by a 12px solid dot in one logo colour (red, orange, yellow, green, blue). No border or pill shape, so they read as labels, not buttons. Wrap centred (gap 32/16px), max 620px until 1100px, one row above.
+On navy: uppercase white 15px/600 text (0.08em tracking), each led by a 10px solid dot in one logo colour (red, orange, yellow, green, blue). No border or pill shape, so they read as labels, not buttons. Wrap centred (gap 28/12px), max 560px until 1100px, one row above.
+
+### Our Goal band order
+H2 → the progress line as the band's main statement (white, `clamp(21px, 2.3vw, 30px)`/500, line-height 1.45, max 30em, 32px below the H2) → 56px → lead "We want to help children become more:" (17px muted) → goal labels 16px below. The concrete line ("a first word… write a name") is the emotional peak, so it outranks the value words.
 
 ### Header / nav
 - 5px six-colour brand stripe at very top.
@@ -237,7 +240,7 @@ On navy: uppercase white Label Caps text, each led by a 12px solid dot in one lo
 - Items: About · Our Approach · Services · Families · Fees · Contact. No "Home" item — the logo links to `#main`.
 - Links 15px/500 white, hover `#ABDAF2`, padding 10px (12px ≥1480px). Active style (inset 2px sky underline via `aria-current="page"`) is reserved for a future scroll-aware nav; nothing is marked active today.
 - Phone link is visible from 1180px so calling is never hidden on desktop.
-- Mobile: "Menu"/"Close" pill toggles a white drop-down list (17px links, 16px vertical padding, dividers) with full-width Register button.
+- Mobile: "Menu"/"Close" pill toggles a white drop-down list (17px links, 16px vertical padding, dividers) with full-width Register button. Opening it moves focus to the first link; Escape closes it and returns focus to the toggle; a tap or click outside the toggle and panel closes it.
 
 ### Compact header (desktop)
 ≥1180px only: once the full header scrolls out of view (IntersectionObserver), a fixed navy bar (min-height 64px, raised shadow) shows the 60×40 mark, name, nav, phone and a 44px Register pill. Appears instantly (no motion). Nav labelled "Quick navigation".
