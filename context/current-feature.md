@@ -1,30 +1,16 @@
-# Current Feature: 08 · Fees, Packages, Registration & Terms
+# Current Feature
 
 ## Status
 
-In Progress
+Not Started
 
 ## Goals
 
-- `#fees` section on sand (#F7F5F1), `aria-labelledby` its H2; centred eyebrow "School fees & program pricing" and H2 "Programs and packages"
-- Three price cards (radius 24), 3 columns ≥1000px, stacked to one column below 1000px
-- Card structure: uppercase kicker → name (24px/700) → optional subtitle → price(s) (clamp 30–38px/700 + "per month/term") with hairline below → extras label → extras rows (name left, value right)
-- **Preschool** (white) — kicker "Preschool Package", sub "For children who are not on the autism spectrum", $1,000 per month; Extracurricular Activities: Music $200/month · Physical Education (PE) $200/term · Potty Care $200/month
-- **Standard Support Package** (featured navy) — sky kicker "Autism Support Package", $2,000 per month and $8,000 per term; Extracurricular Activities: Music $200/month · PE $200/term · Potty Care $300/month
-- **Individualized One-on-One Support** (white) — kicker "Personal Tutor Package", $3,500–$4,000 per month; Additional Services: Potty Care $300/month · Music $200/month · PE $200/term
-- Two white cards side by side below: "Registration & uniform" (Registration Fee $500, includes 2 AKC T-shirts, additional T-shirts $100 each; sub-columns Uniform Bottoms — Charran's Bookstore — and Footwear: Black shoes / Black sneakers are acceptable / Crocs are also permitted) and "Our school terms" (three tint rows with blue pill labels: TERM 1 September – December · TERM 2 January – Easter · TERM 3 After Easter – August)
-- All figures exactly match source content; copy verbatim
-- WCAG AA contrast (incl. navy card text), visible #F5B020 focus ring, reduced motion respected
-- Responsive 320–1920px with no horizontal scroll
+<!-- Goals will be populated when a feature is loaded -->
 
 ## Notes
 
-- Spec: `context/features/08-fees-packages.md`; section 8 of 16; design reference `AKC Homepage v4.dc.html`
-- Hero's ghost CTA "Programs & Fees" already links to `#fees` — anchor must match
-- **Open question:** show currency as "TT$" instead of "$"? Default to "$" as supplied unless the user decides otherwise
-- Price ranges/dashes should use en dashes (`–`); keep extras as semantic lists (e.g. `dl` or `ul` with name/value pairs) so name↔price pairing is announced
-- Reuse existing ui primitives: `Eyebrow` (`centered`), `SectionHeading`; content constants go in `src/lib/content/fees.ts`
-- Existing follow-up worth fixing while here: `SectionHeading` trailing space in `className`
+<!-- Notes will be populated when a feature is loaded -->
 
 ## History
 
@@ -36,3 +22,4 @@ In Progress
 - **05 · Our Services** (2026-10-06) — `#services` on white: centred eyebrow "Our services" (rules both sides) + H2 "Support shaped around each child"; row 1 four photo cards (One-on-One Tutoring, Small-Group Learning, Life Skills, Sensory Play & Movement — white, radius 20, hairline ring, 4:3 photo, H3 20px, body 15px) at 4/2/1 cols (≥1100/≥600px), hover lift −4px + card-hover shadow over .25s, no lift under reduced motion; row 2 three sand icon cards (Music Program, Physical Education, Birthday Club) with 60px solid blue icon circles, 3 cols ≥900px else 1, so no orphan at any width. Added music-note/ball/cake icons, `Eyebrow` `centered` variant, `--shadow-card` / `--shadow-card-hover` tokens; copy in `src/lib/content/services.ts`. Follow-ups: replace four Unsplash stand-ins `service-*-placeholder.jpg` with real AKC photos; shadow tokens repeat `#e0e8ef` instead of `var(--border)`; cards lift on hover but aren't links; `Eyebrow` reuses one rule element twice.
 - **06 · Our Goal** (2026-10-06) — Full-width navy band with the small-group classroom stand-in at 12% opacity behind (decorative); centred sky-light eyebrow "Our goal", white H2 "Our goal is not simply to help children complete schoolwork.", lead "We want to help children become more:" and five transparent uppercase pills (Confident/Independent/Communicative/Capable/Connected) bordered red/orange/yellow/green/blue as a `ul` labelled by the lead (sentence case in source); pills stack as a centred column <640px, 3+2 at 640–1099px, one row ≥1100px; progress paragraph (max 44em). Worst-case contrast over the photo: white 8.9:1, label 6.3:1, body 6.1:1. Added `tone="dark"` to `Eyebrow` and `SectionHeading` (Eyebrow now renders two separate rules), `--text-on-dark-muted` token; copy in `src/lib/content/our-goal.ts`. Follow-ups: meets the looser reading of "never behind body text at lower contrast" only — photo lowers body text from ~9.3:1 to ~6.1:1 (a navy panel behind the text column was tried and reverted at the user's request); full-size background image is downloaded for a 12%-opacity backdrop; `SectionHeading` trailing space still present.
 - **07 · Family & Community Support + Professional Collaboration** (2026-10-06) — `#families` on white, two-column split (auto-fit, min 440px): eyebrow "Family & community support", H2 "AKC is more than a learning environment.", body, and "Our community initiatives include:" labelling a `ul` of five verbatim initiatives (hairline `border` dividers, 10px decorative blue dots held in a 24px box so they sit on the first line when items wrap); right column 16:10 educator-with-group photo then a tint card (radius 20) with 56px solid blue people icon, H3 "Professional collaboration" and partner "Neuroness Child Psychology Clinic" in `<strong>` (no link; "when appropriate" kept). Photo + card stack below the list under ~1024px. Contrast: muted on tint 6.37:1, muted on white 7.01:1. Added `PeopleIcon`; copy in `src/lib/content/family-community.ts`. Follow-ups: replace Unsplash stand-in `public/images/family-placeholder.jpg` (kPkRpy6pIIg) with a real AKC photo; divided list and collaboration card are not yet documented in design-system §6; `SectionHeading` trailing space still present.
+- **08 · Fees, Packages, Registration & Terms** (2026-10-06) — `#fees` on sand: centred eyebrow "School fees & program pricing" + H2 "Programs and packages"; three price cards (radius 24, padding 28–36, 3 cols ≥1000px else 1) — Preschool $1,000/month, featured navy Standard Support Package $2,000/month and $8,000/term (sky kicker, `--shadow-featured`), Individualized One-on-One Support $3,500–$4,000/month — each kicker → H3 24px/700 → optional sub → price(s) clamp 30–38px with hairline → H4 extras label → `dl` name/value rows; cards are a CSS subgrid so price hairlines align in the 3-up row. Below, two white cards in a 440px auto-fit split: Registration & uniform (Registration Fee $500 with "Includes 2 AKC T-shirts" as a second `dd`, Additional T-shirts $100 each; Uniform Bottoms — Charran's Bookstore (corrected from the spec's Sharon's) — and Footwear sub-columns ≥520px) and Our school terms (`ol` of tint rows radius 14 with primary uppercase pills). Hyphenated words (One-on-One, T-shirts) kept whole via `KeepHyphenated`. Contrast min 5.16:1 (eyebrow on sand); navy card text ≥7.27:1. No overflow 320–1920px. Added `--shadow-featured` and `--border-on-dark` tokens, documented price and registration cards in design-system §6, fixed `SectionHeading` trailing space; copy in `src/lib/content/fees.ts`. Same commit carries the age-range update (Ages 3–10 → 2–12) in `navigation.ts` and docs. Follow-ups: currency still "$" — open question whether to show "TT$"; "$3,500–$4,000" wraps after the dash at 320px; no interactive elements yet, so focus ring untested here.
