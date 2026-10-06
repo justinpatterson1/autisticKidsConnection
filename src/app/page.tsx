@@ -8,6 +8,7 @@ import { OurGoal } from "@/components/home/our-goal";
 import { OurServices } from "@/components/home/our-services";
 import { SchoolHours } from "@/components/home/school-hours";
 import { SchoolPolicies } from "@/components/home/school-policies";
+import { Testimonials } from "@/components/home/testimonials";
 import { WhoWeSupport } from "@/components/home/who-we-support";
 import { CompactHeader } from "@/components/layout/compact-header";
 import { SiteHeader } from "@/components/layout/site-header";
@@ -34,6 +35,7 @@ export default function Home() {
         <SchoolHours />
         <SchoolPolicies />
         <MeetTheTeam />
+        <Testimonials />
       </main>
       <StickyMobileCta watchId="hero-actions" />
     </>

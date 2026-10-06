@@ -1,16 +1,29 @@
-# Current Feature
+# Current Feature: 12 · Testimonials (placeholder)
 
 ## Status
 
-Not Started
+In Progress
 
 ## Goals
 
-<!-- Goals will be populated when a feature is loaded -->
+- Primary-blue (#1A6E99) band (no anchor in spec) with `aria-labelledby` its H2; eyebrow "What families say" and white H2 "In their own words"
+- Two-column grid (one column on narrow screens) of white quote cards (radius 20, padding 36): quote 19px/500 navy (max 32em), caption "Parent name · Relationship to child"
+- Semantic quotes: each card a `figure` with `blockquote` + `figcaption` (name · relationship)
+- Content model in `src/lib/content/testimonials.ts` typed for genuine, consented quotes (quote, name, relationship) — ships with **no** entries; nothing invented
+- Gated by the existing `showPlaceholderSections` flag (`src/lib/content/site-flags.ts`): empty + flag off → renders nothing; empty + flag on → clearly marked mono `[Placeholder]` cards; real entries → real cards
+- Only genuine quotes with written consent ever ship
+- WCAG AA contrast (eyebrow included), visible #F5B020 focus ring, reduced motion respected
+- Responsive 320–1920px with no horizontal scroll (when shown)
 
 ## Notes
 
-<!-- Notes will be populated when a feature is loaded -->
+- Spec: `context/features/12-testimonials.md`; section 12 of 16; reuses the gating pattern and `font-mono` placeholder labels from 11 (Meet the Team)
+- **Contrast problem in the spec:** eyebrow sky-pale #C2E3F5 on primary #1A6E99 is only **4.18:1** — fails AA for 15px/600 text. White on primary is 5.62:1. Options: white eyebrow text with sky-pale rules, or darken the band — decide during build, PRD colour is a known AA miss
+- Navy quote on white card 12.85:1; muted caption on white 7.01:1
+- Eyebrow on primary needs a new tone (Eyebrow currently has light/dark tones only)
+- Background rhythm once visible: Policies (tint) → [Team white, hidden] → Testimonials primary → Our Vision white. With Team hidden, tint sits next to primary blue — two coloured sections back to back; acceptable only while both are placeholders, re-check at 13
+- Two-column grid: odd counts leave an orphan — centre it or let it span; keep cards equal height in a row
+- Consider a decorative sky quote glyph like the existing `QuoteBlock` (aria-hidden)
 
 ## History
 
