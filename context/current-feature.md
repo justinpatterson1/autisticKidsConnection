@@ -1,16 +1,36 @@
-# Current Feature
+# Current Feature: Our Goal
 
 ## Status
 
-Not Started
+In Progress
 
 ## Goals
 
-<!-- Goals will be populated when a feature is loaded -->
+- Full-width navy (`#1C3254`) band with a classroom photo behind at ≤12% opacity; section labelled by its H2 (`aria-labelledby`)
+- Centred content: eyebrow "Our goal" in sky-light (`#ABDAF2`); H2 "Our goal is not simply to help children complete schoolwork." in white; line "We want to help children become more:" in `#CAD6E4`
+- Wrapping row of five transparent pills — uppercase, 600, white, 0.08em tracking, `clamp(15px, 1.4vw, 18px)` — each with a 2px border in one logo colour:
+  - CONFIDENT (`#E2483A`)
+  - INDEPENDENT (`#F08A24`)
+  - COMMUNICATIVE (`#F5B020`)
+  - CAPABLE (`#3E9A5A`)
+  - CONNECTED (`#2E8FC7`)
+- Centred paragraph (max-width 44em) verbatim: "We celebrate progress, whether it is a first word, a new skill, completing an activity independently, making a friend, learning to write a name, or simply feeling comfortable enough to participate."
+- White text ≥4.5:1 on navy; photo never lowers body-text contrast
+- Pills wrap neatly on mobile
+- WCAG AA contrast, #F5B020 focus ring, reduced-motion respected
+- Responsive 320px–1920px with no horizontal scroll
 
 ## Notes
 
-<!-- Notes will be populated when a feature is loaded -->
+- Spec: `context/features/06-our-goal.md` — Section 6 of 16; no anchor
+- Background rhythm: follows white "Our services"; this is the navy band in the design-system rhythm (White → Tint → White → Navy → White …)
+- Accent colours are approved here only as pill borders (design system §2 "Goal pill border") — never as text or fills
+- Photo: decorative (`alt=""`, `aria-hidden`), ≤12% opacity over navy so text contrast stays ~12:1+; verify measured contrast with the photo present. Needs a classroom stand-in (Unsplash `[Placeholder]`) — could reuse an existing classroom image from `public/images/` rather than adding another
+- Eyebrow here is on dark: sky-light text and rule — the shared `Eyebrow` is primary-coloured, so it needs a dark/on-navy variant; centred variant (rules both sides) already exists
+- `SectionHeading` is navy text — needs a white/on-dark option
+- Pills: the words should read naturally to screen readers; uppercase via CSS (`uppercase`) with source text in sentence case ("Confident") avoids screen readers spelling them out. Render as a `ul`/`li` list continuing "We want to help children become more:"
+- Pill text 15–18px uppercase is "large-ish" but not large text by WCAG — white on navy is ~12.9:1 so fine; borders are decorative
+- Paragraph text colour not specified — `#CAD6E4` (text-on-dark-muted, ~9:1 on navy) fits the design system
 
 ## History
 
