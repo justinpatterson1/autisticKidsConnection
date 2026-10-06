@@ -1,4 +1,5 @@
 import { FamilyCommunity } from "@/components/home/family-community";
+import { FeesPackages } from "@/components/home/fees-packages";
 import { Hero } from "@/components/home/hero";
 import { KeyInfoStrip } from "@/components/home/key-info-strip";
 import { OurApproach } from "@/components/home/our-approach";
@@ -26,6 +27,7 @@ export default function Home() {
         <OurServices />
         <OurGoal />
         <FamilyCommunity />
+        <FeesPackages />
       </main>
       <StickyMobileCta watchId="hero-actions" />
     </>

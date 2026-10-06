@@ -21,6 +21,7 @@
   --border: #e0e8ef;
   --border-soft: #e3eaf0;
   --border-on-photo: rgba(255, 255, 255, 0.18);
+  --border-on-dark: #344c70;
 
   --logo-red: #e2483a;
   --logo-orange: #f08a24;
@@ -59,6 +60,7 @@
   --color-border: var(--border);
   --color-border-soft: var(--border-soft);
   --color-border-on-photo: var(--border-on-photo);
+  --color-border-on-dark: var(--border-on-dark);
   --color-logo-red: var(--logo-red);
   --color-logo-orange: var(--logo-orange);
   --color-logo-yellow: var(--logo-yellow);
@@ -77,6 +79,7 @@
   --shadow-card: 0 0 0 1px #e0e8ef;
   --shadow-card-hover:
     0 24px 48px -24px rgba(28, 50, 84, 0.3), 0 0 0 1px #e0e8ef;
+  --shadow-featured: 0 24px 60px -24px rgba(28, 50, 84, 0.5);
 }
 
 html {
