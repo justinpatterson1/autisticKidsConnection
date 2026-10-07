@@ -26,7 +26,7 @@ AKC is a school, not a clinic. It collaborates with **Neuroness Child Psychology
 
 ## Operating Context
 
-- Location: #2 Mc Inroy Street, Curepe, Trinidad & Tobago. Phone 371-7281. Email autistickidstutoring@gmail.com.
+- Location: #2 Mc Inroy Street, Curepe, Trinidad & Tobago. Phone 1-868-371-7281 (displayed with the +1-868 prefix everywhere). Email autistickidstutoring@gmail.com.
 - Ages: children aged 2–12 (updated by the school, 2026-10-06). Class size and how a first visit works are not yet supplied.
 - School day: early drop-off from 7:30 AM; regular hours 8:30 AM – 2:30 PM; pickup by 3:00 PM; pickup after 3:00 PM counts as aftercare with a $20 fee; latest pickup 3:30 PM.
 - Programs and packages: Preschool, Autism Support and Personal Tutor, plus registration, uniform and school terms. Prices exactly as supplied in `context/features/08-fees-packages.md`.

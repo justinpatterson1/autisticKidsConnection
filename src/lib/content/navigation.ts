@@ -5,7 +5,7 @@ export interface NavItem {
 
 export const PHONE = {
   label: "Call us",
-  display: "371-7281",
+  display: "1-868-371-7281",
   // Trinidad & Tobago is +1-868; the full number dials from any SIM.
   href: "tel:+18683717281",
 } as const;

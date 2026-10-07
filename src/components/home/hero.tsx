@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { MailIcon } from "@/components/icons/mail-icon";
 import { PhoneIcon } from "@/components/icons/phone-icon";
+import { Badge } from "@/components/ui/badge";
 import { HERO } from "@/lib/content/hero";
 import {
   ADDRESS,
@@ -37,15 +38,7 @@ export function Hero() {
         <div className="max-w-[820px]">
           {/* Says what AKC is and who it's for before the slogans. The descriptor only shows where the header's is hidden (<640px, 1180–1479px). */}
           <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
-            {HERO.badge && (
-              <p className="inline-flex items-center gap-2 rounded-full bg-sky px-3.5 py-1.5 text-sm font-semibold text-navy">
-                <span
-                  aria-hidden="true"
-                  className="size-2 rounded-full bg-navy"
-                />
-                {HERO.badge}
-              </p>
-            )}
+            {HERO.badge && <Badge>{HERO.badge}</Badge>}
             <p className="text-[15px] font-medium text-sky-light">
               <span className="sm:max-nav:hidden wide:hidden">
                 {DESCRIPTOR} ·{" "}

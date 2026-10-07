@@ -30,7 +30,9 @@ export function StickyMobileCta({ watchId }: { watchId: string }) {
           href={PHONE.href}
           className="inline-flex min-h-[52px] items-center justify-center rounded-full border-[1.5px] border-navy px-3 text-[15px] font-semibold whitespace-nowrap text-navy"
         >
-          Call {PHONE.display}
+          {/* Below 360px "Call" is visual-only-hidden so both pills fit; screen readers still hear it. */}
+          <span className="max-[359px]:sr-only">Call&nbsp;</span>
+          {PHONE.display}
         </a>
         <a
           href={REGISTER_HREF}

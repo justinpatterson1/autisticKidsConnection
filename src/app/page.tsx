@@ -1,3 +1,4 @@
+import { Contact } from "@/components/home/contact";
 import { FamilyCommunity } from "@/components/home/family-community";
 import { FeesPackages } from "@/components/home/fees-packages";
 import { Hero } from "@/components/home/hero";
@@ -38,6 +39,7 @@ export default function Home() {
         <MeetTheTeam />
         <Testimonials />
         <OurVision />
+        <Contact />
       </main>
       <StickyMobileCta watchId="hero-actions" />
     </>
