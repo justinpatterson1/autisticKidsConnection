@@ -13,6 +13,7 @@ import { SchoolPolicies } from "@/components/home/school-policies";
 import { Testimonials } from "@/components/home/testimonials";
 import { WhoWeSupport } from "@/components/home/who-we-support";
 import { CompactHeader } from "@/components/layout/compact-header";
+import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { StickyMobileCta } from "@/components/layout/sticky-mobile-cta";
 
@@ -21,11 +22,7 @@ export default function Home() {
     <>
       <SiteHeader />
       <CompactHeader watchId="site-header" />
-      {/* Bottom padding keeps the sticky mobile bar off the last content; it moves to the footer when that ships. */}
-      <main
-        id="main"
-        className="max-nav:pb-[calc(77px+env(safe-area-inset-bottom))]"
-      >
+      <main id="main">
         <Hero />
         <KeyInfoStrip />
         <WhoWeSupport />
@@ -41,6 +38,7 @@ export default function Home() {
         <OurVision />
         <Contact />
       </main>
+      <SiteFooter />
       <StickyMobileCta watchId="hero-actions" />
     </>
   );
