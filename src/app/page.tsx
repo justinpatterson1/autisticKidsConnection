@@ -6,6 +6,7 @@ import { MeetTheTeam } from "@/components/home/meet-the-team";
 import { OurApproach } from "@/components/home/our-approach";
 import { OurGoal } from "@/components/home/our-goal";
 import { OurServices } from "@/components/home/our-services";
+import { OurVision } from "@/components/home/our-vision";
 import { SchoolHours } from "@/components/home/school-hours";
 import { SchoolPolicies } from "@/components/home/school-policies";
 import { Testimonials } from "@/components/home/testimonials";
@@ -36,6 +37,7 @@ export default function Home() {
         <SchoolPolicies />
         <MeetTheTeam />
         <Testimonials />
+        <OurVision />
       </main>
       <StickyMobileCta watchId="hero-actions" />
     </>

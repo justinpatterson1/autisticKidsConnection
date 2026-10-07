@@ -103,7 +103,7 @@ Design system for the Autistic Kids Connection (AKC) website. Source of truth: `
 |---|---|---|---|---|---|
 | H1 (hero) | `clamp(38px, 5.4vw, 60px)` (34px below 360px) | 700 | 1.08 | -0.025em | One sentence per line (each a balanced block); "Understanding Differences." is ~13.45em, so the hero column is 820px. 1+1+1 lines from ~600px, 2+2+2 on phones. 38px overflows "Understanding" at 320px |
 | H2 (section) | `clamp(30px, 3.4vw, 46px)` | 700 | 1.15 | -0.02em | `text-wrap: balance` |
-| H2 large (CTA / Vision) | `clamp(30–34px, 3.8–4vw, 50–54px)` | 700 | 1.1–1.15 | -0.02em | |
+| H2 large (CTA / Vision) | `clamp(30–34px, 3.8–4vw, 50–54px)` | 700 | 1.1–1.15 | -0.02em | `SectionHeading size="large"`; Vision uses `clamp(30px, 4vw, 50px)`/1.12, balanced, one block per sentence |
 | H3 (card) | 19–24px | 600 (700 for price cards) | 1.3 | — | |
 | Eyebrow | 15px | 600 | — | — | Primary colour, preceded by 28×2px rule (centred variants have rules on both sides) |
 | Lead | `clamp(18px, 1.5vw, 20px)` | 400 | 1.65 | — | Hero / intro |

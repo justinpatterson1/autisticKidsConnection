@@ -1,16 +1,27 @@
-# Current Feature
+# Current Feature: 13 · Our Vision
 
 ## Status
 
-Not Started
+In Progress
 
 ## Goals
 
-<!-- Goals will be populated when a feature is loaded -->
+- White section (no anchor), section 13 of 16, `aria-labelledby` its H2; centred content, max-width 880px
+- Eyebrow "Our vision" (centred variant)
+- Vision paragraph (19–23px, muted), verbatim: "We envision a community where children with developmental differences are understood, supported and given meaningful opportunities to learn and grow."
+- H2 (30–50px / 700, `text-wrap: balance`), verbatim on two lines: "At AKC, we are building more than a classroom." then "We are building a community of understanding." with the second line in primary blue (#1A6E99)
+- Text balanced, no widows on desktop
+- WCAG AA contrast, visible #F5B020 focus ring, reduced motion respected
+- Responsive 320px–1920px with no horizontal scroll
 
 ## Notes
 
-<!-- Notes will be populated when a feature is loaded -->
+- Spec: `context/features/13-our-vision.md`. Design reference `AKC Homepage v4.dc.html`; styles per `context/design-system.md`.
+- Order per the build prompt: eyebrow → paragraph → H2 (the paragraph sits above the heading).
+- Copy verbatim in a new `src/lib/content/our-vision.ts`; reuse the `Eyebrow` / `SectionHeading` primitives where they fit.
+- No interactive elements, so the focus ring isn't exercised here; no motion planned.
+- Background rhythm: with 11 and 12 hidden (no consented content, flag off), this white section follows Policies (tint); with the placeholder flag on it follows Testimonials (primary). Re-check both, as flagged in the 11/12 follow-ups.
+- Don't invent facts or content beyond the supplied copy.
 
 ## History
 
