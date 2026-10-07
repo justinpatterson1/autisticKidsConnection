@@ -69,7 +69,7 @@ Design system for the Autistic Kids Connection (AKC) website. Source of truth: `
 | `border-on-dark` | `#344C70` | Inputs/dividers on navy |
 | `input-on-dark` | `#233B60` | Form field fill on navy |
 | `error-on-dark` | `#FFA597` | Form error text and invalid-field borders on navy (6.78:1 on navy, 5.94:1 on `input-on-dark`); logo red is only 3.2:1 there |
-| `footer-divider` | `#26406A` | Footer bottom rule |
+| `footer-divider` | `#26406A` | Footer bottom rule (exposed as a utility in 15) |
 
 ### Logo accent colours (use sparingly)
 | Token | Hex | Approved uses |
@@ -259,10 +259,10 @@ H2 → the progress line as the band's main statement (white, `clamp(21px, 2.3vw
 ≥1180px only: once the full header scrolls out of view (IntersectionObserver), a fixed navy bar (min-height 64px, raised shadow) shows the 60×40 mark, name (from 1480px only; below that the full 1-868 number needs the room, and the mark keeps its "Autistic Kids Connection, home" label), nav, phone and a 44px Register pill. Appears instantly (no motion). Nav labelled "Quick navigation".
 
 ### Sticky mobile CTA
-Fixed bottom bar (`< 1180px`), shown only once the hero buttons have scrolled out of view (IntersectionObserver), so the first screen never shows Register twice: white, top hairline, 12px padding (bottom respects `env(safe-area-inset-bottom)`), two pills in a `1fr 1.4fr` grid (max 640px wide) — outline navy "Call 1-868-371-7281" (`tel:`; "Call" is screen-reader-only below 360px so both pills fit) and primary "Register Now" (`#contact`), 52px tall, 15px/600. Content below it gets `77px + safe-area` bottom padding; until the footer ships that padding sits on `main`, then moves to the footer.
+Fixed bottom bar (`< 1180px`), shown only once the hero buttons have scrolled out of view (IntersectionObserver), so the first screen never shows Register twice: white, top hairline, 12px padding (bottom respects `env(safe-area-inset-bottom)`), two pills in a `1fr 1.4fr` grid (max 640px wide) — outline navy "Call 1-868-371-7281" (`tel:`; "Call" is screen-reader-only below 360px so both pills fit) and primary "Register Now" (`#contact`), 52px tall, 15px/600. The footer carries the `77px + safe-area` bottom padding that keeps content clear of it.
 
 ### Footer
-Navy-deep, 4 columns (`minmax(210px, 1fr)` auto-fit): Full logo on white panel + address/phone/email · School hours + social · Explore · Admissions. Bottom bar: © + Accessibility / Privacy Policy links.
+`<footer id="footer">` after `main`, navy-deep, labelled by a visually hidden H2 "Site footer"; padding top `clamp(56px, 7vw, 88px)`, bottom 32px (+ 77px + safe area below 1180px for the sticky bar). Columns 1 → 2 (640px) → 4 (1180px, first column 1.3fr), gap 40/48px — explicit rather than the PRD's `minmax(210px, 1fr)` auto-fit, which left Admissions alone on a row at ~1024px. Col 1: full logo 180px on a white panel (radius 20, padding 8; alt reads the logo text), then address (Maps), phone, email as 15px links with 18px sky-light icons on the first line. Col 2: H3 "School hours" + three lines (from `TIMES`), then social buttons (44px circles, `border-on-dark` ring, sky-light icon, `aria-label`) — none render while `SOCIAL_LINKS` is empty; `[Placeholder]` dashed circles with `SHOW_PLACEHOLDER_SECTIONS=true`. Cols 3–4: `nav` landmarks labelled by their H3 ("Explore", "Admissions"). Column titles 15px/600 sky-light (10.13:1); links 15px `text-on-dark-muted` (10.28:1), hover white, min-height 44px. Bottom bar: `footer-divider` hairline, "© {current year} Autistic Kids Connection" 14px muted (year read at build); Accessibility / Privacy Policy links render only once `LEGAL_LINKS` has entries.
 
 ---
 

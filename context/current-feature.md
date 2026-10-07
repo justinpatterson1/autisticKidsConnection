@@ -1,16 +1,33 @@
-# Current Feature
+# Current Feature: 15 · Footer
 
 ## Status
 
-Not Started
+In Progress
 
 ## Goals
 
-<!-- Goals will be populated when a feature is loaded -->
+- `<footer id="footer">` on navy-deep #142642, after `main`; labelled by a heading (visually hidden if no visible one fits)
+- Four auto-fit columns (`minmax(210px, 1fr)`) that reflow to 2 and 1 columns without overflow
+- Col 1: full logo `public/assets/akc-logo.png` at 180px wide on a white panel (radius 20, padding 8), with no repeated name or tagline text; then address, phone (`tel:`) and email (`mailto:`) links
+- Col 2: "School hours": 8:30 AM – 2:30 PM / Early drop-off from 7:30 AM / Latest pickup 3:30 PM; social icon buttons as 44px circles, each with an accessible label
+- Col 3: "Explore": Who We Support (#about), Our Approach (#approach), Our Services (#services), Family & Community (#families)
+- Col 4: "Admissions": Fees & Packages (#fees), School Policies (#policies), Register Now (#contact)
+- Bottom bar above a `footer-divider` #26406A hairline: "© 2026 Autistic Kids Connection" plus Accessibility and Privacy Policy links
+- Extra bottom padding (77px + safe area) while the sticky mobile CTA is shown (<1180px), moved here from `main`
+- Links meet AA contrast on navy-deep; 44px+ touch targets; visible #F5B020 focus ring; reduced motion respected
+- Responsive 320px–1920px with no horizontal scroll
 
 ## Notes
 
-<!-- Notes will be populated when a feature is loaded -->
+- Spec: `context/features/15-footer.md`; design-system Footer (§6), logo usage (line ~26: white panel required because the navy wordmark is unreadable on navy-deep), tokens `navy-deep`, `footer-divider`, `sky-light`, `text-on-dark-muted`.
+- Reuse constants: `ADDRESS`, `PHONE` (displays 1-868-371-7281), `EMAIL` from `navigation.ts`; times from `TIMES` in `src/lib/content/school-hours.ts` (NBSP before AM/PM). Anchors match `NAV_ITEMS`. Existing pin/phone/mail icons.
+- The sticky-bar padding currently sits on `main` in `src/app/page.tsx` (`max-nav:pb-[calc(77px+env(safe-area-inset-bottom))]`) with a comment saying it moves to the footer; move it and update the design-system sticky CTA note.
+- Landmark: `footer` is the contentinfo landmark. Column headings should be real headings (H2 under a hidden "Site footer"-style heading, or H2s directly); keep the outline sensible after the page's H2 sections.
+- **Open questions, don't invent:**
+  - No social media URLs exist anywhere in the repo or docs. Which networks and URLs? Until supplied, omit the icons or show `[Placeholder]` ones behind `SHOW_PLACEHOLDER_SECTIONS`, never dead `#` links.
+  - No Accessibility or Privacy Policy pages exist. Link to new pages, `mailto`, or omit until written?
+  - "© 2026" static per spec, or the current year computed at build?
+- Position 15 of 16 (16 · sticky mobile CTA already ships).
 
 ## History
 
