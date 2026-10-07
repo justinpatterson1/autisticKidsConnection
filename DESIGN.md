@@ -279,7 +279,7 @@ Soft-edged and steady: full pills that change colour on hover and never move.
 - **Shape:** full pill (`rounded.pill`), at least 52px tall (56px in the hero), 26–30px horizontal padding, 16px/600 text, with an optional `→` hidden from screen readers.
 - **Primary:** Wing Blue with white text, turning Deep Wing Blue on hover. For the main action ("Register Now").
 - **Secondary:** Lettering Navy with white text, turning Wing Blue on hover. For in-section navigation ("Explore our services").
-- **Outline:** transparent with a 1.5px Lettering Navy border and navy text, on white. Used for "Call 371-7281" in the sticky mobile bar.
+- **Outline:** transparent with a 1.5px Lettering Navy border and navy text, on white. Used for "Call 1-868-371-7281" in the sticky mobile bar.
 - **Ghost (on photo):** transparent with a 1.5px white border at 70% opacity and white text; on hover the fill becomes white at 12% opacity. Only over the darkened hero.
 - **Hover / Focus:** only the background colour transitions (0.2s), so the focus ring (3px Logo Yellow (#F5B020) outline at a 3px offset, with a 3px Lettering Navy ring filling the gap (`box-shadow: 0 0 0 3px`), so it clears 3:1 on white (yellow alone is ~1.9:1) and on navy) appears instantly. Transitions are off under reduced motion.
 
@@ -305,7 +305,7 @@ Uppercase white 15px/600 text led by a 10px solid dot in one logo colour. No bor
 - The 84×56 logo mark sits next to the name in type (18px/700 white) and the descriptor (12px/500 Light Sky).
 - No "Home" link; the logo returns to the top. Links are 15px/500 white; hover turns them Light Sky. The 2px inset Sky underline with `aria-current="page"` is reserved for a future scroll-aware nav and marks nothing today.
 - From 1180px, once the full header scrolls away, a compact fixed navy bar (64px) keeps the mark, nav, phone and Register in view. It appears without motion.
-- Below 1180px a fixed white bottom bar holds "Call 371-7281" and "Register Now" (52px pills, 1 : 1.4), so calling and enquiring stay in thumb reach on every phone. It appears once the hero's own buttons scroll away, so Register never shows twice.
+- Below 1180px a fixed white bottom bar holds "Call 1-868-371-7281" and "Register Now" (52px pills, 1 : 1.4), so calling and enquiring stay in thumb reach on every phone. It appears once the hero's own buttons scroll away, so Register never shows twice.
 - Below 1180px, a "Menu"/"Close" pill (`aria-expanded`) opens a white dropdown with 17px navy links, hairline dividers and a full-width primary button. Opening it moves focus to the first link; Escape closes it and returns focus to the toggle; a tap or click outside the toggle and panel closes it.
 - A skip link is the first thing focusable.
 

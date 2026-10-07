@@ -23,6 +23,8 @@
   --border-tint: #d3e5f1;
   --border-on-photo: rgba(255, 255, 255, 0.18);
   --border-on-dark: #344c70;
+  --input-on-dark: #233b60;
+  --error-on-dark: #ffa597;
 
   --logo-red: #e2483a;
   --logo-orange: #f08a24;
@@ -63,6 +65,8 @@
   --color-border-tint: var(--border-tint);
   --color-border-on-photo: var(--border-on-photo);
   --color-border-on-dark: var(--border-on-dark);
+  --color-input-on-dark: var(--input-on-dark);
+  --color-error-on-dark: var(--error-on-dark);
   --color-logo-red: var(--logo-red);
   --color-logo-orange: var(--logo-orange);
   --color-logo-yellow: var(--logo-yellow);

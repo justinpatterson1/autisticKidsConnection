@@ -1,16 +1,34 @@
-# Current Feature
+# Current Feature: 14 · Come Grow With Us — Contact & Enquiry
 
 ## Status
 
-Not Started
+In Progress
 
 ## Goals
 
-<!-- Goals will be populated when a feature is loaded -->
+- `#contact` section on white, section 14 of 16, `aria-labelledby` its H2; two-column split that stacks on mobile
+- Left column: "Now registering" badge; H2 "Come grow with us" (34–54px, large H2); line "Every child has potential. Our job is to help them discover it."
+- Three tint contact rows (radius 16, padding 18/20, 48px solid blue icon circles, label 14px muted + value 17px/600): Visit us — "#2 Mc Inroy Street, Curepe, Trinidad & Tobago"; Call us — "371-7281" (`tel:` link); Email — "autistickidstutoring@gmail.com" (`mailto:` link, wraps without overflow at 320px)
+- Right column: navy form card (radius 24), H3 "Registration enquiry" + "Tell us a little about your child and we'll be in touch."
+- Fields with visible labels (14px/500 above): Your name, Phone, Email, Child's age (2-col grid on wide screens); inputs ≥52px, radius 12, bg `input-on-dark` #233B60, border `border-on-dark` #344C70, white text
+- Fieldset "Package you're interested in": single-select 44px pill chips (Preschool / Autism Support / Personal Tutor / Not sure yet) with `aria-pressed`; selected = sky #8DCBEB fill + navy text
+- Optional textarea "Anything you'd like us to know?"; full-width sky submit "Send enquiry →"
+- Validation: name + (phone or email) required, with accessible inline errors
+- Submits to the school email via Resend; success (confirmation) and error states; honeypot spam protection; privacy note
+- WCAG AA contrast, 44px+ touch targets, visible #F5B020 focus ring, reduced motion respected
+- Responsive 320px–1920px with no horizontal scroll
 
 ## Notes
 
-<!-- Notes will be populated when a feature is loaded -->
+- Spec: `context/features/14-contact.md`. Design reference `AKC Homepage v4.dc.html`; styles per `context/design-system.md` (Contact row and Form (on navy) in §6, tokens `sky`, `input-on-dark`, `border-on-dark`, form radius 24).
+- Reuse existing constants in `src/lib/content/navigation.ts`: `PHONE` (href is `tel:+18683717281`, so the spec's `tel:3717281` is already covered by the full international number), `EMAIL`, `ADDRESS` (street + area = the spec's address; `mapHref` available for the Visit row). Existing phone/mail/pin icons in `src/components/icons/`. The "Now registering" badge already exists in the Hero; reuse or extract it.
+- Large H2: `SectionHeading size="large"` (added in 13).
+- **First interactive form on the site.** Keep the section a server component and push `"use client"` down to the form only. Submission should be a Server Action (or route handler) that validates again on the server; read the Next 16 docs in `node_modules/next/dist/docs/` before writing it.
+- **Resend is an external service.** Per the Vercel guidance, load the `vercel:marketplace` skill before scaffolding the integration. Needs a `RESEND_API_KEY` env var (none in the repo yet, and `resend` isn't installed) and a verified sending domain or Resend's test sender; the recipient is `EMAIL`. Decide how the form behaves when the key is missing in dev.
+- Honeypot: hidden field off-screen and out of the tab order (`tabindex=-1`, `autocomplete="off"`, `aria-hidden`); silently "succeed" when it's filled.
+- Open question: chip labels (Autism Support / Personal Tutor) don't match the Fees card names (Standard Support Package / Individualized One-on-One Support). Use the spec's labels verbatim unless told otherwise.
+- Privacy note copy isn't supplied; keep it short and factual (what's sent, to whom, why). Don't invent policies.
+- Don't invent facts or content beyond the supplied copy.
 
 ## History
 

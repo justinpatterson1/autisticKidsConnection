@@ -68,6 +68,7 @@ Design system for the Autistic Kids Connection (AKC) website. Source of truth: `
 | `border-tint` | `#D3E5F1` | Dividers inside tint panels, timeline rail |
 | `border-on-dark` | `#344C70` | Inputs/dividers on navy |
 | `input-on-dark` | `#233B60` | Form field fill on navy |
+| `error-on-dark` | `#FFA597` | Form error text and invalid-field borders on navy (6.78:1 on navy, 5.94:1 on `input-on-dark`); logo red is only 3.2:1 there |
 | `footer-divider` | `#26406A` | Footer bottom rule |
 
 ### Logo accent colours (use sparingly)
@@ -184,7 +185,7 @@ White → Tint (`#EEF5FA`) → White → Navy → White → Sand (`#F7F5F1`) →
 Arrows `→` are `aria-hidden`. Transitions: `background .2s`.
 
 ### Badge — "Now registering"
-Pill, bg `#8DCBEB`, navy text 14px/600, 8px navy dot, padding 6px 14px. Sits in a row with the hero descriptor line ("Homeschooling • Tutoring • Developmental Support · Curepe", 15px/500 Light Sky), shown below 640px and at 1180–1479px — exactly where the header descriptor is hidden — so the first screen always says what AKC is, once. "Ages 2–12 · Curepe" follows it at every width.
+Shared `Badge` (`src/components/ui/badge.tsx`), used in the Hero and Contact. Pill, bg `#8DCBEB`, navy text 14px/600, 8px navy dot, padding 6px 14px. Sits in a row with the hero descriptor line ("Homeschooling • Tutoring • Developmental Support · Curepe", 15px/500 Light Sky), shown below 640px and at 1180–1479px — exactly where the header descriptor is hidden — so the first screen always says what AKC is, once. "Ages 2–12 · Curepe" follows it at every width.
 
 ### Hero contact line
 From 640px, under the hero buttons: phone and email as text links (15px/500 Photo Mist, 18px Light Sky icons, 44px targets) — contact details a parent can copy. Hidden on phones, where the sticky bar carries Call.
@@ -238,7 +239,7 @@ On the primary band. White, radius 20, padding 28–36, no shadow. Primary quote
 Tint bg, radius 16, padding 18/20, 48px solid icon circle, label 14px muted + value 17px/600. Phone/email rows are `tel:`/`mailto:` links.
 
 ### Form (on navy)
-Radius 24. Labels 14px/500 above inputs. Inputs min-height 52px, radius 12, bg `#233B60`, border `#344C70`, white text. Package chips: 44px pills, `aria-pressed`, selected = sky fill + navy text.
+Radius 24, padding 24–44. H3 24px/600 white, intro 16px + required note 14px in `text-on-dark-muted`. Labels 14px/500 `text-on-dark-muted` above inputs, "(optional)" in 400. Inputs min-height 52px, radius 12, bg `#233B60`, border `#344C70`, white text; invalid fields get an `error-on-dark` border and a 14px `error-on-dark` message linked by `aria-describedby`. Fields: name, phone, email, child's age in a 2-col grid from 640px; then package chips; then the optional textarea. Package chips: 44px pills, `aria-pressed`, single-select (pressing the selected chip clears it), selected = sky fill + navy text. Submit: full-width 56px sky pill, navy text, hover sky-light; "Sending…" while pending. Validation (shared client/server in `src/lib/enquiry.ts`): name + (phone or email); the "phone or email" message is described by both fields; on a failed submit focus moves to the first invalid field and errors update as the parent types. Server errors show a bordered `role="alert"` box with phone/email fallbacks and keep the entered values; success replaces the form with a check, focused H3 and body. Honeypot field off-screen, `aria-hidden`, `tabindex=-1`. Privacy note 14px muted under the button. Sends via Resend from the `sendEnquiry` Server Action (`RESEND_API_KEY`, optional `RESEND_FROM` / `ENQUIRY_TO`).
 
 ### Goal labels
 On navy: uppercase white 15px/600 text (0.08em tracking), each led by a 10px solid dot in one logo colour (red, orange, yellow, green, blue). No border or pill shape, so they read as labels, not buttons. Wrap centred (gap 28/12px), max 560px until 1100px, one row above.
@@ -255,10 +256,10 @@ H2 → the progress line as the band's main statement (white, `clamp(21px, 2.3vw
 - Mobile: "Menu"/"Close" pill toggles a white drop-down list (17px links, 16px vertical padding, dividers) with full-width Register button. Opening it moves focus to the first link; Escape closes it and returns focus to the toggle; a tap or click outside the toggle and panel closes it.
 
 ### Compact header (desktop)
-≥1180px only: once the full header scrolls out of view (IntersectionObserver), a fixed navy bar (min-height 64px, raised shadow) shows the 60×40 mark, name, nav, phone and a 44px Register pill. Appears instantly (no motion). Nav labelled "Quick navigation".
+≥1180px only: once the full header scrolls out of view (IntersectionObserver), a fixed navy bar (min-height 64px, raised shadow) shows the 60×40 mark, name (from 1480px only; below that the full 1-868 number needs the room, and the mark keeps its "Autistic Kids Connection, home" label), nav, phone and a 44px Register pill. Appears instantly (no motion). Nav labelled "Quick navigation".
 
 ### Sticky mobile CTA
-Fixed bottom bar (`< 1180px`), shown only once the hero buttons have scrolled out of view (IntersectionObserver), so the first screen never shows Register twice: white, top hairline, 12px padding (bottom respects `env(safe-area-inset-bottom)`), two pills in a `1fr 1.4fr` grid (max 640px wide) — outline navy "Call 371-7281" (`tel:`) and primary "Register Now" (`#contact`), 52px tall, 15px/600. Content below it gets `77px + safe-area` bottom padding; until the footer ships that padding sits on `main`, then moves to the footer.
+Fixed bottom bar (`< 1180px`), shown only once the hero buttons have scrolled out of view (IntersectionObserver), so the first screen never shows Register twice: white, top hairline, 12px padding (bottom respects `env(safe-area-inset-bottom)`), two pills in a `1fr 1.4fr` grid (max 640px wide) — outline navy "Call 1-868-371-7281" (`tel:`; "Call" is screen-reader-only below 360px so both pills fit) and primary "Register Now" (`#contact`), 52px tall, 15px/600. Content below it gets `77px + safe-area` bottom padding; until the footer ships that padding sits on `main`, then moves to the footer.
 
 ### Footer
 Navy-deep, 4 columns (`minmax(210px, 1fr)` auto-fit): Full logo on white panel + address/phone/email · School hours + social · Explore · Admissions. Bottom bar: © + Accessibility / Privacy Policy links.

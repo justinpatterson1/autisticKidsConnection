@@ -41,7 +41,8 @@ export function CompactHeader({ watchId }: { watchId: string }) {
             height={40}
             className="h-10 w-[60px] object-contain"
           />
-          <span className="text-base font-bold whitespace-nowrap text-white">
+          {/* Name hides below 1480px so the full +1-868 number and Register fit; the link keeps its label. */}
+          <span className="hidden text-base font-bold whitespace-nowrap text-white wide:inline">
             Autistic Kids Connection
           </span>
         </a>
