@@ -7,6 +7,8 @@ export interface PolicyBlock {
 }
 
 export interface PolicyItem {
+  /** Stable slug: the item is reachable at #policy-{id}, which opens it. */
+  id: string;
   title: string;
   blocks: readonly PolicyBlock[];
 }
@@ -18,6 +20,7 @@ export const POLICIES_HEADER = {
 
 export const POLICIES: readonly PolicyItem[] = [
   {
+    id: "payment",
     title: "Payment policy",
     blocks: [
       {
@@ -41,6 +44,7 @@ export const POLICIES: readonly PolicyItem[] = [
     ],
   },
   {
+    id: "potty-care",
     title: "Potty care",
     blocks: [
       {
@@ -52,6 +56,7 @@ export const POLICIES: readonly PolicyItem[] = [
     ],
   },
   {
+    id: "property-damage",
     title: "Property damage policy",
     blocks: [
       {
@@ -66,8 +71,16 @@ export const POLICIES: readonly PolicyItem[] = [
   },
 ];
 
+/** Element id of a policy item; linking to `#${policyAnchor(id)}` opens that item. */
+export const policyAnchor = (id: string) => `policy-${id}`;
+
+/** Window event a link fires to open a policy item, even when the hash is already set. */
+export const OPEN_POLICY_EVENT = "akc:open-policy";
+
 // Reads `${lead}${rest}`; the lead is bold.
+// "considering" replaces AKC's supplied "choosing" (2026-10-08): policies now sit before the
+// enquiry form, where most readers haven't chosen yet. Pending AKC's sign-off before launch.
 export const POLICIES_THANK_YOU = {
   lead: "Thank you",
-  rest: " for choosing Autistic Kids Connection and for partnering with us in supporting your child's growth, development and independence.",
+  rest: " for considering Autistic Kids Connection and for partnering with us in supporting your child's growth, development and independence.",
 } as const;

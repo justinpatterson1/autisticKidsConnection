@@ -39,6 +39,14 @@ export const ENQUIRY_FORM = {
     notes: "Anything you'd like us to know?",
   },
   optional: "(optional)",
+  /** Example only (placeholders are not labels). */
+  agePlaceholder: "e.g. 4 years",
+  honeypotLabel: "Leave this field empty",
+  // Shown under a long field once it nears its limit, so pasted text is never cut silently.
+  charactersLeft: (left: number) =>
+    left === 1 ? "1 character left" : `${left.toLocaleString("en")} characters left`,
+  limitReached: (max: number) =>
+    `You've reached the ${max.toLocaleString("en")}-character limit.`,
   submit: "Send enquiry",
   pending: "Sending…",
   // Factual only: what is sent, to whom, and why.
@@ -47,6 +55,28 @@ export const ENQUIRY_FORM = {
   success: {
     heading: "Thank you, your enquiry has been sent.",
     body: `We'll be in touch soon. If it's urgent, call us on ${PHONE.display}.`,
+    // Echoes the details the parent gave, so a typo is caught now, not after a silent wait.
+    replyTo: "We'll reply to",
+    edit: "Spotted a mistake? Edit and send again",
   },
-  error: `Sorry, your enquiry couldn't be sent. Please try again, or call ${PHONE.display} or email ${EMAIL}.`,
+  // Rendered with the phone number and email as tappable links between these parts.
+  error: {
+    lead: "Sorry, your enquiry couldn't be sent. Please try again, or call",
+    or: "or email",
+  },
 } as const;
+
+export interface NextStep {
+  title: string;
+  body: string;
+}
+
+export const NEXT_STEPS_HEADING = "What happens next";
+
+// AKC's real enquiry-to-enrolment steps (e.g. reply time, visit, start), confirmed by
+// the school. While empty the block is hidden, or shown as [Placeholder] steps when
+// SHOW_PLACEHOLDER_SECTIONS=true. Never invent visits, timeframes or assessments.
+export const NEXT_STEPS: readonly NextStep[] = [];
+
+/** How many [Placeholder] steps the preview shows. */
+export const NEXT_STEPS_PLACEHOLDER_COUNT = 3;

@@ -53,6 +53,9 @@ export const SERVICES: readonly ServiceCard[] = [
   },
 ];
 
+/** Same term the Fees cards use for these extras. */
+export const EXTRACURRICULARS_HEADING = "Extracurricular activities";
+
 export const EXTRACURRICULARS: readonly ExtracurricularCard[] = [
   {
     title: "Music Program",

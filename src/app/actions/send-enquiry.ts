@@ -15,6 +15,14 @@ import {
 // it only delivers to the address that owns the Resend account.
 const DEFAULT_FROM = "AKC Website <onboarding@resend.dev>";
 
+/**
+ * Collapses whitespace and control characters (line breaks, tabs, NUL…) into single
+ * spaces, so a crafted name can't carry anything but plain text into the subject line.
+ */
+function toSubjectText(value: string) {
+  return value.replace(/[\s\p{Cc}]+/gu, " ").trim();
+}
+
 function formatEnquiry(values: EnquiryValues) {
   const line = (label: string, value: string) => `${label}: ${value || "—"}`;
   return [
@@ -52,10 +60,11 @@ export async function sendEnquiry(
 
   try {
     const { error } = await new Resend(apiKey).emails.send({
-      from: process.env.RESEND_FROM ?? DEFAULT_FROM,
-      to: process.env.ENQUIRY_TO ?? EMAIL,
+      // || not ??: a blank line copied from .env.example is "", which must fall back too.
+      from: process.env.RESEND_FROM || DEFAULT_FROM,
+      to: process.env.ENQUIRY_TO || EMAIL,
       replyTo: values.email || undefined,
-      subject: `Registration enquiry from ${values.name}`,
+      subject: `Registration enquiry from ${toSubjectText(values.name)}`,
       text: formatEnquiry(values),
     });
     if (error) {

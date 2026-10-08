@@ -4,15 +4,20 @@ import { useActionState, useEffect, useRef, useState } from "react";
 import { sendEnquiry } from "@/app/actions/send-enquiry";
 import { EnquiryField } from "@/components/home/enquiry-field";
 import { PackageChips } from "@/components/home/package-chips";
+import { BreakableEmail } from "@/components/ui/breakable-email";
 import { CheckMark } from "@/components/ui/check-mark";
 import { ENQUIRY_FORM } from "@/lib/content/contact";
+import { EMAIL, PHONE } from "@/lib/content/navigation";
 import {
   EMPTY_ENQUIRY,
+  ENQUIRY_PACKAGES,
   HONEYPOT_FIELD,
   MAX_LENGTH,
+  SELECT_PACKAGE_EVENT,
   hasErrors,
   validateEnquiry,
   type EnquiryErrors,
+  type EnquiryPackage,
   type EnquiryState,
   type EnquiryValues,
 } from "@/lib/enquiry";
@@ -34,14 +39,36 @@ export function EnquiryForm() {
   const [values, setValues] = useState<EnquiryValues>(EMPTY_ENQUIRY);
   // null until the first failed submit; after that, errors update as the parent types.
   const [clientErrors, setClientErrors] = useState<EnquiryErrors | null>(null);
+  // The success state the parent chose to edit. A resubmit yields a new state object, so
+  // the confirmation returns on its own without resetting anything.
+  const [editedFrom, setEditedFrom] = useState<EnquiryState | null>(null);
   const successRef = useRef<HTMLHeadingElement>(null);
 
+  const sent = state.status === "success" && state !== editedFrom;
   const errors =
     clientErrors ?? (state.status === "invalid" ? state.errors : {});
+  const replyTo = [values.email.trim(), values.phone.trim()].filter(Boolean);
 
+  // Keyed on the state object, not its status, so a second success also moves focus.
   useEffect(() => {
     if (state.status === "success") successRef.current?.focus();
-  }, [state.status]);
+  }, [state]);
+
+  useEffect(() => {
+    if (editedFrom) document.getElementById("enquiry-name")?.focus();
+  }, [editedFrom]);
+
+  // Other sections (e.g. "Not sure which package fits?") can pre-select a chip.
+  useEffect(() => {
+    function select(event: Event) {
+      const pkg = (event as CustomEvent<unknown>).detail;
+      if ((ENQUIRY_PACKAGES as readonly unknown[]).includes(pkg)) {
+        setValues((current) => ({ ...current, package: pkg as EnquiryPackage }));
+      }
+    }
+    window.addEventListener(SELECT_PACKAGE_EVENT, select);
+    return () => window.removeEventListener(SELECT_PACKAGE_EVENT, select);
+  }, []);
 
   function update<K extends keyof EnquiryValues>(field: K, value: EnquiryValues[K]) {
     const next = { ...values, [field]: value };
@@ -67,7 +94,7 @@ export function EnquiryForm() {
 
   return (
     <div className="rounded-[24px] bg-navy p-[clamp(24px,4vw,44px)] text-white">
-      {state.status === "success" ? (
+      {sent ? (
         <div className="flex flex-col items-start gap-4">
           <CheckMark />
           <h3
@@ -80,6 +107,25 @@ export function EnquiryForm() {
           <p className="text-base leading-[1.65] text-text-on-dark-muted">
             {ENQUIRY_FORM.success.body}
           </p>
+          {replyTo.length > 0 && (
+            <div className="w-full rounded-xl bg-input-on-dark px-5 py-4">
+              <p className="text-sm text-text-on-dark-muted">{ENQUIRY_FORM.success.replyTo}</p>
+              <ul className="mt-1 space-y-0.5 text-base font-semibold wrap-anywhere">
+                {replyTo.map((detail) => (
+                  <li key={detail}>
+                    <BreakableEmail email={detail} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          <button
+            type="button"
+            onClick={() => setEditedFrom(state)}
+            className="inline-flex min-h-11 items-center text-left text-base font-semibold text-sky-light underline decoration-sky/60 decoration-2 underline-offset-4 transition-[color] duration-200 hover:text-white"
+          >
+            {ENQUIRY_FORM.success.edit}
+          </button>
         </div>
       ) : (
         <>
@@ -100,6 +146,8 @@ export function EnquiryForm() {
             aria-labelledby="enquiry-heading"
             className="relative mt-8"
           >
+            {/* Name + age, then phone + email side by side so the shared "phone or email"
+                message sits directly under the two fields it is about. */}
             <div className="grid gap-x-4 gap-y-5 sm:grid-cols-2">
               <EnquiryField
                 id="enquiry-name"
@@ -110,6 +158,18 @@ export function EnquiryForm() {
                 onChange={(value) => update("name", value)}
                 maxLength={MAX_LENGTH.name}
                 error={errors.name}
+                required
+              />
+              <EnquiryField
+                id="enquiry-age"
+                name="childAge"
+                label={labels.childAge}
+                optional
+                placeholder={ENQUIRY_FORM.agePlaceholder}
+                autoComplete="off"
+                value={values.childAge}
+                onChange={(value) => update("childAge", value)}
+                maxLength={MAX_LENGTH.childAge}
               />
               <EnquiryField
                 id="enquiry-phone"
@@ -137,16 +197,6 @@ export function EnquiryForm() {
                 error={errors.email}
                 sharedErrorId={errors.contact ? CONTACT_ERROR_ID : undefined}
               />
-              <EnquiryField
-                id="enquiry-age"
-                name="childAge"
-                label={labels.childAge}
-                optional
-                autoComplete="off"
-                value={values.childAge}
-                onChange={(value) => update("childAge", value)}
-                maxLength={MAX_LENGTH.childAge}
-              />
               {errors.contact && (
                 <p
                   id={CONTACT_ERROR_ID}
@@ -173,6 +223,7 @@ export function EnquiryForm() {
               value={values.notes}
               onChange={(value) => update("notes", value)}
               maxLength={MAX_LENGTH.notes}
+              showCount
               className="mt-6"
             />
 
@@ -181,9 +232,9 @@ export function EnquiryForm() {
               aria-hidden="true"
               className="absolute -left-[9999px] size-px overflow-hidden"
             >
-              <label htmlFor="enquiry-company">Company</label>
+              <label htmlFor="enquiry-hp">{ENQUIRY_FORM.honeypotLabel}</label>
               <input
-                id="enquiry-company"
+                id="enquiry-hp"
                 name={HONEYPOT_FIELD}
                 type="text"
                 tabIndex={-1}
@@ -197,7 +248,15 @@ export function EnquiryForm() {
                 role="alert"
                 className="mt-6 rounded-xl border border-error-on-dark px-4 py-3 text-sm leading-[1.6] text-error-on-dark"
               >
-                {ENQUIRY_FORM.error}
+                {ENQUIRY_FORM.error.lead}{" "}
+                <a href={PHONE.href} className="font-semibold whitespace-nowrap underline underline-offset-2">
+                  {PHONE.display}
+                </a>{" "}
+                {ENQUIRY_FORM.error.or}{" "}
+                <a href={`mailto:${EMAIL}`} className="font-semibold underline underline-offset-2 [overflow-wrap:anywhere]">
+                  <BreakableEmail email={EMAIL} />
+                </a>
+                .
               </p>
             )}
 

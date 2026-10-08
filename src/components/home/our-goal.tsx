@@ -1,6 +1,8 @@
 import Image from "next/image";
+import { Eyebrow } from "@/components/ui/eyebrow";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { OUR_GOAL, type GoalColor } from "@/lib/content/our-goal";
+import { OUR_VISION } from "@/lib/content/our-vision";
 
 const DOTS: Record<GoalColor, string> = {
   red: "bg-logo-red",
@@ -61,6 +63,21 @@ export function OurGoal() {
             </li>
           ))}
         </ul>
+
+        {/* The vision closes the band instead of repeating it as its own section; an H3 sized
+            below the goal H2 so the long-term statement supports the peak, not competes with it. */}
+        <div className="mx-auto mt-[clamp(64px,8vw,96px)] max-w-[880px] border-t border-border-on-dark pt-[clamp(48px,6vw,72px)]">
+          <Eyebrow centered tone="dark">
+            {OUR_VISION.eyebrow}
+          </Eyebrow>
+          <p className="mx-auto mt-5 max-w-[36em] text-[clamp(17px,1.5vw,19px)] leading-[1.65] text-pretty text-text-on-dark-muted sm:text-balance">
+            {OUR_VISION.body}
+          </p>
+          <h3 className="mt-6 text-[clamp(24px,2.6vw,34px)] leading-[1.2] font-bold tracking-[-0.02em] text-balance text-white">
+            <span className="block">{OUR_VISION.heading[0]}</span>{" "}
+            <span className="block text-sky">{OUR_VISION.heading[1]}</span>
+          </h3>
+        </div>
       </div>
     </section>
   );

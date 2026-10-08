@@ -1,15 +1,15 @@
 interface SectionHeadingProps {
   id: string;
   tone?: "light" | "dark";
-  /** "large" is the closing-statement H2 (Vision, CTA) from the type scale. */
-  size?: "default" | "large";
+  /** "cta" is the type scale's large closing H2 (Contact, 34–54px). */
+  size?: "default" | "cta";
   className?: string;
   children: React.ReactNode;
 }
 
 const SIZES = {
   default: "text-[clamp(30px,3.4vw,46px)] leading-[1.15]",
-  large: "text-[clamp(30px,4vw,50px)] leading-[1.12]",
+  cta: "text-[clamp(34px,4vw,54px)] leading-[1.1]",
 } as const;
 
 export function SectionHeading({

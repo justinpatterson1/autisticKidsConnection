@@ -87,13 +87,18 @@
 
   --shadow-raised: 0 24px 60px -24px rgba(28, 50, 84, 0.35);
   --shadow-card: 0 0 0 1px #e0e8ef;
-  --shadow-card-hover:
-    0 24px 48px -24px rgba(28, 50, 84, 0.3), 0 0 0 1px #e0e8ef;
-  --shadow-featured: 0 24px 60px -24px rgba(28, 50, 84, 0.5);
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* From the nav breakpoint the 64px compact header is fixed over the page, so anchor
+   jumps (#fees, #contact…) stop 80px short of the top instead of hiding under it. */
+@media (min-width: 1180px) {
+  html {
+    scroll-padding-top: 80px;
+  }
 }
 
 body {

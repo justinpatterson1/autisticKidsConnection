@@ -30,8 +30,12 @@ export type EnquiryState =
   | { status: "error" }
   | { status: "success" };
 
-/** Off-screen field people never see; bots that fill every input get a silent "success". */
-export const HONEYPOT_FIELD = "company";
+/**
+ * Off-screen field people never see; bots that fill every input get a silent "success".
+ * Deliberately meaningless: a name like "company" can be autofilled by the browser,
+ * which would silently drop a real parent's enquiry.
+ */
+export const HONEYPOT_FIELD = "akc_hp";
 
 export const MAX_LENGTH: Record<EnquiryField, number> = {
   name: 100,
@@ -54,8 +58,9 @@ export const EMPTY_ENQUIRY: EnquiryValues = {
 const ERROR_MESSAGES = {
   name: "Please tell us your name.",
   contact: "Please give a phone number or an email address so we can reply.",
-  phone: "Please check the phone number.",
-  email: "Please check the email address.",
+  // Non-breaking spaces keep the example number on one line.
+  phone: "Please check the phone number. Use numbers only, for example 868 123 4567.",
+  email: "Please check the email address, for example name@example.com.",
 } as const;
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -105,3 +110,6 @@ export function readEnquiry(formData: FormData): EnquiryValues {
     notes: read("notes"),
   };
 }
+
+/** Window event other sections fire to pre-select a package in the enquiry form. */
+export const SELECT_PACKAGE_EVENT = "akc:select-package";

@@ -8,24 +8,29 @@ export const TIMES = {
 
 export type TimelineColor = "green" | "blue" | "yellow" | "purple";
 
+/** Picture for each schedule card, as on a child's visual schedule. */
+export type TimelineIcon = "sunrise" | "book" | "clock" | "home";
+
 export interface TimelineEntry {
   time: string;
   label: string;
   color: TimelineColor;
+  icon: TimelineIcon;
 }
 
 export const SCHOOL_HOURS = {
   eyebrow: "School hours & aftercare",
   heading: "A predictable school day",
   timeline: [
-    { time: TIMES.earlyDropOff, label: "Early drop-off", color: "green" },
-    { time: TIMES.schoolDay, label: "Regular school hours", color: "blue" },
+    { time: TIMES.earlyDropOff, label: "Early drop-off", color: "green", icon: "sunrise" },
+    { time: TIMES.schoolDay, label: "Regular school hours", color: "blue", icon: "book" },
     {
       time: TIMES.pickupDeadline,
       label: "Pickup deadline, aftercare after this time",
       color: "yellow",
+      icon: "clock",
     },
-    { time: TIMES.latestPickup, label: "Latest pickup time", color: "purple" },
+    { time: TIMES.latestPickup, label: "Latest pickup time", color: "purple", icon: "home" },
   ] satisfies readonly TimelineEntry[],
   aftercare: {
     title: "Aftercare",

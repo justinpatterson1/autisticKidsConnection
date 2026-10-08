@@ -70,6 +70,16 @@ typography:
     fontSize: "clamp(15px, 1.4vw, 18px)"
     fontWeight: 600
     letterSpacing: "0.08em"
+  title-small:
+    fontFamily: "Poppins, system-ui, sans-serif"
+    fontSize: "19px"
+    fontWeight: 600
+    lineHeight: 1.3
+  kicker:
+    fontFamily: "Poppins, system-ui, sans-serif"
+    fontSize: "13px"
+    fontWeight: 600
+    letterSpacing: "0.08em"
 rounded:
   input: "12px"
   callout: "16px"
@@ -155,7 +165,7 @@ components:
 
 AKC's site should feel like walking into a good specialist classroom: structured, quiet and well-lit, with everything in its place and nothing competing for attention. Two colours carry the page: a single blue taken from the logo's wing, and the deep navy of its lettering. Pale tint and warm sand surfaces give each section its own room. The six logo colours appear only in small, deliberate moments: the stripe at the top of the page, the goal-label dots and the focus ring. Warmth comes from candid photography and the school's own words, not from decoration.
 
-Density is generous. Sections breathe, with 80–120px of vertical padding, and content sits in a 1200px column. Headlines are bold and slightly tightened, and body text is unhurried. The rhythm alternates surfaces (white, tint, white, navy, white, sand…) so a parent always knows where one idea ends and the next begins. Motion is almost absent: colour changes and a 4px card lift are the whole vocabulary, and both switch off for people who ask for reduced motion.
+Density is generous. Sections breathe, with 80–120px of vertical padding, and content sits in a 1200px column. Headlines are bold and slightly tightened, and body text is unhurried. The rhythm alternates surfaces (white, tint, white, navy, white, sand…) so a parent always knows where one idea ends and the next begins. Motion is almost absent: colour changes are the whole vocabulary, and they switch off for people who ask for reduced motion. Nothing that isn't a link or button moves on hover.
 
 The system deliberately rejects two looks. It isn't clinical: no sterile hospital-white emptiness, medical imagery or clinical language. And it isn't salesy: no urgency banners, countdowns, hype or stock-photo smiles. It should read as credible and kind.
 
@@ -198,7 +208,7 @@ A calm, cool palette with one blue voice and one dark anchor, warmed by sand and
 ### Named Rules
 **The Two-Voice Rule.** Wing Blue and Lettering Navy carry every structural decision. If something needs emphasis, make it blue or navy, never a logo colour.
 
-**The No-Rainbow Rule.** Logo colours appear only in the 5px brand stripe, goal-label dots, timeline dots and the focus ring. They are never text, never large fills, and never a whole rainbow section.
+**The No-Rainbow Rule.** Logo colours appear only in the 5px brand stripe, goal-label dots, the four school-day schedule badges (56px, one colour each, the only logo-colour fills) and the focus ring. They are never text, never large fills, and never a whole rainbow section.
 
 **The Measured-Overlay Rule.** Text over photography sits on a navy overlay tuned until the worst point of the photo still gives at least 4.5:1. Swapping the photo means re-measuring.
 
@@ -235,17 +245,17 @@ A single centred column on a full-bleed band. Content is capped at 1200px; the h
 - **Grids** with fixed column counts use explicit breakpoints:
   - Services photo cards: 4 columns at 1100px, 2 at 600px, otherwise 1.
   - Icon cards: 3 columns at 900px, otherwise 1.
-  - The approach checklist fills down columns: 1, then 2 (5 + 4) at 640px, then 3 (3 + 3 + 3) at 1024px.
+  - The approach checklist is three labelled groups of three (Learning, Development, Wellbeing): stacked, then side by side at 1024px.
   - The key-info strip is one column, then three equal columns from 720px.
 - **Paired splits.** Families uses a 2×2 grid at 1024px: heading beside the photo (bottoms aligned), initiatives list beside the collaboration card. Who We Support puts its text first below 1024px and its collage on the left above.
 - **No lone items.** Grids never leave a single card alone on its last row. If a count can't divide evenly, the layout changes rather than leaving one behind.
 - **Breakpoints:**
-  - 640px (`sm`): small-screen simplifications, such as hiding the collage inset and showing the hero contact line; the approach checklist goes to two columns.
+  - 640px (`sm`): small-screen simplifications, such as hiding the collage inset and showing the hero contact line.
   - 720px: the key-info strip becomes three equal columns.
   - 1024px (`lg`): two-column splits, the approach header row and the three-column checklist.
   - 1180px (`nav`): inline navigation, the phone number and the Register button. The descriptor hides and the name may wrap to two lines.
   - 1480px (`wide`): adds the descriptor and the "Call us" label above the phone number.
-- **Surface rhythm:** White → Tint → White → Navy → White → Sand → White → Tint… Two tinted sections never sit back to back.
+- **Surface rhythm:** White → Tint → White → Sand (School hours) → Navy (Our goal, closing on the vision) → White → Sand (Fees) → White (Contact) → Tint (Policies). Two tinted sections never sit back to back, and no two neighbours share a surface.
 
 ## Elevation & Depth
 
@@ -254,7 +264,6 @@ Flat with gentle lift. Surfaces are flat by default and outlined with a 1px hair
 ### Shadow Vocabulary
 - **Raised** (`box-shadow: 0 24px 60px -24px rgba(28,50,84,.35)`): the key-info card overlapping the hero, the collage inset photo and the mobile menu dropdown. Anything that physically sits on top of another layer.
 - **Card rest** (`box-shadow: 0 0 0 1px #E0E8EF`): the hairline ring on white photo cards.
-- **Card hover** (`box-shadow: 0 24px 48px -24px rgba(28,50,84,.3), 0 0 0 1px #E0E8EF`): photo cards on hover, together with a 4px lift.
 
 ### Named Rules
 **The Earned-Shadow Rule.** A shadow means "this layer overlaps another" or "you are hovering this". Resting cards get a hairline, not a shadow.
@@ -290,9 +299,9 @@ A sky pill with 14px/600 navy text and an 8px navy dot ("Now registering"). Stat
 15px/600 text with a 28×2px rule before it, and a second rule after it when centred. Wing Blue on light surfaces, Light Sky on navy (`tone="dark"`). Only where it names something the heading doesn't; Our Goal has none because its H2 already begins "Our goal…".
 
 ### Cards / Containers
-- **Photo card:** white, 20px corners, hairline ring, 4:3 photo, 26/30px padding, 20px title, 15px Slate body. On hover it lifts 4px and gains the card-hover shadow over 0.25s; with reduced motion it doesn't move.
+- **Photo card:** white, 20px corners, hairline ring, 4:3 photo, 26/30px padding, 20px title, 15px Slate body. No hover effect: the cards aren't links, so lifting them would promise a click that does nothing.
 - **Feature card:** Warm Sand, 20px corners, 28px padding, a 60px solid Wing Blue icon circle beside the 20px title. Sits 56px below the photo cards so the two groups stay distinct.
-- **Checklist panel:** one white panel on tint, 20px corners, holding a hairline-divided list with a 26px solid blue check circle and 16px/500 navy text per row.
+- **Checklist panel:** one white panel on tint, 20px corners, holding three labelled groups of three items (44px Wing Blue icon badge with an 18px/600 navy label, then rows of a 26px solid blue check circle and 16px/500 navy text), divided by hairlines.
 - **Callout:** Morning Tint, 16px corners, 24/28px padding, 18–21px/600 navy text, for a single key statement.
 - **Quote block:** Lettering Navy, 20px corners, 28–44px padding, a Sky quote glyph, 19–24px/500 white text, marked up as `figure > blockquote`.
 - **Info strip:** a white card that overlaps the hero by 64–100px with the Raised shadow. Its items are separated by 1px Soft Hairline gaps; each has a 56px Strong Tint icon circle, a 14px Slate label and an 18px/600 value. The "Find us" value is the street address, underlined in Sky and linked to Maps.
@@ -305,7 +314,7 @@ Uppercase white 15px/600 text led by a 10px solid dot in one logo colour. No bor
 - The 84×56 logo mark sits next to the name in type (18px/700 white) and the descriptor (12px/500 Light Sky).
 - No "Home" link; the logo returns to the top. Links are 15px/500 white; hover turns them Light Sky. The 2px inset Sky underline with `aria-current="page"` is reserved for a future scroll-aware nav and marks nothing today.
 - From 1180px, once the full header scrolls away, a compact fixed navy bar (64px) keeps the mark, nav, phone and Register in view. It appears without motion.
-- Below 1180px a fixed white bottom bar holds "Call 1-868-371-7281" and "Register Now" (52px pills, 1 : 1.4), so calling and enquiring stay in thumb reach on every phone. It appears once the hero's own buttons scroll away, so Register never shows twice.
+- Below 1180px a fixed white bottom bar holds Menu, Call and Register Now (52px controls), so navigation, calling and enquiring stay in thumb reach on every phone. Menu opens a sheet of the six sections above the bar. The bar appears once the hero's own buttons scroll away (so Register never shows twice) and steps aside while the Contact section is on screen.
 - Below 1180px, a "Menu"/"Close" pill (`aria-expanded`) opens a white dropdown with 17px navy links, hairline dividers and a full-width primary button. Opening it moves focus to the first link; Escape closes it and returns focus to the toggle; a tap or click outside the toggle and panel closes it.
 - A skip link is the first thing focusable.
 
@@ -313,15 +322,15 @@ Uppercase white 15px/600 text led by a 10px solid dot in one logo colour. No bor
 
 ### Do:
 - **Do** let Wing Blue (#1A6E99) and Lettering Navy (#1C3254) carry structure and emphasis.
-- **Do** separate sections by surface tone, following the White → Tint → White → Navy → White → Sand rhythm.
+- **Do** separate sections by surface tone, following the White → Tint → White → Sand → Navy → White → Sand → White → Tint rhythm.
 - **Do** use the two-tone focus ring (3px Logo Yellow #F5B020 outline at a 3px offset over a 3px Lettering Navy ring) on everything interactive, and transition background colour only, so the ring appears instantly.
 - **Do** measure text contrast over photography at the photo's brightest point, and darken the overlay until it passes 4.5:1.
 - **Do** keep buttons as full pills at least 52px tall, and touch targets at 44px or more.
 - **Do** keep resting cards flat, using the hairline ring (0 0 0 1px #E0E8EF); save shadows for overlapping layers and hover.
-- **Do** switch off lift and smooth scrolling under `prefers-reduced-motion`.
+- **Do** switch off transitions and smooth scrolling under `prefers-reduced-motion`.
 
 ### Don't:
-- **Don't** use logo colours as text, large fills or whole sections. They belong only to the brand stripe, goal-label dots, timeline dots and the focus ring.
+- **Don't** use logo colours as text, large fills or whole sections. They belong only to the brand stripe, goal-label dots, the four school-day schedule badges (56px, one colour each, the only logo-colour fills) and the focus ring.
 - **Don't** make it feel clinical: no sterile hospital-white emptiness, medical imagery or clinical language.
 - **Don't** make it salesy: no urgency banners, countdowns, hype, or posed stock-photo smiles.
 - **Don't** use photos with children staring at the camera, medical settings, or visible signs or place names from somewhere else.

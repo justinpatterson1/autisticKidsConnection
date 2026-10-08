@@ -3,6 +3,7 @@ import { MailIcon } from "@/components/icons/mail-icon";
 import { PhoneIcon } from "@/components/icons/phone-icon";
 import { PinIcon } from "@/components/icons/pin-icon";
 import { SocialIcon } from "@/components/icons/social-icon";
+import { BreakableEmail } from "@/components/ui/breakable-email";
 import {
   FOOTER,
   LEGAL_LINKS,
@@ -128,7 +129,9 @@ export function SiteFooter() {
                     className={`flex min-h-11 items-start gap-3 py-2.5 text-[15px] leading-[1.5] ${LINK_COLOR}`}
                   >
                     <Icon className="mt-0.5 size-[18px] shrink-0 text-sky-light" />
-                    <span className="[overflow-wrap:anywhere]">{label}</span>
+                    <span className="[overflow-wrap:anywhere]">
+                      {href.startsWith("mailto:") ? <BreakableEmail email={label} /> : label}
+                    </span>
                   </a>
                 </li>
               ))}
