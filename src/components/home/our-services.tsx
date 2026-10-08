@@ -6,6 +6,7 @@ import { Eyebrow } from "@/components/ui/eyebrow";
 import { SectionHeading } from "@/components/ui/section-heading";
 import {
   EXTRACURRICULARS,
+  EXTRACURRICULARS_HEADING,
   SERVICES,
   SERVICES_HEADER,
   type ExtracurricularIcon,
@@ -36,7 +37,7 @@ export function OurServices() {
           {SERVICES.map((service) => (
             <li
               key={service.title}
-              className="overflow-hidden rounded-[20px] bg-white shadow-card transition-[translate,box-shadow] duration-250 hover:-translate-y-1 hover:shadow-card-hover motion-reduce:hover:translate-y-0"
+              className="overflow-hidden rounded-[20px] bg-white shadow-card"
             >
               <div className="relative aspect-[4/3]">
                 <Image
@@ -59,7 +60,17 @@ export function OurServices() {
           ))}
         </ul>
 
-        <ul className="mt-14 grid gap-6 min-[900px]:grid-cols-3">
+        {/* Names the second row so it reads as extras alongside the four core services. */}
+        <h3
+          id="extracurriculars-heading"
+          className="mt-16 text-xl leading-[1.3] font-semibold text-navy"
+        >
+          {EXTRACURRICULARS_HEADING}
+        </h3>
+        <ul
+          aria-labelledby="extracurriculars-heading"
+          className="mt-5 grid gap-6 min-[900px]:grid-cols-3"
+        >
           {EXTRACURRICULARS.map((card) => {
             const Icon = ICONS[card.icon];
             return (
@@ -68,9 +79,9 @@ export function OurServices() {
                   <span className="flex size-[60px] shrink-0 items-center justify-center rounded-full bg-primary text-white">
                     <Icon className="size-[26px]" />
                   </span>
-                  <h3 className="text-xl leading-[1.3] font-semibold text-navy">
+                  <h4 className="text-xl leading-[1.3] font-semibold text-navy">
                     {card.title}
-                  </h3>
+                  </h4>
                 </div>
                 {card.paragraphs.map((paragraph) => (
                   <p

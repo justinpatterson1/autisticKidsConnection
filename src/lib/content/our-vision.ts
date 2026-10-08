@@ -1,7 +1,7 @@
 export interface OurVisionContent {
   eyebrow: string;
   body: string;
-  /** Two sentences, one per line; the second is set in primary blue. */
+  /** Two sentences, one per line; the second is set in sky. Closes the Our Goal band. */
   heading: readonly [string, string];
 }
 

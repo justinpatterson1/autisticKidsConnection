@@ -1,7 +1,12 @@
 "use client";
 
-import { useId, useState } from "react";
-import type { PolicyBlock, PolicyItem } from "@/lib/content/policies";
+import { useEffect, useId, useState } from "react";
+import {
+  OPEN_POLICY_EVENT,
+  policyAnchor,
+  type PolicyBlock,
+  type PolicyItem,
+} from "@/lib/content/policies";
 
 /** Plus that becomes a minus: the vertical bar hides when open. */
 function ToggleIcon({ open }: { open: boolean }) {
@@ -45,9 +50,28 @@ function Block({ block }: { block: PolicyBlock }) {
 }
 
 export function PolicyAccordion({ items }: { items: readonly PolicyItem[] }) {
-  // One item open at a time; the first starts open (also in the server render).
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  // One item open at a time. All start closed so the section doesn't open on a wall of
+  // payment rules, unless a link (e.g. "Read the full payment policy") asks for one.
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
   const baseId = useId();
+
+  useEffect(() => {
+    function open(id: unknown) {
+      const index = items.findIndex((item) => item.id === id);
+      if (index !== -1) setOpenIndex(index);
+    }
+    const fromHash = () =>
+      open(items.find((item) => location.hash === `#${policyAnchor(item.id)}`)?.id);
+    const fromEvent = (event: Event) => open((event as CustomEvent<unknown>).detail);
+
+    fromHash();
+    window.addEventListener("hashchange", fromHash);
+    window.addEventListener(OPEN_POLICY_EVENT, fromEvent);
+    return () => {
+      window.removeEventListener("hashchange", fromHash);
+      window.removeEventListener(OPEN_POLICY_EVENT, fromEvent);
+    };
+  }, [items]);
 
   return (
     <div className="space-y-3">
@@ -57,7 +81,11 @@ export function PolicyAccordion({ items }: { items: readonly PolicyItem[] }) {
         const panelId = `${baseId}-panel-${index}`;
 
         return (
-          <div key={item.title} className="rounded-[18px] bg-white shadow-card">
+          <div
+            key={item.id}
+            id={policyAnchor(item.id)}
+            className="rounded-[18px] bg-white shadow-card"
+          >
             <h3>
               <button
                 type="button"

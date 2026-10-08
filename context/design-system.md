@@ -104,7 +104,7 @@ Design system for the Autistic Kids Connection (AKC) website. Source of truth: `
 |---|---|---|---|---|---|
 | H1 (hero) | `clamp(38px, 5.4vw, 60px)` (34px below 360px) | 700 | 1.08 | -0.025em | One sentence per line (each a balanced block); "Understanding Differences." is ~13.45em, so the hero column is 820px. 1+1+1 lines from ~600px, 2+2+2 on phones. 38px overflows "Understanding" at 320px |
 | H2 (section) | `clamp(30px, 3.4vw, 46px)` | 700 | 1.15 | -0.02em | `text-wrap: balance` |
-| H2 large (CTA / Vision) | `clamp(30–34px, 3.8–4vw, 50–54px)` | 700 | 1.1–1.15 | -0.02em | `SectionHeading size="large"`; Vision uses `clamp(30px, 4vw, 50px)`/1.12, balanced, one block per sentence |
+| H2 large (Contact CTA) | `clamp(34px, 4vw, 54px)` | 700 | 1.1 | -0.02em | `SectionHeading size="cta"` (Contact only, per PRD 14). Vision is now an H3 inside Our goal |
 | H3 (card) | 19–24px | 600 (700 for price cards) | 1.3 | — | |
 | Eyebrow | 15px | 600 | — | — | Primary colour, preceded by 28×2px rule (centred variants have rules on both sides) |
 | Lead | `clamp(18px, 1.5vw, 20px)` | 400 | 1.65 | — | Hero / intro |
@@ -126,6 +126,7 @@ Design system for the Autistic Kids Connection (AKC) website. Source of truth: `
 - **Container:** `max-width: 1200px` content; `1320px` for header/hero.
 - **Gutters:** `padding-inline: clamp(20px, 4vw, 48px)`.
 - **Section padding:** `clamp(80px, 10vw, 120px)` vertical (hero/feature bands up to 128px).
+- **Anchor offset:** from 1180px `html { scroll-padding-top: 80px }` so `#fees`, `#contact` etc. land clear of the 64px fixed compact header. Below 1180px nothing is fixed at the top, so no offset.
 - **Heading → content gap:** 48–56px.
 - **Grid gaps:** 24px cards, 40–88px two-column splits.
 - **Spacing roles:** eyebrow → H2 16px · H2 → body 20px · header → content 56px · label → list 12px · between groups within a section 48–56px (always ≥2× the gap inside a group).
@@ -133,7 +134,7 @@ Design system for the Autistic Kids Connection (AKC) website. Source of truth: `
 - **Spacing scale (px):** 4, 6, 8, 10, 12, 14, 16, 18, 20, 24, 28, 32, 36, 40, 48, 56, 72, 80, 96, 120.
 
 ### Section background rhythm
-White → Tint (`#EEF5FA`) → White → Navy → White → Sand (`#F7F5F1`) → White → Tint → White … Footer navy-deep. Never put two tinted sections back to back.
+Section order follows a parent's questions: Hero · Key info · Who we support (white) · Our approach (tint) · Our services (white) · School hours `#hours` (sand) · Our goal + vision (navy) · [Team (white) · Testimonials (primary), placeholder-only] · Family & community (white) · Fees (sand) · Contact (white) · School policies (tint) · Footer navy-deep. No two neighbours share a surface, with or without the placeholder sections. Never put two tinted sections back to back.
 
 ### Breakpoints (JS-driven)
 | Name | Width | Changes |
@@ -154,7 +155,6 @@ White → Tint (`#EEF5FA`) → White → Navy → White → Sand (`#F7F5F1`) →
 - Raised strip: `0 24px 60px -24px rgba(28,50,84,.35)`
 - Card hover: `0 24px 48px -24px rgba(28,50,84,.3)` + `0 0 0 1px #E0E8EF`
 - Card rest: `0 0 0 1px #E0E8EF` (hairline, not a border)
-- Featured price card: `0 24px 60px -24px rgba(28,50,84,.5)`
 
 **Photography**
 - Candid, natural light, warm and muted; educators engaging with children at eye level; children absorbed in activities, not posing.
@@ -197,13 +197,13 @@ From 640px, under the hero buttons: phone and email as text links (15px/500 Phot
 White card overlapping the hero by `clamp(64px, 7vw, 100px)`, radius 20, raised shadow. Items separated by 1px gaps (container bg `#E3EAF0`): one column below 720px, three equal columns from 720px (icon stacked above label/value until 1024px, beside it from 1024px). Icon circle + label (14px muted) + value (18px/600).
 
 ### Service card (photo)
-White, radius 20, hairline ring, `4:3` image, padding 26/30. Hover lifts `translateY(-4px)` + shadow.
+White, radius 20, hairline ring, `4:3` image, padding 26/30. No hover effect (not links). Below the four photo cards an H3 "Extracurricular activities" (20px/600 navy, 64px above) labels the three sand icon cards, whose titles are H4s.
 
 ### Feature card (icon)
 Sand bg, radius 20, padding 28, solid icon circle 60px inline with the H3 (gap 16), H3 20px, body 15px. In Services the icon-card row sits 56px below the photo cards so the two groups read separately; photo-card titles reserve two lines in the 4-up row so bodies align.
 
 ### Checklist panel
-One white panel on tint (radius 20, padding 8/24, 8/32 ≥640px) holding a divided list: hairline `#E0E8EF` rows, 16px vertical padding, checkmark + 16px/500 text. Fills down columns — 1 column, 2 (5 + 4) ≥640px, 3 (3 + 3 + 3) ≥1024px, 40px column gap — with the hairline dropped on each column's last row.
+One white panel on tint (radius 20) holding the nine supplied items in three labelled groups of three: Learning · Development · Wellbeing (our grouping, items verbatim). Each group: a 44px primary badge with a 22px line icon (book · sprout · heart, echoing the visual schedule) beside an 18px/600 navy H3, then a list of checkmark + 16px/500 navy rows 14px apart; its `ul` is labelled by the H3. Groups stack with hairline dividers (padding 24px block, 24/32px inline) and sit side by side from 1024px with vertical hairlines (32px inline padding).
 
 ### Quote block
 Navy bg, radius 20, padding 28–44px, sky quote glyph, 19–24px/500 white text.
@@ -212,7 +212,7 @@ Navy bg, radius 20, padding 28–44px, sky quote glyph, 19–24px/500 white text
 Tint bg, radius 16, padding 24/28, 18–21px/600 navy text — for single key statements.
 
 ### Price card
-Radius 24, padding 28–36. Kicker → name → optional sub → price(s) with hairline below → extras label → extras list (name left, price right). **Featured** (Autism Support): navy bg, white text, sky kicker, stronger shadow (`--shadow-featured`), hairlines `#344C70`. Kicker 13px/600 uppercase, name H3 24px/700 (hyphenated words kept whole), extras label H4 15px/600, extras rows 15px with hairline dividers. In the 3-up row the cards are a CSS subgrid (header · prices · extras), so the price hairlines line up across cards.
+Radius 24, padding 28–36. Kicker → name → optional sub → price(s) with hairline below → extras label → extras list (name left, price right). All three cards are white with equal weight (the former navy "featured" Autism Support card was dropped after the 2026-10-07 critique: the packages suit different children, they are not upgrade tiers). Extras rows share one order (Music · Physical Education (PE) · Potty Care) so cards compare row by row; "Education (PE)" is joined by an NBSP. Kicker 13px/600 uppercase, name H3 24px/700 (hyphenated words kept whole), extras label H4 15px/600, extras rows 15px with hairline dividers. In the 3-up row the cards are a CSS subgrid (header · prices · extras), so the price hairlines line up across cards. Under the cards, centred 17px muted "Not sure which package fits your child?" + a 44px primary text link "Tell us about your child →" (`PackagePromptLink`) that jumps to `#contact` and pre-selects the "Not sure yet" chip via the `akc:select-package` window event (plain anchor without JS).
 
 ### Registration card
 White, radius 24, hairline ring, padding 28–36. H3 20px/600, then a divided name/value list (registration fee 20px/700 with its "Includes…" note beneath; extra T-shirts) and two H4 sub-columns ≥520px (Uniform Bottoms · Footwear, 6px blue dots). Sits beside the terms card in a two-column split.
@@ -220,14 +220,14 @@ White, radius 24, hairline ring, padding 28–36. H3 20px/600, then a divided na
 ### Term row
 Tint bg, radius 14, primary pill label ("TERM 1") + 16px/500 date range.
 
-### Timeline
-Vertical 2px `#D3E5F1` rail; 24px coloured dots with 6px white halo; time 20px/700, label 16px muted. Ordered list, 32px between stops; the rail is drawn per stop down to the next dot's centre, so it ends at the last dot. Times use non-breaking spaces before AM/PM and stay on one line at 320px.
+### Visual schedule (School hours)
+The school day as the picture-card sequence AKC teaches with (the site's signature motif): an `ol` of four white cards (radius 20, hairline ring, padding 24) on sand, each with a 56px logo-colour badge holding a 26px line icon — 7:30 AM sunrise (green), 8:30 AM – 2:30 PM book (primary), 3:00 PM clock (yellow, **navy** icon since white on yellow is ~1.9:1), 3:30 PM home (purple) — then the time `clamp(20px, 1.9vw, 26px)`/700 navy and the label 16px muted. One column below 1024px (badge beside text, 16px gaps), four columns from 1024px (badge above text, 24px gaps). A 2px `sky` rail joins each card to the next at the badge centre (52px in), spanning exactly the gap. Badges are decorative (`aria-hidden`); order is carried by the `ol`.
 
 ### Rules panel (Aftercare)
-Tint bg, radius 20, padding 24–32. H3 20px/600, then a dotted list (8px primary dots, 16px navy text, 12px between items) then a `#D3E5F1` divider and a 15px muted footnote below it (24px above the rule, 20px below). At lg it sits beside the timeline, level with the first stop.
+Full-width white card under the schedule (radius 20, hairline ring, padding 24–32). H3 20px/600, dotted rules (8px primary dots, 16px navy, 12px apart) and a 15px muted footnote. Below 1024px one column with a hairline above the footnote; from 1024px title + footnote on the left, rules on the right (1 : 2).
 
 ### Accordion (policies)
-White, radius 18, hairline ring, 12px between items, max-width 900px. Each header is an H3 wrapping a full-width button (min-height 72px, 18px/600 navy, padding 20–28px) with `aria-expanded`/`aria-controls`; `+`/`−` in a 36px circle (tint→primary when open, background fades .2s). Panels are `role="region"` labelled by their button and use `hidden` when closed, so their text leaves the tab order. One item open at a time — clicking the open one closes it (all closed allowed); first item open by default, including in the server render. Open/close is instant (no height animation). Panel text 16px/1.7 muted; sub-headings H4 16px/600 navy; rules as 8px-dot lists.
+White, radius 18, hairline ring, 12px between items, max-width 900px. Each header is an H3 wrapping a full-width button (min-height 72px, 18px/600 navy, padding 20–28px) with `aria-expanded`/`aria-controls`; `+`/`−` in a 36px circle (tint→primary when open, background fades .2s). Panels are `role="region"` labelled by their button and use `hidden` when closed, so their text leaves the tab order. One item open at a time — clicking the open one closes it (all closed allowed); all items closed by default (it sits after Contact as reference, so it never opens on payment rules). Open/close is instant (no height animation). Panel text 16px/1.7 muted; sub-headings H4 16px/600 navy; rules as 8px-dot lists.
 
 ### Team card (hidden until content exists)
 White, radius 20, hairline ring, 1:1 portrait, body padding 24 (28 bottom): name H3 19px/600 navy, role 15px/500 primary, description 15px muted, optional qualification 14px muted above a hairline. Grid `repeat(auto-fit, minmax(min(100%, 250px), 280px))`, centred, gap 24 — tracks cap at 280px so one or two staff never stretch into giant portraits. Renders only when `TEAM` has real entries; while empty it is omitted, or shown as mono `[Placeholder]` cards (tint square where the photo goes, no names or faces) when `SHOW_PLACEHOLDER_SECTIONS=true` (`showPlaceholderSections` in `src/lib/content/site-flags.ts`).
@@ -235,11 +235,17 @@ White, radius 20, hairline ring, 1:1 portrait, body padding 24 (28 bottom): name
 ### Testimonial card (hidden until content exists)
 On the primary band. White, radius 20, padding 28–36, no shadow. Primary quote glyph (decorative), quote 19px/500 navy, line-height 1.5, then a hairline and caption 15px muted with the name 600 navy: "Name · Relationship". Marked up as `figure` > `blockquote` + `figcaption`. One column below 768px, two from 768px with equal-height rows; an odd last card centres at one column's width. Same gating as the team card: `TESTIMONIALS` ships empty — genuine, consented quotes only — so the band is omitted, or shown as mono `[Placeholder]` cards when `SHOW_PLACEHOLDER_SECTIONS=true`.
 
+### What happens next (Contact)
+Under the contact rows in the left column: H3 20px/600 navy, then an `ol` of steps with 32px outlined primary number circles (numbers carry the order), title 17px/600 navy, body 15px muted. `NEXT_STEPS` in `src/lib/content/contact.ts` ships empty until AKC confirms its enrolment steps, so the block is hidden; `[Placeholder]` mono steps show with `SHOW_PLACEHOLDER_SECTIONS=true`.
+
+### Vision (inside Our goal)
+No longer its own section: it closes the navy Our goal band below a `border-on-dark` hairline (64–96px above, 48–72px below): centred dark eyebrow "Our vision", 17–19px `text-on-dark-muted` paragraph, then an H3 `clamp(24px, 2.6vw, 34px)`/700 with the second sentence in sky (white 8.72:1 / sky 7.27:1 on navy). Sized below the goal H2 so it supports the peak.
+
 ### Contact row
 Tint bg, radius 16, padding 18/20, 48px solid icon circle, label 14px muted + value 17px/600. Phone/email rows are `tel:`/`mailto:` links.
 
 ### Form (on navy)
-Radius 24, padding 24–44. H3 24px/600 white, intro 16px + required note 14px in `text-on-dark-muted`. Labels 14px/500 `text-on-dark-muted` above inputs, "(optional)" in 400. Inputs min-height 52px, radius 12, bg `#233B60`, border `#344C70`, white text; invalid fields get an `error-on-dark` border and a 14px `error-on-dark` message linked by `aria-describedby`. Fields: name, phone, email, child's age in a 2-col grid from 640px; then package chips; then the optional textarea. Package chips: 44px pills, `aria-pressed`, single-select (pressing the selected chip clears it), selected = sky fill + navy text. Submit: full-width 56px sky pill, navy text, hover sky-light; "Sending…" while pending. Validation (shared client/server in `src/lib/enquiry.ts`): name + (phone or email); the "phone or email" message is described by both fields; on a failed submit focus moves to the first invalid field and errors update as the parent types. Server errors show a bordered `role="alert"` box with phone/email fallbacks and keep the entered values; success replaces the form with a check, focused H3 and body. Honeypot field off-screen, `aria-hidden`, `tabindex=-1`. Privacy note 14px muted under the button. Sends via Resend from the `sendEnquiry` Server Action (`RESEND_API_KEY`, optional `RESEND_FROM` / `ENQUIRY_TO`).
+Radius 24, padding 24–44. H3 24px/600 white, intro 16px + required note 14px in `text-on-dark-muted`. Labels 14px/500 `text-on-dark-muted` above inputs, "(optional)" in 400. Inputs min-height 52px, radius 12, bg `#233B60`, border `#344C70`, white text; invalid fields get an `error-on-dark` border and a 14px `error-on-dark` message linked by `aria-describedby`. Fields: name + child's age, then phone + email (2-col grid from 640px), so the shared "phone or email" error sits directly under the pair; child's age shows the example placeholder "e.g. 4 years" (`text-on-dark-muted` at 75%, 5.05:1 on the input fill); only name is `aria-required` (phone and email are one-of); then package chips; then the optional textarea. Package chips: 44px pills, `aria-pressed`, single-select (pressing the selected chip clears it), selected = sky fill + navy text. Submit: full-width 56px sky pill, navy text, hover sky-light; "Sending…" while pending. Validation (shared client/server in `src/lib/enquiry.ts`): name + (phone or email); the "phone or email" message is described by both fields; on a failed submit focus moves to the first invalid field and errors update as the parent types. Server errors show a bordered `role="alert"` box whose phone number (nowrap) and email are tappable `tel:`/`mailto:` links, and keep the entered values; success replaces the form with a check, focused H3 and body. Honeypot field `akc_hp` (deliberately meaningless so browsers never autofill it), labelled "Leave this field empty", off-screen, `aria-hidden`, `tabindex=-1`. Privacy note 14px muted under the button. Sends via Resend from the `sendEnquiry` Server Action (`RESEND_API_KEY`, optional `RESEND_FROM` / `ENQUIRY_TO`; blank values fall back to the defaults; the name is whitespace-collapsed before it enters the subject). Long email addresses break after "@" via `BreakableEmail` (Contact row, footer, error box).
 
 ### Goal labels
 On navy: uppercase white 15px/600 text (0.08em tracking), each led by a 10px solid dot in one logo colour (red, orange, yellow, green, blue). No border or pill shape, so they read as labels, not buttons. Wrap centred (gap 28/12px), max 560px until 1100px, one row above.
@@ -253,13 +259,13 @@ H2 → the progress line as the band's main statement (white, `clamp(21px, 2.3vw
 - Items: About · Our Approach · Services · Families · Fees · Contact. No "Home" item — the logo links to `#main`.
 - Links 15px/500 white, hover `#ABDAF2`, padding 10px (12px ≥1480px). Active style (inset 2px sky underline via `aria-current="page"`) is reserved for a future scroll-aware nav; nothing is marked active today.
 - Phone link is visible from 1180px so calling is never hidden on desktop.
-- Mobile: "Menu"/"Close" pill toggles a white drop-down list (17px links, 16px vertical padding, dividers) with full-width Register button. Opening it moves focus to the first link; Escape closes it and returns focus to the toggle; a tap or click outside the toggle and panel closes it.
+- Mobile: "Menu"/"Close" pill toggles a white drop-down list (17px links, 16px vertical padding, dividers) with full-width Register button. Opening it moves focus to the first link; Escape closes it and returns focus to the toggle; a tap or click outside the toggle and panel closes it. Focus is kept inside the open menu (Tab cycles toggle → links → Register), and it closes when the window crosses 1180px (`useMenu`). Once the header scrolls away, the sticky bar's Menu takes over.
 
 ### Compact header (desktop)
 ≥1180px only: once the full header scrolls out of view (IntersectionObserver), a fixed navy bar (min-height 64px, raised shadow) shows the 60×40 mark, name (from 1480px only; below that the full 1-868 number needs the room, and the mark keeps its "Autistic Kids Connection, home" label), nav, phone and a 44px Register pill. Appears instantly (no motion). Nav labelled "Quick navigation".
 
 ### Sticky mobile CTA
-Fixed bottom bar (`< 1180px`), shown only once the hero buttons have scrolled out of view (IntersectionObserver), so the first screen never shows Register twice: white, top hairline, 12px padding (bottom respects `env(safe-area-inset-bottom)`), two pills in a `1fr 1.4fr` grid (max 640px wide) — outline navy "Call 1-868-371-7281" (`tel:`; "Call" is screen-reader-only below 360px so both pills fit) and primary "Register Now" (`#contact`), 52px tall, 15px/600. The footer carries the `77px + safe-area` bottom padding that keeps content clear of it.
+Fixed bottom bar (`< 1180px`), shown once the hero buttons have scrolled out of view and hidden again while the Contact section covers the bottom of the screen (two IntersectionObservers; the section's own Call row and form take over there): white, top hairline, 12px padding (bottom respects `env(safe-area-inset-bottom)`), three 52px controls in an `auto auto 1fr` grid (max 640px wide), 15px/600. (1) **Menu**: navy text button with a 20px menu icon, `aria-expanded`; opens a sheet *above* the bar (white, radius 20, raised shadow, the six `NAV_ITEMS` as 17px links with dividers, labelled "Sections") so navigation stays in thumb reach after the header scrolls away; label switches to "Close". (2) **Call** outline navy pill (`tel:`, accessible name "Call us 1-868-371-7281" at every width): phone icon only below 400px, the number from 400px, "Call" + number from 520px. (3) **Register Now** primary pill filling the rest. Both mobile menus share `useMenu` (`src/lib/hooks/use-menu.ts`): focus moves to the first link on open, Tab cycles between toggle and links, Escape closes and refocuses the toggle, a tap outside closes, and crossing 1180px closes. The footer carries the `77px + safe-area` bottom padding that keeps content clear of the bar.
 
 ### Footer
 `<footer id="footer">` after `main`, navy-deep, labelled by a visually hidden H2 "Site footer"; padding top `clamp(56px, 7vw, 88px)`, bottom 32px (+ 77px + safe area below 1180px for the sticky bar). Columns 1 → 2 (640px) → 4 (1180px, first column 1.3fr), gap 40/48px — explicit rather than the PRD's `minmax(210px, 1fr)` auto-fit, which left Admissions alone on a row at ~1024px. Col 1: full logo 180px on a white panel (radius 20, padding 8; alt reads the logo text), then address (Maps), phone, email as 15px links with 18px sky-light icons on the first line. Col 2: H3 "School hours" + three lines (from `TIMES`), then social buttons (44px circles, `border-on-dark` ring, sky-light icon, `aria-label`) — none render while `SOCIAL_LINKS` is empty; `[Placeholder]` dashed circles with `SHOW_PLACEHOLDER_SECTIONS=true`. Cols 3–4: `nav` landmarks labelled by their H3 ("Explore", "Admissions"). Column titles 15px/600 sky-light (10.13:1); links 15px `text-on-dark-muted` (10.28:1), hover white, min-height 44px. Bottom bar: `footer-divider` hairline, "© {current year} Autistic Kids Connection" 14px muted (year read at build); Accessibility / Privacy Policy links render only once `LEGAL_LINKS` has entries.
@@ -267,7 +273,7 @@ Fixed bottom bar (`< 1180px`), shown only once the hero buttons have scrolled ou
 ---
 
 ## 7. Motion
-- Only: button background `.2s`, card lift + shadow `.25s`.
+- Only: button/link colour and background `.2s`. (The service-card hover lift was removed 2026-10-07: the cards aren't interactive.)
 - No parallax, autoplay, bouncing or looping animation.
 - `@media (prefers-reduced-motion: reduce)` disables all transitions and smooth scrolling.
 

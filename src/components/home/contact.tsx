@@ -1,8 +1,10 @@
 import { EnquiryForm } from "@/components/home/enquiry-form";
+import { NextSteps } from "@/components/home/next-steps";
 import { MailIcon } from "@/components/icons/mail-icon";
 import { PhoneIcon } from "@/components/icons/phone-icon";
 import { PinIcon } from "@/components/icons/pin-icon";
 import { Badge } from "@/components/ui/badge";
+import { BreakableEmail } from "@/components/ui/breakable-email";
 import { SectionHeading } from "@/components/ui/section-heading";
 import {
   CONTACT_HEADER,
@@ -26,7 +28,7 @@ export function Contact() {
       <div className="mx-auto grid max-w-[1200px] gap-[clamp(48px,6vw,88px)] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:items-start">
         <div>
           <Badge>{CONTACT_HEADER.badge}</Badge>
-          <SectionHeading id="contact-heading" size="large" className="mt-5">
+          <SectionHeading id="contact-heading" size="cta" className="mt-5">
             {CONTACT_HEADER.heading}
           </SectionHeading>
           <p className="mt-5 max-w-[36em] text-[clamp(18px,1.5vw,20px)] leading-[1.65] text-pretty text-text-muted">
@@ -49,9 +51,9 @@ export function Contact() {
                       <span className="block text-sm text-text-muted">
                         {row.label}
                       </span>
-                      {/* overflow-wrap:anywhere lets the long email address break at 320px. */}
+                      {/* The email breaks after "@" (BreakableEmail); overflow-wrap:anywhere is the 320px fallback. */}
                       <span className="block text-[17px] font-semibold text-navy [overflow-wrap:anywhere]">
-                        {row.value}
+                        {row.icon === "mail" ? <BreakableEmail email={row.value} /> : row.value}
                       </span>
                     </span>
                   </a>
@@ -59,6 +61,8 @@ export function Contact() {
               );
             })}
           </ul>
+
+          <NextSteps />
         </div>
 
         <EnquiryForm />

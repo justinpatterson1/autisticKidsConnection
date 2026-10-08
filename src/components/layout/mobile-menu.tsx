@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
+import { useCallback, useId, useRef, useState } from "react";
 import { NAV_ITEMS, REGISTER_HREF } from "@/lib/content/navigation";
+import { useMenu } from "@/lib/hooks/use-menu";
 
 export function MobileMenu() {
   const [open, setOpen] = useState(false);
@@ -10,30 +11,8 @@ export function MobileMenu() {
   const toggleRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLElement>(null);
 
-  useEffect(() => {
-    if (!open) return;
-    // Move focus into the menu so keyboard and screen-reader users land on its first link.
-    panelRef.current?.querySelector("a")?.focus();
-
-    function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") {
-        setOpen(false);
-        toggleRef.current?.focus();
-      }
-    }
-    // A tap or click anywhere outside the toggle and panel closes the menu.
-    function onPointerDown(event: PointerEvent) {
-      if (!rootRef.current?.contains(event.target as Node)) setOpen(false);
-    }
-    document.addEventListener("keydown", onKeyDown);
-    document.addEventListener("pointerdown", onPointerDown);
-    return () => {
-      document.removeEventListener("keydown", onKeyDown);
-      document.removeEventListener("pointerdown", onPointerDown);
-    };
-  }, [open]);
-
-  const close = () => setOpen(false);
+  const close = useCallback(() => setOpen(false), []);
+  useMenu(open, close, { root: rootRef, toggle: toggleRef, panel: panelRef });
 
   return (
     <div ref={rootRef} className="nav:hidden">

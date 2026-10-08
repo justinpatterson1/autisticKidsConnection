@@ -1,30 +1,29 @@
+import { PackagePromptLink } from "@/components/home/package-prompt-link";
+import { PolicyLink } from "@/components/home/policy-link";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { showPlaceholderSections } from "@/lib/content/site-flags";
 import {
+  FEES_CURRENCY_NOTE,
+  FEES_CURRENCY_PLACEHOLDER,
   FEES_HEADER,
+  FEES_PAYMENT_NOTE,
+  FEES_UNSURE,
   PACKAGES,
   REGISTRATION,
   SCHOOL_TERMS,
   type PackageCard,
 } from "@/lib/content/fees";
 
-const CARD_TONES = {
-  plain: {
-    card: "bg-white shadow-card",
-    kicker: "text-primary",
-    heading: "text-navy",
-    muted: "text-text-muted",
-    rule: "border-border",
-    divide: "divide-border",
-  },
-  featured: {
-    card: "bg-navy shadow-featured",
-    kicker: "text-sky",
-    heading: "text-white",
-    muted: "text-text-on-dark-muted",
-    rule: "border-border-on-dark",
-    divide: "divide-border-on-dark",
-  },
+// One tone for every package: they suit different children, so none is styled as the
+// "recommended tier".
+const tone = {
+  card: "bg-white shadow-card",
+  kicker: "text-primary",
+  heading: "text-navy",
+  muted: "text-text-muted",
+  rule: "border-border",
+  divide: "divide-border",
 } as const;
 
 /** Stops "One-on-One" breaking at its hyphens (Poppins has no U+2011 glyph). */
@@ -38,8 +37,6 @@ function KeepHyphenated({ text }: { text: string }) {
 }
 
 function PriceCard({ pkg }: { pkg: PackageCard }) {
-  const tone = CARD_TONES[pkg.featured ? "featured" : "plain"];
-
   return (
     // Subgrid rows (header · prices · extras) line the hairlines up across the 3-up row.
     <li
@@ -174,6 +171,43 @@ function TermsCard() {
   );
 }
 
+function CurrencyNote() {
+  if (FEES_CURRENCY_NOTE) {
+    return <p className="mt-4 text-[17px] leading-[1.6] text-text-muted">{FEES_CURRENCY_NOTE}</p>;
+  }
+  if (!showPlaceholderSections) return null;
+  return (
+    <p className="mt-4 font-mono text-[15px] leading-[1.6] text-text-muted">
+      {FEES_CURRENCY_PLACEHOLDER}
+    </p>
+  );
+}
+
+/** How the monthly and termly prices relate, beside the prices instead of in the policies. */
+function PaymentNote() {
+  return (
+    <div className="mx-auto mt-8 max-w-190 rounded-2xl bg-tint px-7 py-6 text-navy">
+      <h3 className="text-[17px] leading-[1.4] font-semibold">{FEES_PAYMENT_NOTE.heading}</h3>
+      <ul className="mt-3 space-y-2 text-base leading-[1.6] text-pretty text-text-muted">
+        {FEES_PAYMENT_NOTE.rules.map((rule) => (
+          <li key={rule} className="flex items-start gap-3">
+            <span aria-hidden="true" className="flex h-[1.6em] shrink-0 items-center">
+              <span className="size-1.5 rounded-full bg-primary" />
+            </span>
+            {rule}
+          </li>
+        ))}
+      </ul>
+      <PolicyLink
+        policy="payment"
+        className="mt-3 inline-flex min-h-11 items-center text-base font-semibold text-primary underline decoration-sky decoration-2 underline-offset-4 transition-[color] duration-200 hover:text-primary-hover"
+      >
+        {FEES_PAYMENT_NOTE.link}
+      </PolicyLink>
+    </div>
+  );
+}
+
 export function FeesPackages() {
   return (
     <section
@@ -187,6 +221,7 @@ export function FeesPackages() {
           <SectionHeading id="fees-heading" className="mt-4">
             {FEES_HEADER.heading}
           </SectionHeading>
+          <CurrencyNote />
         </div>
 
         <ul className="mt-14 grid gap-6 min-[1000px]:grid-cols-3">
@@ -195,7 +230,14 @@ export function FeesPackages() {
           ))}
         </ul>
 
-        <div className="mt-6 grid grid-cols-[repeat(auto-fit,minmax(min(100%,440px),1fr))] items-start gap-6">
+        <PaymentNote />
+
+        <p className="mt-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center text-[17px] leading-[1.6] text-text-muted">
+          {FEES_UNSURE.question}
+          <PackagePromptLink pkg="Not sure yet">{FEES_UNSURE.link}</PackagePromptLink>
+        </p>
+
+        <div className="mt-12 grid grid-cols-[repeat(auto-fit,minmax(min(100%,440px),1fr))] items-start gap-6">
           <RegistrationCard />
           <TermsCard />
         </div>
